@@ -1,13 +1,109 @@
 <!DOCTYPE html>
-<html>
+<html lang="uk">
 <head>
-  <link rel="stylesheet" href="bluestyle.css">
-  <title>Kava Brasil</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KAVA BRASIL - Coffee Shop</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/main.css">
 </head>
 <body>
 
-  <h1>Kava Brasil</h1>
-  <p></p>
+<header class="site-header">
+  <div class="container">
+    <a href="/" class="logo">
+      <img src="./img/logo.png" alt="Kava Brasil Logo">
+    </a>
+    <nav class="main-navigation header-container">
+      <ul>
+        <li><a href="./serra-velha.html">SERRA VELHA</a></li>
+        <li><a href="./alto-verde.html">ALTO VERDE</a></li>
+        <li><a href="./noite-clara.html">NOITE CLARA</a></li>
+        <li><a href="./about-contact.html" class="no-transform">Про нас та контакти</a></li>
+        <li><a href="./payment-delivery.html" class="no-transform">Оплата та доставка</a></li>
+        <li><a href="" class="shopping-cart"><img src="./img/basket.png"></a></li>
+      </ul>
+    </nav>
+</header>
 
+<main>
+  <section id="hero" class="hero-section">
+    <div class="container hero-content">
+      <div class="hero-image">
+        <img src="placeholder_kava_bag.png" alt="Пачка кави Kava Brasil Serra Velha"> </div>
+      <div class="hero-text">
+        <h1>SERRA VELHA</h1>
+        <a href="#" class="button">Придбати</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="about-section">
+    <div class="container about-container">
+      <div class="about-text">
+        <h2>KAVA BRASIL – більше, ніж кава</h2>
+        <p>У серці Бразилії, серед гірських регіонів Мінейрас-Жерайс, Сержіпі та Сул-де-Мінас, народжується кава, яку ми обрали для вас. Ми співпрацюємо безпосередньо з локальними фермерами, щоб гарантувати найкращі зерна 100% Арабіки без посередників. Це дозволяє контролювати кожен етап – від збору врожаю до обсмажування.</p>
+        <p>Ми відбираємо виключно зерна спешелті-класу, які проходять ретельну перевірку за смаковими характеристиками, вирощуються на високогірних плантаціях та обсмажуються на замовлення – щоб ви відчули справжній смак Бразилії.</p>
+      </div>
+      <div class="about-slider">
+        <div class="slider-wrapper">
+          <div class="slider-track">
+            <img src="placeholder_bean1.jpg" alt="Кавове зерно 1">
+            <img src="placeholder_bean2.jpg" alt="Кавове зерно 2">
+            <img src="placeholder_bean3.jpg" alt="Кавове зерно 3">
+            <img src="placeholder_bean4.jpg" alt="Кавове зерно 4">
+            <img src="placeholder_bean5.jpg" alt="Кавове зерно 5">
+          </div>
+        </div>
+        <button class="slider-button prev" aria-label="Попередній слайд">&lt;</button>
+        <button class="slider-button next" aria-label="Наступний слайд">&gt;</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-container">
+    <div class="footer-column">
+      <h3>Каталог</h3>
+      <ul>
+        <li><a href="#serra-velha">SERRA VELHA</a></li>
+        <li><a href="#alto-verde">ALTO VERDE</a></li>
+        <li><a href="#note-clara">NOTE CLARA</a></li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h3>Компанія</h3>
+      <ul>
+        <li><a href="#about">Про нас</a></li>
+        <li><a href="#contact">Контакти</a></li>
+        <li><a href="#terms">Угода користувача</a></li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h3>Соцмережі</h3>
+      <ul class="social-links">
+        <li><a href="#" aria-label="Instagram">📷</a></li>
+        <li><a href="#" aria-label="Facebook">🇫</a></li>
+        <li><a href="#" aria-label="Telegram">✈️</a></li>
+        <li><a href="#" aria-label="YouTube">▶️</a></li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h3>Місце та зв'язок</h3>
+      <p>+38 (095) 155 15 71</p>
+      <p>+38 (076) 622 96 00</p>
+      <a href="#contact-form" class="button button-secondary">Зв'язатися</a>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <div class="payment-icons">
+      <span>💳</span> <span>💳</span> </div>
+    <p>&copy; 2025 KAVA BRASIL. Усі права захищено.</p> </div>
+</footer>
+
+<script src="./js/custom.js"></script>
 </body>
-</html> 
+</html>

@@ -1,1 +1,428 @@
-/* styles */
+/* Basic Reset & Defaults */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, picture {
+    display: block;
+}
+math {
+    font: inherit;
+    text-align: left;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+abbr {
+    text-decoration: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+i, cite {
+    font-style: italic;
+}
+b, strong, dfn {
+    font-weight: bold;
+}
+
+/* main styles */
+body {
+    font-family: "Manrope", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    background-color: #1a1a1a; /* Dark background */
+    color: #e0e0e0; /* Light grey text */
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1194px;
+    margin: 0 auto;
+    padding: 0 3px;
+}
+
+a {
+    color: #e0e0e0;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #ffffff;
+}
+
+.button {
+    display: inline-block;
+    background-color: #b98d58; /* Coffee-like brown/gold */
+    color: #ffffff;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #a07b4c; /* Darker shade on hover */
+    color: #ffffff;
+}
+
+.button.button-secondary {
+    background-color: transparent;
+    border: 1px solid #b98d58;
+    color: #b98d58;
+}
+
+.button.button-secondary:hover {
+    background-color: #b98d58;
+    color: #ffffff;
+}
+
+
+/* Header */
+.site-header {
+    background-color: rgba(24, 24, 24, 0.8); /* Semi-transparent black */
+    position: fixed; /* Or sticky */
+    width: 100%;
+    height: 223px;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.header-container {
+    margin-top: 17px;
+    width: 100%;
+}
+
+.logo {
+    display: block;
+    margin: 0 auto;
+    width: 234px;
+    height: 102px;
+    margin-top: 18px;
+}
+
+.main-navigation {
+    margin-bottom: 53px;
+    border-bottom: 1px solid #fff;
+}
+
+.main-navigation ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px; /* Spacing between nav items */
+    width: 100%;
+    padding-bottom: 2px;
+}
+
+.main-navigation a {
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+a.no-transform {
+    text-transform: none;
+}
+
+.main-navigation .shopping-cart {
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+}
+
+/* Hero Section */
+main {
+    padding-top: 222px;
+    background: url(../img/main_page_bg.png) no-repeat center 223px/cover;
+}
+
+.hero-section {
+    padding-top: 100px; /* Adjust based on header height */
+    padding-bottom: 60px;
+    min-height: 80vh; /* Adjust height as needed */
+    /*background: url('placeholder_background.jpg') no-repeat center center/cover; !* Replace with actual background *!*/
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+/* Add overlay for better text readability */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /*background: rgba(0, 0, 0, 0.5); !* Dark overlay *!*/
+    z-index: 1;
+}
+
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-around; /* Adjust as needed */
+    gap: 40px;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-image img {
+    max-width: 300px; /* Adjust size of coffee bag */
+    /* Add styles for positioning if needed */
+}
+
+.hero-text {
+    text-align: center; /* Or left align based on preference */
+    max-width: 500px;
+}
+
+.hero-text h1 {
+    font-size: 3.5rem; /* Large heading */
+    color: #ffffff;
+    margin-bottom: 25px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+/* About Section */
+.about-section {
+    padding: 80px 0;
+    background-color: #000; /* Solid black background */
+}
+
+.about-container {
+    display: flex;
+    align-items: center;
+    gap: 50px; /* Space between text and slider */
+}
+
+.about-text {
+    flex-basis: 50%; /* Text takes half the width */
+}
+
+.about-text h2 {
+    font-size: 2.5rem;
+    color: #b98d58; /* Accent color */
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    margin-bottom: 15px;
+    font-size: 1rem;
+    color: #cccccc; /* Lighter grey for text */
+}
+
+/* Slider */
+.about-slider {
+    flex-basis: 50%;
+    position: relative;
+    overflow: hidden; /* Important for slider */
+}
+
+.slider-wrapper {
+    overflow: hidden;
+}
+
+.slider-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out; /* Animation */
+}
+
+.slider-track img {
+    width: 100%; /* Make images fill the container width */
+    flex-shrink: 0; /* Prevent images from shrinking */
+    height: 400px; /* Example fixed height */
+    object-fit: cover; /* Cover the area */
+}
+
+.slider-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    font-size: 2rem;
+    padding: 10px 15px;
+    cursor: pointer;
+    z-index: 10;
+    transition: background-color 0.3s ease;
+}
+
+.slider-button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.slider-button.prev {
+    left: 10px;
+}
+
+.slider-button.next {
+    right: 10px;
+}
+
+
+/* Footer */
+.site-footer {
+    background-color: #111; /* Slightly lighter than body */
+    padding: 50px 0 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    justify-content: space-between;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.footer-column {
+    flex: 1; /* Distribute space */
+    min-width: 180px; /* Minimum width before wrapping */
+}
+
+.footer-column h3 {
+    font-size: 1.1rem;
+    color: #ffffff;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer-column ul li {
+    margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+    font-size: 0.9rem;
+    color: #aaaaaa;
+}
+
+.footer-column ul li a:hover {
+    color: #ffffff;
+}
+
+.footer-column p {
+    font-size: 0.9rem;
+    color: #aaaaaa;
+    margin-bottom: 10px;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-links a {
+    font-size: 1.5rem; /* Adjust icon size */
+    color: #aaaaaa;
+}
+.social-links a:hover {
+    color: #b98d58; /* Accent color on hover */
+}
+
+.footer-bottom {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    color: #777;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.payment-icons {
+    display: flex;
+    gap: 10px;
+    font-size: 1.8rem; /* Adjust icon size */
+    /* For actual images: */
+    /* align-items: center; */
+}
+
+/* .payment-icons img {
+    height: 25px;
+    width: auto;
+} */
+
+/* Responsive Adjustments (Example) */
+@media (max-width: 992px) {
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .hero-text {
+        margin-top: 30px;
+    }
+    .about-container {
+        flex-direction: column;
+    }
+    .about-text, .about-slider {
+        flex-basis: 100%;
+    }
+    .footer-container {
+        justify-content: flex-start; /* Align columns left */
+    }
+}
+
+@media (max-width: 768px) {
+    .main-navigation {
+        display: none; /* Hide for mobile, implement burger menu later */
+        /* Add styles for mobile menu if implementing */
+    }
+    .header-container {
+        /* Adjust for mobile layout if needed */
+    }
+    .hero-text h1 {
+        font-size: 2.5rem;
+    }
+    .footer-bottom {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}
