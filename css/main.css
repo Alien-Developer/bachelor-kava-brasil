@@ -84,21 +84,25 @@ a:hover {
 }
 
 .button {
-    display: inline-block;
-    background-color: #b98d58; /* Coffee-like brown/gold */
-    color: #ffffff;
+    /*display: inline-block;*/
+    /*background-color: #b98d58; !* Coffee-like brown/gold *!*/
+    background: none;
+    color: #F9BD00;
     padding: 12px 25px;
-    border: none;
-    border-radius: 5px;
-    font-size: 1rem;
-    font-weight: bold;
+    border: 1px solid #F9BD00;
+    border-radius: 35px;
+    font-family: "Manrope", sans-serif;
+    font-size: 32px;
+    font-weight: 300;
     cursor: pointer;
     text-align: center;
     transition: background-color 0.3s ease;
+    width: 195px;
+    height: 70px;
 }
 
 .button:hover {
-    background-color: #a07b4c; /* Darker shade on hover */
+    background-color: #F9BD00; /* Darker shade on hover */
     color: #ffffff;
 }
 
@@ -229,8 +233,9 @@ main {
     min-height: 80vh; /* Adjust height as needed */
     /*background: url('placeholder_background.jpg') no-repeat center center/cover; !* Replace with actual background *!*/
     display: flex;
-    align-items: center;
+    align-items: start;
     position: relative;
+    top: 20px;
 }
 
 /* Add overlay for better text readability */
@@ -247,11 +252,12 @@ main {
 
 .hero-content {
     display: flex;
-    align-items: center;
-    justify-content: space-around; /* Adjust as needed */
-    gap: 40px;
+    align-items: end;
+    justify-content: space-between; /* Adjust as needed */
+    gap: 110px;
     position: relative;
     z-index: 2;
+    left: 100px;
 }
 
 .hero-image img {
@@ -261,15 +267,16 @@ main {
 
 .hero-text {
     text-align: center; /* Or left align based on preference */
-    max-width: 500px;
+    /*max-width: 500px;*/
+    margin-bottom: 55px;
 }
 
 .hero-text h1 {
-    font-size: 3.5rem; /* Large heading */
+    font-size: 36px; /* Large heading */
     color: #ffffff;
     margin-bottom: 25px;
     font-weight: bold;
-    letter-spacing: 2px;
+    /*letter-spacing: 2px;*/
 }
 
 /* About Section */
@@ -284,19 +291,20 @@ main {
 }
 
 .about-text {
-    flex-basis: 50%; /* Text takes half the width */
+    flex-basis: 52%; /* Text takes half the width */
 }
 
 .about-text h2 {
-    font-size: 2.5rem;
-    color: #b98d58; /* Accent color */
+    font-size: 36px;
+    font-weight: 600;
+    color: #ffffff; /* Accent color */
     margin-bottom: 20px;
 }
 
 .about-text p {
     margin-bottom: 15px;
-    font-size: 1rem;
-    color: #cccccc; /* Lighter grey for text */
+    font-size: 24px;
+    color: #ffffff; /* Lighter grey for text */
 }
 
 /* Slider */
@@ -412,7 +420,7 @@ main {
 .footer-bottom {
     margin-top: 30px;
     padding-top: 20px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 1);
     display: flex;
     justify-content: space-between;
     align-items: center;
