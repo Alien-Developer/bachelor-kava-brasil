@@ -61,10 +61,12 @@ body {
     font-family: "Manrope", sans-serif;
     font-style: normal;
     font-weight: 400;
-    background-color: #1a1a1a; /* Dark background */
+    background-color: #000000; /* Dark background */
     color: #e0e0e0; /* Light grey text */
     line-height: 1.6;
     padding-top: 223px;
+    width: 1440px;
+    margin: 0 auto;
 }
 
 .container {
@@ -123,9 +125,10 @@ a:hover {
     background-color: rgba(24, 24, 24, 0.8); /* Semi-transparent black */
     position: fixed; /* Or sticky */
     width: 100%;
+    max-width: 1440px;
+    padding-bottom: 27px;
     /*height: 223px;*/
     top: 0;
-    left: 0;
     z-index: 1000;
     overflow: hidden;
     transition: background-color 0.3s ease, padding 0.3s ease;
@@ -193,7 +196,7 @@ a.no-transform {
 }
 
 .site-header.scrolled {
-    height: 85px;
+    /*height: 85px;*/
     background-color: rgba(24, 24, 24, 0.95); /* Можна зробити фон більш насиченим */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Додаємо тінь для виділення */
 }
@@ -224,7 +227,7 @@ a.no-transform {
 /* Hero Section */
 main {
     /*padding-top: 222px;*/
-    background: url(../img/main_page_bg.png) no-repeat center top/cover;
+    background: url(../img/main_page_bg.png) no-repeat center top;
 }
 
 .hero-section {
@@ -279,82 +282,133 @@ main {
     /*letter-spacing: 2px;*/
 }
 
-/* About Section */
+/* About Section - Оновлення */
 .about-section {
     padding: 80px 0;
+    /* background-color: #000; - вже задано для body */
 }
 
-.about-container {
-    display: flex;
-    align-items: center;
-    gap: 50px; /* Space between text and slider */
-}
-
-.about-text {
-    flex-basis: 52%; /* Text takes half the width */
-}
-
-.about-text h2 {
-    font-size: 36px;
+/* Заголовок секції (якщо винесли його з .about-text) */
+h2.about-section-title {
+    font-size: 36px; /* Розмір як у старого h2 */
     font-weight: 600;
-    color: #ffffff; /* Accent color */
-    margin-bottom: 20px;
+    color: #ffffff;
+    margin-bottom: 40px; /* Відступ під заголовком */
+    /*text-align: center; !* Центруємо заголовок секції *!*/
 }
 
-.about-text p {
-    margin-bottom: 15px;
-    font-size: 24px;
-    color: #ffffff; /* Lighter grey for text */
+/* Контейнер для слайдера і кнопок */
+.about-slider-container {
+    position: relative; /* Для позиціонування кнопок */
+    max-width: 1194px; /* Обмежимо ширину слайдера для кращого вигляду */
+    margin: 0 auto; /* Центруємо контейнер слайдера */
 }
 
-/* Slider */
+/* Видаляємо старі стилі для .about-container та .about-text */
+/* .about-container { display: flex; ... } */
+/* .about-text { flex-basis: 52%; ... } */
+/* .about-text h2 { ... } */
+/* .about-text p { ... } */
+
+/* Оновлення стилів слайдера */
 .about-slider {
-    flex-basis: 50%;
-    position: relative;
-    overflow: hidden; /* Important for slider */
+    /* flex-basis: 50%; - Більше не потрібно */
+    width: 100%; /* Слайдер займає всю ширину контейнера */
+    overflow: hidden; /* Залишаємо, це важливо */
+    margin: 0 auto; /* Центруємо, якщо max-width менший за батьківський */
 }
 
 .slider-wrapper {
-    overflow: hidden;
+    overflow: hidden; /* Залишаємо */
 }
 
 .slider-track {
     display: flex;
-    transition: transform 0.5s ease-in-out; /* Animation */
+    transition: transform 0.5s ease-in-out; /* Залишаємо */
+    /* width НЕ потрібен тут, він визначається сумою ширин слайдів */
 }
 
-.slider-track img {
-    width: 100%; /* Make images fill the container width */
-    flex-shrink: 0; /* Prevent images from shrinking */
-    height: 400px; /* Example fixed height */
-    object-fit: cover; /* Cover the area */
+/* Стилі для кожного окремого слайда */
+.slide-item {
+    width: 100%; /* Кожен слайд займає повну ширину обгортки */
+    flex-shrink: 0; /* Дуже важливо для роботи flex-слайдера */
+    display: flex; /* Внутрішні елементи (текст/картинка) розташовуємо в ряд */
+    align-items: center; /* Вирівнюємо текст і картинку по центру вертикально */
+    gap: 40px; /* Відстань між текстом і картинкою */
+    padding: 20px; /* Внутрішні відступи слайда (опціонально) */
+    box-sizing: border-box; /* Враховуємо padding в ширину */
 }
 
+/* Контейнер для текстового контенту всередині слайда */
+.slide-text-content {
+    flex-basis: 51%; /* Текст займає 60% ширини слайда */
+}
+
+.slide-text-content p {
+    font-size: 24px; /* Трохи менший шрифт для слайдів */
+    color: #ffffff; /* Світло-сірий текст */
+    margin-bottom: 20px;
+    /*line-height: 1.5;*/
+}
+.slide-text-content p:last-child {
+    margin-bottom: 0;
+}
+.slide-text-content strong {
+    color: #ffffff; /* Виділення жирного тексту */
+    font-weight: 600;
+}
+
+
+/* Контейнер для зображення всередині слайда */
+.slide-image-content {
+    flex-basis: 40%; /* Картинка займає 40% ширини слайда */
+    text-align: center; /* Центруємо картинку, якщо вона менша */
+}
+
+.slide-image-content img {
+    /*max-width: 100%; !* Картинка не виходить за межі контейнера *!*/
+    height: auto; /* Зберігаємо пропорції */
+    display: block; /* Прибираємо зайвий відступ під картинкою */
+    margin: 0 auto; /* Додатково центруємо */
+}
+
+/* Стилі для кнопок слайдера (позиціонування відносно .about-slider-container) */
 .slider-button {
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: #fff;
+    transform: translateY(-50%); /* Точне центрування по вертикалі */
+    /*background-color: rgba(0, 0, 0, 0.6); !* Трохи темніший фон *!*/
+    /*color: #fff;*/
     border: none;
-    font-size: 2rem;
-    padding: 10px 15px;
+    /*font-size: 2rem;*/
+    /*padding: 10px 15px;*/
     cursor: pointer;
     z-index: 10;
     transition: background-color 0.3s ease;
+    /*border-radius: 50%; !* Круглі кнопки *!*/
+    width: 16px; /* Фіксована ширина */
+    height: 32px; /* Фіксована висота */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
+
 .slider-button:hover {
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.9);
 }
 
 .slider-button.prev {
-    left: 10px;
+    left: 37px; /* Виносимо трохи за межі контейнера */
+    background: url(../img/prev.png) no-repeat;
 }
 
 .slider-button.next {
-    right: 10px;
+    right: -25px; /* Виносимо трохи за межі контейнера */
+    background: url(../img/next.png) no-repeat;
 }
+
+
 
 
 /* Footer */
@@ -478,5 +532,28 @@ main {
         flex-direction: column;
         align-items: center;
         text-align: center;
+    }
+    .slide-item {
+        flex-direction: column; /* Текст над картинкою на малих екранах */
+        gap: 20px;
+        text-align: center; /* Центруємо текст */
+    }
+    .slide-text-content,
+    .slide-image-content {
+        flex-basis: 100%; /* Займають повну ширину */
+    }
+
+    /* Можливо, сховати кнопки або змінити їх позицію на мобільних */
+    .slider-button.prev {
+        left: 5px;
+    }
+    .slider-button.next {
+        right: 5px;
+    }
+    .about-section-title {
+        font-size: 28px; /* Менший заголовок */
+    }
+    .slide-text-content p {
+        font-size: 16px;
     }
 }
