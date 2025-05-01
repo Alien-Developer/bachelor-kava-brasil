@@ -64,6 +64,7 @@ body {
     background-color: #1a1a1a; /* Dark background */
     color: #e0e0e0; /* Light grey text */
     line-height: 1.6;
+    padding-top: 223px;
 }
 
 .container {
@@ -118,10 +119,21 @@ a:hover {
     background-color: rgba(24, 24, 24, 0.8); /* Semi-transparent black */
     position: fixed; /* Or sticky */
     width: 100%;
-    height: 223px;
+    /*height: 223px;*/
     top: 0;
     left: 0;
     z-index: 1000;
+    overflow: hidden;
+    transition: background-color 0.3s ease, padding 0.3s ease;
+}
+
+.site-header .container {
+    display: flex;
+    flex-direction: column; /* Логотип над навігацією */
+    align-items: center; /* Центруємо логотип */
+    padding-top: 18px; /* Відступ зверху для логотипу */
+    padding-bottom: 0; /* Без відступу знизу в початковому стані */
+    transition: padding 0.3s ease;
 }
 
 .header-container {
@@ -131,30 +143,37 @@ a:hover {
 
 .logo {
     display: block;
-    margin: 0 auto;
+    /*margin: 0 auto;*/
+    margin-bottom: 17px;
     width: 234px;
     height: 102px;
-    margin-top: 18px;
+    /*margin-top: 18px;*/
+    transition: opacity 0.3s ease, height 0.3s ease, margin 0.3s ease, transform 0.3s ease; /* Плавне зникнення */
+    transform: translateY(0);
 }
 
 .main-navigation {
-    margin-bottom: 53px;
-    border-bottom: 1px solid #fff;
+    width: 100%; /* Навігація на всю ширину контейнера */
+    border-bottom: 1px solid #fff; /* Лінія під навігацією */
+    padding-bottom: 10px; /* Відступ під посиланнями для лінії */
+    margin-bottom: 0; /* Скидаємо зайвий відступ */
+    transition: border 0.3s ease; /* Плавна зміна рамки */
 }
 
 .main-navigation ul {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 25px; /* Spacing between nav items */
+    /*gap: 25px; !* Spacing between nav items *!*/
     width: 100%;
-    padding-bottom: 2px;
+    /*padding-bottom: 2px;*/
 }
 
 .main-navigation a {
     font-size: 16px;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    /*letter-spacing: 1px;*/
+    padding: 5px 0;
 }
 
 a.no-transform {
@@ -169,14 +188,43 @@ a.no-transform {
     height: 24px;
 }
 
+.site-header.scrolled {
+    height: 85px;
+    background-color: rgba(24, 24, 24, 0.95); /* Можна зробити фон більш насиченим */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Додаємо тінь для виділення */
+}
+
+.site-header.scrolled .container {
+    padding-top: 0; /* Забираємо верхній відступ */
+    padding-bottom: 0; /* Забираємо нижній відступ */
+}
+
+.site-header.scrolled .logo {
+    opacity: 0;
+    height: 0; /* Згортаємо висоту */
+    margin-bottom: 0; /* Забираємо відступ */
+    transform: translateY(-20px); /* Трохи піднімаємо при зникненні */
+    pointer-events: none; /* Ігноруємо кліки на невидимому лого */
+}
+
+.site-header.scrolled .main-navigation {
+    /*border-bottom: none; !* Прибираємо лінію в стислому вигляді *!*/
+    padding-bottom: 0; /* Забираємо відступ під лінією */
+}
+
+.site-header.scrolled .main-navigation ul {
+    /* Можна додати невеликі падінги, якщо потрібно */
+    padding: 5px 0;
+}
+
 /* Hero Section */
 main {
-    padding-top: 222px;
-    background: url(../img/main_page_bg.png) no-repeat center 223px/cover;
+    /*padding-top: 222px;*/
+    background: url(../img/main_page_bg.png) no-repeat center top/cover;
 }
 
 .hero-section {
-    padding-top: 100px; /* Adjust based on header height */
+    /*padding-top: 100px; !* Adjust based on header height *!*/
     padding-bottom: 60px;
     min-height: 80vh; /* Adjust height as needed */
     /*background: url('placeholder_background.jpg') no-repeat center center/cover; !* Replace with actual background *!*/
@@ -186,17 +234,16 @@ main {
 }
 
 /* Add overlay for better text readability */
-.hero-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /*background: rgba(0, 0, 0, 0.5); !* Dark overlay *!*/
-    z-index: 1;
-}
-
+/*.hero-section::before {*/
+/*    content: '';*/
+/*    position: absolute;*/
+/*    top: 0;*/
+/*    left: 0;*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*    !*background: rgba(0, 0, 0, 0.5); !* Dark overlay *!*!*/
+/*    z-index: 1;*/
+/*}*/
 
 .hero-content {
     display: flex;
@@ -208,7 +255,7 @@ main {
 }
 
 .hero-image img {
-    max-width: 300px; /* Adjust size of coffee bag */
+    /*max-width: 300px; !* Adjust size of coffee bag *!*/
     /* Add styles for positioning if needed */
 }
 
@@ -228,7 +275,6 @@ main {
 /* About Section */
 .about-section {
     padding: 80px 0;
-    background-color: #000; /* Solid black background */
 }
 
 .about-container {
