@@ -284,7 +284,8 @@ main {
 
 /* About Section - Оновлення */
 .about-section {
-    padding: 80px 0;
+    padding: 45px 0;
+    min-height: 69vh;
     /* background-color: #000; - вже задано для body */
 }
 
@@ -304,7 +305,11 @@ h2.about-section-title {
     margin: 0 auto; /* Центруємо контейнер слайдера */
 }
 
-/* Видаляємо старі стилі для .about-container та .about-text */
+.about-slider-container span {
+    font-weight: 500;
+}
+
+    /* Видаляємо старі стилі для .about-container та .about-text */
 /* .about-container { display: flex; ... } */
 /* .about-text { flex-basis: 52%; ... } */
 /* .about-text h2 { ... } */
@@ -315,7 +320,7 @@ h2.about-section-title {
     /* flex-basis: 50%; - Більше не потрібно */
     width: 100%; /* Слайдер займає всю ширину контейнера */
     overflow: hidden; /* Залишаємо, це важливо */
-    margin: 0 auto; /* Центруємо, якщо max-width менший за батьківський */
+    margin: 0 0 0 66px; /* Центруємо, якщо max-width менший за батьківський */
 }
 
 .slider-wrapper {
@@ -347,8 +352,8 @@ h2.about-section-title {
 .slide-text-content p {
     font-size: 24px; /* Трохи менший шрифт для слайдів */
     color: #ffffff; /* Світло-сірий текст */
-    margin-bottom: 20px;
-    /*line-height: 1.5;*/
+    margin-bottom: 30px;
+    line-height: 1.4;
 }
 .slide-text-content p:last-child {
     margin-bottom: 0;
@@ -370,18 +375,22 @@ h2.about-section-title {
     height: auto; /* Зберігаємо пропорції */
     display: block; /* Прибираємо зайвий відступ під картинкою */
     margin: 0 auto; /* Додатково центруємо */
+    position: relative;
+    top: 9px;
+    left: -50px;
 }
 
 /* Стилі для кнопок слайдера (позиціонування відносно .about-slider-container) */
 .slider-button {
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%); /* Точне центрування по вертикалі */
+    top: 45%;
+    /*transform: translateY(-50%); !* Точне центрування по вертикалі *!*/
     /*background-color: rgba(0, 0, 0, 0.6); !* Трохи темніший фон *!*/
     /*color: #fff;*/
     border: none;
     /*font-size: 2rem;*/
     /*padding: 10px 15px;*/
+    padding: 0;
     cursor: pointer;
     z-index: 10;
     transition: background-color 0.3s ease;
@@ -404,7 +413,7 @@ h2.about-section-title {
 }
 
 .slider-button.next {
-    right: -25px; /* Виносимо трохи за межі контейнера */
+    right: 33px; /* Виносимо трохи за межі контейнера */
     background: url(../img/next.png) no-repeat;
 }
 
