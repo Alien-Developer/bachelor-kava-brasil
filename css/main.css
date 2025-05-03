@@ -108,17 +108,6 @@ a:hover {
     color: #ffffff;
 }
 
-.button.button-secondary {
-    background-color: transparent;
-    border: 1px solid #b98d58;
-    color: #b98d58;
-}
-
-.button.button-secondary:hover {
-    background-color: #b98d58;
-    color: #ffffff;
-}
-
 
 /* Header */
 .site-header {
@@ -445,7 +434,7 @@ h2.about-section-title {
 .footer-column h3 {
     font-size: 16px;
     color: #ffffff;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
     font-weight: bold;
 }
 
@@ -472,19 +461,113 @@ h2.about-section-title {
 
 .social-links {
     display: flex;
-    gap: 15px;
+    align-items: center; /* Вирівнюємо іконки по вертикалі */
+    gap: 12px; /* Зменшуємо відступ, щоб було схоже на макет */
+    padding: 0;
+    margin: 0;
+    list-style-type: none; /* Прибираємо маркери списку */
+}
+
+.social-links li {
+    line-height: 0; /* Важливо, щоб уникнути зайвого місця під іконками */
 }
 
 .social-links a {
-    font-size: 1.5rem; /* Adjust icon size */
-    color: #aaaaaa;
-}
-.social-links a:hover {
-    color: #b98d58; /* Accent color on hover */
+    display: inline-flex; /* Використовуємо inline-flex для кращого контролю */
+    align-items: center;
+    justify-content: center;
+    color: #ffffff; /* Колір іконки за замовчуванням - білий */
+    text-decoration: none;
+    transition: opacity 0.3s ease; /* Плавна зміна прозорості при наведенні */
+    /* Не використовуємо font-size для контролю розміру іконок */
 }
 
+.social-links a:hover {
+    color: #ffffff; /* Колір залишається білим при наведенні */
+    opacity: 0.75; /* Зменшуємо прозорість при наведенні */
+}
+
+/* Якщо ви використовуєте IMG замість SVG: */
+.social-links a img {
+    display: block;
+    filter: brightness(0) invert(1);
+    transition: opacity 0.3s ease;
+}
+
+.social-links a img.telegram {
+    width: 20px;
+    height: 19px;
+}
+
+.social-links a img.youtube {
+    width: 22px;
+    height: 18px;
+}
+
+.social-links a img.facebook {
+    width: 22px;
+    height: 22px;
+}
+
+.social-links a img.tiktok {
+    width: 25px;
+    height: 25px;
+}
+
+.social-links a img.instagram {
+    width: 26px;
+    height: 26px;
+}
+
+/* Якщо ви використовуєте IMG замість SVG: */
+.social-links a:hover img {
+    opacity: 0.75;
+}
+
+.phone-note {
+    display: block; /* З нового рядка */
+    font-size: 10px; /* Маленький шрифт */
+    color: #ffffff; /* Сірий колір */
+    /*margin-top: 5px; !* Невеликий відступ зверху від номера *!*/
+    font-weight: 300; /* Тонший шрифт */
+    line-height: 8px;
+}
+
+/* Відступ під всім блоком з другим номером та приміткою */
+p.phone-number {
+    margin-bottom: 15px; /* Збільшений відступ перед кнопкою */
+}
+
+/* === Нові/Оновлені стилі для кнопки "Зв'язатися" === */
+.footer-column .button.button-contact { /* Більш специфічний селектор */
+    display: inline-flex;
+    background-color: #183221; /* Темно-зелений/сірий - ПІДБЕРІТЬ ТОЧНИЙ КОЛІР З МАКЕТУ */
+    color: #ffffff; /* Білий текст */
+    border: none; /* Без рамки */
+    border-radius: 50px; /* Заокруглені кути - налаштуйте за потребою (на макеті виглядає ~6-8px) */
+    padding: 0; /* Внутрішні відступи (вертикальний/горизонтальний) */
+    font-family: "Manrope", sans-serif; /* Залишаємо шрифт */
+    font-size: 20px; /* Розмір тексту кнопки */
+    font-weight: 300; /* Середня насиченість шрифту */
+    /*text-align: center;*/
+    text-decoration: none;
+    cursor: pointer;
+    width: 143px;
+    height: 28px;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Плавний перехід для hover */
+    letter-spacing: 0.025em;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Стан при наведенні курсора (hover) */
+.footer-column .button.button-contact:hover {
+    background-color: #ffffff; /* Білий фон */
+    color: #111111; /* Чорний або темно-сірий текст */
+}
+
+
 .footer-bottom {
-    margin-top: 30px;
     padding-top: 20px;
     border-top: 1px solid rgba(255, 255, 255, 1);
     display: flex;
@@ -493,21 +576,19 @@ h2.about-section-title {
     font-size: 0.85rem;
     color: #777;
     flex-wrap: wrap;
-    gap: 15px;
+    /*gap: 15px;*/
 }
 
 .payment-icons {
     display: flex;
-    gap: 10px;
-    font-size: 1.8rem; /* Adjust icon size */
-    /* For actual images: */
-    /* align-items: center; */
+    gap: 35px;
+    align-items: center;
 }
 
-/* .payment-icons img {
-    height: 25px;
-    width: auto;
-} */
+.payment-icons img {
+    height: fit-content;
+    width: fit-content;
+}
 
 /* Responsive Adjustments (Example) */
 @media (max-width: 992px) {
