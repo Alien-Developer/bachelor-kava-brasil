@@ -148,6 +148,11 @@ a:hover {
     transform: translateY(0);
 }
 
+.logo img {
+    width: 234px;
+    height: 102px;
+}
+
 .main-navigation {
     width: 100%; /* Навігація на всю ширину контейнера */
     border-bottom: 1px solid #fff; /* Лінія під навігацією */
