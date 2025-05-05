@@ -3,29 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="./img/favicon.ico">
+  <link rel="shortcut icon" type="image/x-icon" href="./img/favicon.ico">
   <title>KAVA BRASIL - Coffee Shop</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./css/main.css">
 </head>
-<body>
+<body class="home">
 
 <header class="site-header">
   <div class="container">
     <a href="/" class="logo">
       <img src="./img/logotype.png" alt="Kava Brasil Logo">
     </a>
-    <nav class="main-navigation header-container">
-      <ul>
-        <li><a href="./serra-velha.html">SERRA VELHA</a></li>
-        <li><a href="./alto-verde.html">ALTO VERDE</a></li>
-        <li><a href="./noite-clara.html">NOITE CLARA</a></li>
-        <li><a href="./about-contact.html" class="no-transform">Про нас та контакти</a></li>
-        <li><a href="./payment-delivery.html" class="no-transform">Оплата та доставка</a></li>
-        <li><a href="./shopping-cart.html" class="shopping-cart"><img src="./img/basket.png"></a></li>
-      </ul>
-    </nav>
+    <button class="burger-menu" aria-label="Відкрити меню" aria-expanded="false">
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+    </button>
+    <div class="navigation-wrapper">
+      <nav class="main-navigation">
+        <ul>
+          <li><a href="./serra-velha.html">SERRA VELHA</a></li>
+          <li><a href="./alto-verde.html">ALTO VERDE</a></li>
+          <li><a href="./noite-clara.html">NOITE CLARA</a></li>
+          <li><a href="./about-contact.html" class="no-transform">Про нас та контакти</a></li>
+          <li><a href="./payment-delivery.html" class="no-transform">Оплата та доставка</a></li>
+          <li><a href="./shopping-cart.html" class="shopping-cart"><img src="./img/basket.png"></a></li>
+        </ul>
+      </nav>
+    </div>
   </div>
 </header>
 

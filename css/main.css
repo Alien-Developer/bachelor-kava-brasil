@@ -61,11 +61,12 @@ body {
     font-family: "Manrope", sans-serif;
     font-style: normal;
     font-weight: 400;
-    background-color: #000000; /* Dark background */
-    color: #e0e0e0; /* Light grey text */
+    background-color: #000000;
+    color: #e0e0e0;
     line-height: 1.6;
     padding-top: 223px;
-    width: 1440px;
+    /*width: 1440px;*/
+    max-width: 1440px;
     margin: 0 auto;
 }
 
@@ -86,8 +87,6 @@ a:hover {
 }
 
 .button {
-    /*display: inline-block;*/
-    /*background-color: #b98d58; !* Coffee-like brown/gold *!*/
     background: none;
     color: #F9BD00;
     padding: 12px 25px;
@@ -111,8 +110,8 @@ a:hover {
 
 /* Header */
 .site-header {
-    background-color: rgba(24, 24, 24, 0.8); /* Semi-transparent black */
-    position: fixed; /* Or sticky */
+    background-color: rgba(24, 24, 24, 0.8);
+    position: fixed;
     width: 100%;
     max-width: 1440px;
     padding-bottom: 27px;
@@ -130,27 +129,31 @@ a:hover {
     padding-top: 18px; /* Відступ зверху для логотипу */
     padding-bottom: 0; /* Без відступу знизу в початковому стані */
     transition: padding 0.3s ease;
+    position: relative;
 }
 
-.header-container {
-    margin-top: 17px;
-    width: 100%;
-}
+/*.header-container {*/
+/*    margin-top: 17px;*/
+/*    width: 100%;*/
+/*}*/
 
 .logo {
     display: block;
-    /*margin: 0 auto;*/
     margin-bottom: 17px;
     width: 234px;
     height: 102px;
-    /*margin-top: 18px;*/
     transition: opacity 0.3s ease, height 0.3s ease, margin 0.3s ease, transform 0.3s ease; /* Плавне зникнення */
     transform: translateY(0);
+    /*flex-shrink: 0; !* Щоб лого не стискалося *!*/
 }
 
 .logo img {
     width: 234px;
     height: 102px;
+}
+
+.navigation-wrapper {
+    width: 100%;
 }
 
 .main-navigation {
@@ -159,13 +162,14 @@ a:hover {
     padding-bottom: 10px; /* Відступ під посиланнями для лінії */
     margin-bottom: 0; /* Скидаємо зайвий відступ */
     transition: border 0.3s ease; /* Плавна зміна рамки */
+    margin-top: 17px;
 }
 
 .main-navigation ul {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /*gap: 25px; !* Spacing between nav items *!*/
+    gap: 25px; /* Spacing between nav items */
     width: 100%;
     /*padding-bottom: 2px;*/
 }
@@ -187,6 +191,24 @@ a.no-transform {
     cursor: pointer;
     width: 24px;
     height: 24px;
+}
+
+/* Бургер меню - приховано на десктопі */
+.burger-menu {
+    display: none;
+    background: none;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1010; /* Має бути вище за навігацію */
+}
+.burger-line {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #ffffff;
+    margin: 5px 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .site-header.scrolled {
@@ -595,63 +617,338 @@ p.phone-number {
     width: fit-content;
 }
 
-/* Responsive Adjustments (Example) */
-@media (max-width: 992px) {
-    .hero-content {
-        flex-direction: column;
+/* === MOBILE STYLES === */
+@media (max-width: 768px) {
+
+    body {
+        /* Змінюємо верхній відступ для мобільного хедера */
+        padding-top: 70px; /* Орієнтовна висота мобільного хедера */
+        width: auto; /* Прибираємо фіксовану ширину */
+    }
+
+    .container {
+        padding: 0 20px; /* Стандартні бічні відступи для мобільних */
+    }
+
+    /* --- Header Mobile --- */
+    .site-header {
+        padding-bottom: 0; /* Забираємо нижній падінг хедера */
+        background-color: rgba(0, 0, 0, 0.9); /* Одразу темний фон на мобільному (як на скріншоті) */
+        /* Якщо потрібен прозорий спочатку: */
+        /* background-color: transparent; */
+        /* transition: background-color 0.3s ease; */
+    }
+    /* Прокручений мобільний хедер (якщо початковий був прозорий) */
+    /* .site-header.scrolled {
+        background-color: rgba(0, 0, 0, 0.9);
+    } */
+
+    .container-header {
+        flex-direction: row; /* Лого і бургер в ряд */
+        justify-content: space-between; /* Розносимо по краях */
+        align-items: center;
+        padding-top: 10px; /* Менші відступи */
+        padding-bottom: 10px;
+        height: 70px; /* Фіксована висота мобільного хедера */
+    }
+
+    .logo {
+        width: 150px; /* Менший логотип */
+        height: auto;
+        margin-bottom: 0; /* Без відступу знизу */
+    }
+
+    .burger-menu {
+        display: block; /* Показуємо бургер */
+    }
+
+    .navigation-wrapper {
+        /* Стилі для контейнера навігації, коли він прихований/показаний */
+        display: none; /* Приховано за замовчуванням */
+        position: absolute;
+        top: 70px; /* Відразу під хедером */
+        left: 0;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.95); /* Темний фон для меню */
+        padding: 20px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .navigation-wrapper.open { /* Клас додається через JS */
+        display: block;
+    }
+
+    .main-navigation {
+        border-bottom: none; /* Без лінії */
+        padding-bottom: 0;
+        margin-bottom: 0;
+        width: 100%;
+    }
+
+    .main-navigation ul {
+        flex-direction: column; /* Посилання в стовпчик */
+        align-items: center; /* Центруємо посилання */
+        width: 100%;
+        gap: 0;
+    }
+    .main-navigation li {
+        width: 100%;
         text-align: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .main-navigation li:last-child {
+        border-bottom: none;
+    }
+
+    .main-navigation a {
+        padding: 15px 20px; /* Збільшуємо область кліку */
+        width: 100%;
+        box-sizing: border-box; /* Враховуємо падінг */
+    }
+    .main-navigation .shopping-cart {
+        margin-top: 10px; /* Відступ для кошика */
+        /* Якщо кошик теж має бути посиланням в списку */
+        /* padding: 15px 20px; */
+    }
+    .main-navigation .shopping-cart img {
+        margin: 0 auto; /* Центруємо іконку кошика */
+    }
+
+
+    /* Стилі для активного бургера (перетворення на 'X') */
+    .burger-menu.active .burger-line:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .burger-menu.active .burger-line:nth-child(2) {
+        opacity: 0;
+    }
+    .burger-menu.active .burger-line:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+
+    /* --- Hero Mobile --- */
+    .hero-section {
+        padding-top: 40px; /* Менший відступ */
+        padding-bottom: 40px;
+        min-height: auto; /* Авто висота */
+        align-items: center; /* Центруємо контент */
+        top: 0; /* Скидаємо зсув */
+    }
+    .hero-content {
+        flex-direction: column; /* В стовпчик */
+        align-items: center; /* Центруємо */
+        gap: 30px; /* Відступ між картинкою та текстом */
+        left: 0; /* Скидаємо зсув */
+        text-align: center;
+    }
+    .hero-image {
+        /* Можливо, обмежити максимальну ширину */
+        max-width: 80%;
+    }
+    .hero-image img {
+        max-width: 100%; /* Адаптивна ширина */
+        height: auto;
     }
     .hero-text {
-        margin-top: 30px;
-    }
-    .about-container {
-        flex-direction: column;
-    }
-    .about-text, .about-slider {
-        flex-basis: 100%;
-    }
-    .footer-container {
-        justify-content: flex-start; /* Align columns left */
-    }
-}
-
-@media (max-width: 768px) {
-    .main-navigation {
-        display: none; /* Hide for mobile, implement burger menu later */
-        /* Add styles for mobile menu if implementing */
-    }
-    .header-container {
-        /* Adjust for mobile layout if needed */
+        margin-bottom: 0; /* Без зайвого відступу */
+        max-width: 90%;
     }
     .hero-text h1 {
-        font-size: 2.5rem;
+        font-size: 28px; /* Менший заголовок */
+        margin-bottom: 20px;
     }
-    .footer-bottom {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-    .slide-item {
-        flex-direction: column; /* Текст над картинкою на малих екранах */
-        gap: 20px;
-        text-align: center; /* Центруємо текст */
-    }
-    .slide-text-content,
-    .slide-image-content {
-        flex-basis: 100%; /* Займають повну ширину */
+    .hero-text .button {
+        font-size: 18px; /* Менший шрифт кнопки */
+        padding: 10px 25px;
     }
 
-    /* Можливо, сховати кнопки або змінити їх позицію на мобільних */
-    .slider-button.prev {
-        left: 5px;
+    /* --- About Slider Mobile --- */
+    .about-section {
+        padding: 40px 0;
+        min-height: auto;
     }
-    .slider-button.next {
-        right: 5px;
+    h2.about-section-title {
+        font-size: 24px; /* Менший заголовок секції */
+        margin-bottom: 20px;
+        text-align: center; /* Центруємо */
     }
-    .about-section-title {
-        font-size: 28px; /* Менший заголовок */
+    .about-slider-container {
+        max-width: 100%; /* На всю ширину */
+    }
+    .about-slider {
+        margin: 0; /* Без зсувів */
+    }
+    .slide-item {
+        flex-direction: column; /* Тільки текст, тому не так важливо */
+        padding: 10px; /* Менші відступи */
+        align-items: flex-start; /* Вирівнювання тексту по лівому краю */
+        gap: 0; /* Без відступу, бо картинки немає */
+    }
+    .slide-text-content {
+        flex-basis: 100%; /* Текст на всю ширину */
     }
     .slide-text-content p {
+        font-size: 16px; /* Менший шрифт */
+        margin-bottom: 15px;
+    }
+    .slide-image-content {
+        display: none; /* Ховаємо блок з картинкою */
+    }
+    .slider-button {
+        width: 30px; /* Менші кнопки */
+        height: 30px;
+        background-size: contain; /* Щоб фонова картинка вмістилася */
+        top: auto; /* Скидаємо top */
+        bottom: -10px; /* Позиціонуємо знизу */
+        transform: none; /* Скидаємо вертикальне центрування */
+    }
+    .slider-button.prev {
+        left: 40%; /* Позиціонуємо */
+        transform: translateX(-50%);
+    }
+    .slider-button.next {
+        right: 40%; /* Позиціонуємо */
+        transform: translateX(50%);
+    }
+
+
+    /* --- Footer Mobile --- */
+    .footer-container {
+        gap: 20px 30px; /* Менший вертикальний відступ, горизонтальний залишаємо */
+        justify-content: flex-start; /* Вирівнюємо по лівому краю */
+    }
+    .footer-column {
+        /* 2 колонки: 50% ширини мінус половина gap */
+        flex-basis: calc(50% - 15px);
+        min-width: auto; /* Скидаємо min-width */
+    }
+    /* Щоб остання колонка (якщо їх непарна кількість) займала всю ширину */
+    /* .footer-column:last-child { flex-basis: 100%; } */ /* Розкоментуйте, якщо потрібно */
+
+    .footer-column h3 {
+        font-size: 15px; /* Трохи менший шрифт */
+    }
+    .footer-column ul li a,
+    .footer-column p {
+        font-size: 14px; /* Менший шрифт */
+    }
+    .social-links a img { /* Можливо, зменшити іконки */
+        /* width: 20px; height: 20px; */ /* Залежить від ваших іконок */
+    }
+    .footer-column .button.button-contact {
         font-size: 16px;
+        padding: 8px 18px;
+        min-width: 120px;
+        height: auto;
+    }
+    .phone-note {
+        font-size: 9px;
+    }
+
+    .footer-bottom {
+        flex-direction: column; /* В стовпчик */
+        align-items: center; /* Центруємо */
+        text-align: center;
+        gap: 20px;
+    }
+    .payment-icons {
+        order: 1; /* Копірайт буде першим */
+        gap: 20px;
+    }
+    .footer-bottom p {
+        order: 0;
+    }
+
+} /* Кінець @media (max-width: 768px) */
+
+
+/* Можна додати ще один breakpoint для дуже маленьких екранів, наприклад < 480px */
+@media (max-width: 480px) {
+    body {
+        padding-top: 60px; /* Ще менший хедер */
+    }
+    .container-header {
+        height: 60px;
+    }
+    .navigation-wrapper {
+        top: 60px;
+    }
+    .logo {
+        width: 120px;
+    }
+    .hero-text h1 {
+        font-size: 24px;
+    }
+    h2.about-section-title {
+        font-size: 20px;
+    }
+    .slide-text-content p {
+        font-size: 14px;
+    }
+    .footer-column {
+        /* 1 колонка на дуже малих екранах */
+        flex-basis: 100%;
     }
 }
+
+/* Responsive Adjustments (Example) */
+/*@media (max-width: 992px) {*/
+/*    .hero-content {*/
+/*        flex-direction: column;*/
+/*        text-align: center;*/
+/*    }*/
+/*    .hero-text {*/
+/*        margin-top: 30px;*/
+/*    }*/
+/*    .about-container {*/
+/*        flex-direction: column;*/
+/*    }*/
+/*    .about-text, .about-slider {*/
+/*        flex-basis: 100%;*/
+/*    }*/
+/*    .footer-container {*/
+/*        justify-content: flex-start; !* Align columns left *!*/
+/*    }*/
+/*}*/
+
+/*@media (max-width: 768px) {*/
+/*    .main-navigation {*/
+/*        display: none; !* Hide for mobile, implement burger menu later *!*/
+/*        !* Add styles for mobile menu if implementing *!*/
+/*    }*/
+/*    .header-container {*/
+/*        !* Adjust for mobile layout if needed *!*/
+/*    }*/
+/*    .hero-text h1 {*/
+/*        font-size: 2.5rem;*/
+/*    }*/
+/*    .footer-bottom {*/
+/*        flex-direction: column;*/
+/*        align-items: center;*/
+/*        text-align: center;*/
+/*    }*/
+/*    .slide-item {*/
+/*        flex-direction: column; !* Текст над картинкою на малих екранах *!*/
+/*        gap: 20px;*/
+/*        text-align: center; !* Центруємо текст *!*/
+/*    }*/
+/*    .slide-text-content,*/
+/*    .slide-image-content {*/
+/*        flex-basis: 100%; !* Займають повну ширину *!*/
+/*    }*/
+
+/*    !* Можливо, сховати кнопки або змінити їх позицію на мобільних *!*/
+/*    .slider-button.prev {*/
+/*        left: 5px;*/
+/*    }*/
+/*    .slider-button.next {*/
+/*        right: 5px;*/
+/*    }*/
+/*    .about-section-title {*/
+/*        font-size: 28px; !* Менший заголовок *!*/
+/*    }*/
+/*    .slide-text-content p {*/
+/*        font-size: 16px;*/
+/*    }*/
+/*}*/
