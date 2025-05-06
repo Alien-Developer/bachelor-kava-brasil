@@ -154,6 +154,7 @@ a:hover {
 
 .navigation-wrapper {
     width: 100%;
+    transition: border 0.3s ease;
 }
 
 .main-navigation {
@@ -161,8 +162,8 @@ a:hover {
     border-bottom: 1px solid #fff; /* Лінія під навігацією */
     padding-bottom: 10px; /* Відступ під посиланнями для лінії */
     margin-bottom: 0; /* Скидаємо зайвий відступ */
-    transition: border 0.3s ease; /* Плавна зміна рамки */
-    margin-top: 17px;
+    transition: border 0.3s ease, margin 0.3s ease;
+    margin-top: 14px;
 }
 
 .main-navigation ul {
@@ -171,7 +172,6 @@ a:hover {
     align-items: center;
     gap: 25px; /* Spacing between nav items */
     width: 100%;
-    /*padding-bottom: 2px;*/
 }
 
 .main-navigation a {
@@ -179,6 +179,10 @@ a:hover {
     text-transform: uppercase;
     /*letter-spacing: 1px;*/
     padding: 5px 0;
+}
+
+.main-navigation a:hover {
+    color: #aaaaaa; /* Сірий при наведенні */
 }
 
 a.no-transform {
@@ -191,6 +195,7 @@ a.no-transform {
     cursor: pointer;
     width: 24px;
     height: 24px;
+    display: block;
 }
 
 /* Бургер меню - приховано на десктопі */
