@@ -214,6 +214,7 @@ a.no-transform {
     background-color: #ffffff;
     margin: 5px 0;
     transition: transform 0.3s ease, opacity 0.3s ease;
+    border-radius: 5px;
 }
 
 .site-header.scrolled {
@@ -243,6 +244,10 @@ a.no-transform {
 .site-header.scrolled .main-navigation ul {
     /* Можна додати невеликі падінги, якщо потрібно */
     padding: 5px 0;
+}
+
+body:has(> header.site-header.scrolled) {
+    padding-top: 110px;
 }
 
 /* Hero Section */
@@ -341,11 +346,12 @@ h2.about-section-title {
     /* flex-basis: 50%; - Більше не потрібно */
     width: 100%; /* Слайдер займає всю ширину контейнера */
     overflow: hidden; /* Залишаємо, це важливо */
-    margin: 0 0 0 66px; /* Центруємо, якщо max-width менший за батьківський */
+    margin: 0; /* Центруємо, якщо max-width менший за батьківський */
 }
 
 .slider-wrapper {
     overflow: hidden; /* Залишаємо */
+    margin-left: 66px;
 }
 
 .slider-track {
@@ -623,7 +629,50 @@ p.phone-number {
 }
 
 /* === MOBILE STYLES === */
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
+    .main-navigation {
+        padding-left: 15px;
+        padding-right: 15px;
+        box-sizing: border-box;
+    }
+
+    h2.about-section-title {
+        line-height: 1.25em;
+    }
+
+    .slide-text-content p {
+        font-size: 22px;
+    }
+
+    .slide-image-content img {
+        width: 100%;
+    }
+
+    .footer-container {
+        justify-content: space-around;
+    }
+
+    .footer-column {
+        flex: unset;
+    }
+}
+
+@media (max-width: 1000px) {
+    .hero-content {
+        gap: 60px;
+    }
+
+    .slide-text-content p {
+        font-size: 20px;
+    }
+
+    .footer-container {
+        flex-wrap: nowrap;
+        gap:15px;
+    }
+}
+
+@media (max-width: 800px) {
 
     body {
         /* Змінюємо верхній відступ для мобільного хедера */
@@ -648,7 +697,7 @@ p.phone-number {
         background-color: rgba(0, 0, 0, 0.9);
     } */
 
-    .container-header {
+    .site-header .container {
         flex-direction: row; /* Лого і бургер в ряд */
         justify-content: space-between; /* Розносимо по краях */
         align-items: center;
@@ -661,6 +710,11 @@ p.phone-number {
         width: 150px; /* Менший логотип */
         height: auto;
         margin-bottom: 0; /* Без відступу знизу */
+    }
+
+    .logo img {
+        width: 100%;
+        height: auto;
     }
 
     .burger-menu {
@@ -820,6 +874,7 @@ p.phone-number {
 
     /* --- Footer Mobile --- */
     .footer-container {
+        flex-wrap: wrap;
         gap: 20px 30px; /* Менший вертикальний відступ, горизонтальний залишаємо */
         justify-content: flex-start; /* Вирівнюємо по лівому краю */
     }
@@ -873,7 +928,7 @@ p.phone-number {
     body {
         padding-top: 60px; /* Ще менший хедер */
     }
-    .container-header {
+    .site-header .container {
         height: 60px;
     }
     .navigation-wrapper {
