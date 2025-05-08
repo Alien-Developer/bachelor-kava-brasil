@@ -207,14 +207,19 @@ a.no-transform {
     cursor: pointer;
     z-index: 1010; /* Має бути вище за навігацію */
 }
+
 .burger-line {
     display: block;
-    width: 25px;
-    height: 3px;
+    width: 34px;
+    height: 5px;
     background-color: #ffffff;
-    margin: 5px 0;
+    margin: 7px 0;
     transition: transform 0.3s ease, opacity 0.3s ease;
     border-radius: 5px;
+}
+
+.burger-menu:hover .burger-line {
+    background-color: #aaaaaa;
 }
 
 .site-header.scrolled {
@@ -258,7 +263,7 @@ main {
 
 .hero-section {
     /*padding-top: 100px; !* Adjust based on header height *!*/
-    padding-bottom: 60px;
+    padding-bottom: 130px;
     min-height: 80vh; /* Adjust height as needed */
     /*background: url('placeholder_background.jpg') no-repeat center center/cover; !* Replace with actual background *!*/
     display: flex;
@@ -310,7 +315,7 @@ main {
 
 /* About Section - Оновлення */
 .about-section {
-    padding: 45px 0;
+    padding: 130px 0 37px 0;
     min-height: 69vh;
     /* background-color: #000; - вже задано для body */
 }
@@ -701,13 +706,14 @@ p.phone-number {
         flex-direction: row; /* Лого і бургер в ряд */
         justify-content: space-between; /* Розносимо по краях */
         align-items: center;
-        padding-top: 10px; /* Менші відступи */
-        padding-bottom: 10px;
+        padding-top: 28px; /* Менші відступи */
+        padding-left: 20px;
+        padding-bottom: 4px;
         height: 70px; /* Фіксована висота мобільного хедера */
     }
 
     .logo {
-        width: 150px; /* Менший логотип */
+        width: 180px; /* Менший логотип */
         height: auto;
         margin-bottom: 0; /* Без відступу знизу */
     }
