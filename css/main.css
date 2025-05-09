@@ -203,7 +203,8 @@ a.no-transform {
     display: none;
     background: none;
     border: none;
-    padding: 10px;
+    /*padding: 10px;*/
+    padding-bottom: 26px;
     cursor: pointer;
     z-index: 1010; /* Має бути вище за навігацію */
 }
@@ -681,7 +682,7 @@ p.phone-number {
 
     body {
         /* Змінюємо верхній відступ для мобільного хедера */
-        padding-top: 70px; /* Орієнтовна висота мобільного хедера */
+        padding-top: 102px; /* Орієнтовна висота мобільного хедера */
         width: auto; /* Прибираємо фіксовану ширину */
     }
 
@@ -693,16 +694,18 @@ p.phone-number {
     .site-header {
         padding-bottom: 0; /* Забираємо нижній падінг хедера */
         background-color: rgba(0, 0, 0, 0.9); /* Одразу темний фон на мобільному (як на скріншоті) */
+        height: 102px;
         /* Якщо потрібен прозорий спочатку: */
         /* background-color: transparent; */
         /* transition: background-color 0.3s ease; */
     }
     /* Прокручений мобільний хедер (якщо початковий був прозорий) */
-    /* .site-header.scrolled {
-        background-color: rgba(0, 0, 0, 0.9);
-    } */
+    .site-header.scrolled {
+        background-color: inherit;
+    }
 
-    .site-header .container {
+    .site-header .container,
+    .site-header.scrolled .container {
         flex-direction: row; /* Лого і бургер в ряд */
         justify-content: space-between; /* Розносимо по краях */
         align-items: center;
@@ -716,6 +719,14 @@ p.phone-number {
         width: 180px; /* Менший логотип */
         height: auto;
         margin-bottom: 0; /* Без відступу знизу */
+    }
+
+    .site-header.scrolled .logo {
+        opacity: 1;
+        height: auto;
+        margin-bottom: initial;
+        transform: none;
+        pointer-events: auto;
     }
 
     .logo img {
