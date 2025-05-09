@@ -65,7 +65,6 @@ body {
     color: #e0e0e0;
     line-height: 1.6;
     padding-top: 223px;
-    /*width: 1440px;*/
     max-width: 1440px;
     margin: 0 auto;
 }
@@ -204,7 +203,9 @@ a.no-transform {
     background: none;
     border: none;
     /*padding: 10px;*/
-    padding-bottom: 26px;
+    padding: 10px 1px 26px 10px;
+    /*padding-bottom: 26px;*/
+    /*padding-right: 1px;*/
     cursor: pointer;
     z-index: 1010; /* Має бути вище за навігацію */
 }
@@ -265,7 +266,7 @@ main {
 .hero-section {
     /*padding-top: 100px; !* Adjust based on header height *!*/
     padding-bottom: 130px;
-    min-height: 80vh; /* Adjust height as needed */
+    /*min-height: 80vh; !* Adjust height as needed *!*/
     /*background: url('placeholder_background.jpg') no-repeat center center/cover; !* Replace with actual background *!*/
     display: flex;
     align-items: start;
@@ -317,7 +318,7 @@ main {
 /* About Section - Оновлення */
 .about-section {
     padding: 130px 0 37px 0;
-    min-height: 69vh;
+    /*min-height: 69vh;*/
     /* background-color: #000; - вже задано для body */
 }
 
@@ -681,9 +682,13 @@ p.phone-number {
 @media (max-width: 800px) {
 
     body {
-        /* Змінюємо верхній відступ для мобільного хедера */
         padding-top: 102px; /* Орієнтовна висота мобільного хедера */
         width: auto; /* Прибираємо фіксовану ширину */
+    }
+
+    body.home,
+    body.home:has(> header.site-header.scrolled){
+        padding-top: 0;
     }
 
     .container {
@@ -699,9 +704,14 @@ p.phone-number {
         /* background-color: transparent; */
         /* transition: background-color 0.3s ease; */
     }
-    /* Прокручений мобільний хедер (якщо початковий був прозорий) */
-    .site-header.scrolled {
-        background-color: inherit;
+
+    .home .site-header {
+        background-color: transparent;
+    }
+
+    .home .site-header.scrolled {
+        background-color: initial;
+        box-shadow: none;
     }
 
     .site-header .container,
@@ -802,25 +812,31 @@ p.phone-number {
         transform: translateY(-8px) rotate(-45deg);
     }
 
+    main {
+        background-position-y: -195px;
+    }
+
 
     /* --- Hero Mobile --- */
     .hero-section {
-        padding-top: 40px; /* Менший відступ */
+        padding-top: 130px; /* Менший відступ */
         padding-bottom: 40px;
         min-height: auto; /* Авто висота */
         align-items: center; /* Центруємо контент */
         top: 0; /* Скидаємо зсув */
     }
+
     .hero-content {
         flex-direction: column; /* В стовпчик */
         align-items: center; /* Центруємо */
         gap: 30px; /* Відступ між картинкою та текстом */
         left: 0; /* Скидаємо зсув */
         text-align: center;
+        width: 100%;
     }
     .hero-image {
         /* Можливо, обмежити максимальну ширину */
-        max-width: 80%;
+        max-width: 55%;
     }
     .hero-image img {
         max-width: 100%; /* Адаптивна ширина */
@@ -942,90 +958,29 @@ p.phone-number {
 
 /* Можна додати ще один breakpoint для дуже маленьких екранів, наприклад < 480px */
 @media (max-width: 480px) {
-    body {
-        padding-top: 60px; /* Ще менший хедер */
-    }
-    .site-header .container {
-        height: 60px;
-    }
-    .navigation-wrapper {
-        top: 60px;
-    }
-    .logo {
-        width: 120px;
-    }
-    .hero-text h1 {
-        font-size: 24px;
-    }
-    h2.about-section-title {
-        font-size: 20px;
-    }
-    .slide-text-content p {
-        font-size: 14px;
-    }
-    .footer-column {
-        /* 1 колонка на дуже малих екранах */
-        flex-basis: 100%;
-    }
+    /*body {*/
+    /*    padding-top: 60px; !* Ще менший хедер *!*/
+    /*}*/
+    /*.site-header .container {*/
+    /*    height: 60px;*/
+    /*}*/
+    /*.navigation-wrapper {*/
+    /*    top: 60px;*/
+    /*}*/
+    /*.logo {*/
+    /*    width: 120px;*/
+    /*}*/
+    /*.hero-text h1 {*/
+    /*    font-size: 24px;*/
+    /*}*/
+    /*h2.about-section-title {*/
+    /*    font-size: 20px;*/
+    /*}*/
+    /*.slide-text-content p {*/
+    /*    font-size: 14px;*/
+    /*}*/
+    /*.footer-column {*/
+    /*    !* 1 колонка на дуже малих екранах *!*/
+    /*    flex-basis: 100%;*/
+    /*}*/
 }
-
-/* Responsive Adjustments (Example) */
-/*@media (max-width: 992px) {*/
-/*    .hero-content {*/
-/*        flex-direction: column;*/
-/*        text-align: center;*/
-/*    }*/
-/*    .hero-text {*/
-/*        margin-top: 30px;*/
-/*    }*/
-/*    .about-container {*/
-/*        flex-direction: column;*/
-/*    }*/
-/*    .about-text, .about-slider {*/
-/*        flex-basis: 100%;*/
-/*    }*/
-/*    .footer-container {*/
-/*        justify-content: flex-start; !* Align columns left *!*/
-/*    }*/
-/*}*/
-
-/*@media (max-width: 768px) {*/
-/*    .main-navigation {*/
-/*        display: none; !* Hide for mobile, implement burger menu later *!*/
-/*        !* Add styles for mobile menu if implementing *!*/
-/*    }*/
-/*    .header-container {*/
-/*        !* Adjust for mobile layout if needed *!*/
-/*    }*/
-/*    .hero-text h1 {*/
-/*        font-size: 2.5rem;*/
-/*    }*/
-/*    .footer-bottom {*/
-/*        flex-direction: column;*/
-/*        align-items: center;*/
-/*        text-align: center;*/
-/*    }*/
-/*    .slide-item {*/
-/*        flex-direction: column; !* Текст над картинкою на малих екранах *!*/
-/*        gap: 20px;*/
-/*        text-align: center; !* Центруємо текст *!*/
-/*    }*/
-/*    .slide-text-content,*/
-/*    .slide-image-content {*/
-/*        flex-basis: 100%; !* Займають повну ширину *!*/
-/*    }*/
-
-/*    !* Можливо, сховати кнопки або змінити їх позицію на мобільних *!*/
-/*    .slider-button.prev {*/
-/*        left: 5px;*/
-/*    }*/
-/*    .slider-button.next {*/
-/*        right: 5px;*/
-/*    }*/
-/*    .about-section-title {*/
-/*        font-size: 28px; !* Менший заголовок *!*/
-/*    }*/
-/*    .slide-text-content p {*/
-/*        font-size: 16px;*/
-/*    }*/
-/*}*/
