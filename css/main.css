@@ -700,6 +700,7 @@ p.phone-number {
         padding-bottom: 0; /* Забираємо нижній падінг хедера */
         background-color: rgba(0, 0, 0, 0.9); /* Одразу темний фон на мобільному (як на скріншоті) */
         height: 102px;
+        overflow: visible;
         /* Якщо потрібен прозорий спочатку: */
         /* background-color: transparent; */
         /* transition: background-color 0.3s ease; */
@@ -762,12 +763,17 @@ p.phone-number {
 
     .navigation-wrapper.open { /* Клас додається через JS */
         display: block;
+        top: 0;
+        position: fixed;
+        height: 100vh;
+        box-sizing: border-box;
     }
 
     .main-navigation {
         border-bottom: none; /* Без лінії */
         padding-bottom: 0;
         margin-bottom: 0;
+        margin-top: 45px;
         width: 100%;
     }
 
@@ -779,22 +785,26 @@ p.phone-number {
     }
     .main-navigation li {
         width: 100%;
-        text-align: center;
+        text-align: left;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 10px 0;
     }
     .main-navigation li:last-child {
         border-bottom: none;
     }
 
     .main-navigation a {
-        padding: 15px 20px; /* Збільшуємо область кліку */
+        /*padding: 15px 20px; !* Збільшуємо область кліку *!*/
         width: 100%;
         box-sizing: border-box; /* Враховуємо падінг */
+        font-size: 24px;
+        font-weight: 600;
     }
     .main-navigation .shopping-cart {
         margin-top: 10px; /* Відступ для кошика */
         /* Якщо кошик теж має бути посиланням в списку */
         /* padding: 15px 20px; */
+        display: inline;
     }
     .main-navigation .shopping-cart img {
         margin: 0 auto; /* Центруємо іконку кошика */
@@ -803,7 +813,7 @@ p.phone-number {
 
     /* Стилі для активного бургера (перетворення на 'X') */
     .burger-menu.active .burger-line:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
+        transform: translateY(16px) rotate(45deg);
     }
     .burger-menu.active .burger-line:nth-child(2) {
         opacity: 0;

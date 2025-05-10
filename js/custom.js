@@ -106,4 +106,123 @@ document.addEventListener('DOMContentLoaded', () => {
 
   } // Кінець блоку else для перевірки елементів слайдера
 
+
+    // --- Логіка хедера (включаючи бургер-меню) ---
+    //const header = document.querySelector('.site-header');
+    const burgerMenuButton = document.querySelector('.burger-menu');
+    const navigationWrapper = document.querySelector('.navigation-wrapper');
+    // const scrollThreshold = 10;
+
+    // Перевірка наявності хедера
+    // if (header) {
+    //   const handleScroll = () => {
+    //     if (window.scrollY > scrollThreshold) {
+    //       header.classList.add('scrolled');
+    //     } else {
+    //       header.classList.remove('scrolled');
+    //     }
+    //   };
+    //   window.addEventListener('scroll', handleScroll);
+    //   handleScroll(); // Перевірка при завантаженні
+    // } else {
+    //   console.error("Header element '.site-header' not found.");
+    // }
+
+    // Перевірка наявності елементів бургер-меню
+    if (burgerMenuButton && navigationWrapper) {
+      burgerMenuButton.addEventListener('click', () => {
+        const isOpened = burgerMenuButton.getAttribute('aria-expanded') === 'true';
+        burgerMenuButton.setAttribute('aria-expanded', !isOpened);
+        burgerMenuButton.classList.toggle('active'); // Для стилізації 'X'
+        navigationWrapper.classList.toggle('open'); // Для показу/приховування меню
+
+        // Блокування скролу фону при відкритому меню (опціонально)
+        document.body.style.overflow = !isOpened ? 'hidden' : '';
+      });
+    } else {
+      console.warn("Burger menu button or navigation wrapper not found.");
+    }
+    // --- Кінець логіки хедера ---
+
+
+    // // --- Ваш існуючий код слайдера ---
+    // const sliderTrack = document.querySelector('.slider-track');
+    // const slides = sliderTrack ? Array.from(sliderTrack.children) : [];
+    // const nextButton = document.querySelector('.slider-button.next');
+    // const prevButton = document.querySelector('.slider-button.prev');
+    //
+    // if (!sliderTrack || !nextButton || !prevButton || slides.length === 0) {
+    //   console.warn("Slider elements not found or no slides available.");
+    // } else {
+    //   let slideWidth = slides[0].getBoundingClientRect().width;
+    //   let currentIndex = 0;
+    //
+    //   const updateSlideWidth = () => {
+    //     // Важливо оновлювати ширину слайда при зміні розміру вікна,
+    //     // особливо якщо слайдер активний на різних розмірах екрану
+    //     const newSlideWidth = slides[0].getBoundingClientRect().width;
+    //     if (newSlideWidth > 0) { // Перевірка, щоб уникнути ділення на 0 або некоректної ширини
+    //       slideWidth = newSlideWidth;
+    //       moveToSlide(sliderTrack, currentIndex, false);
+    //     }
+    //   }
+    //
+    //   const moveToSlide = (track, targetIndex, animate = true) => {
+    //     if (targetIndex < 0 || targetIndex >= slides.length || slideWidth <= 0) {
+    //       // Додано перевірку slideWidth
+    //       // console.warn(`Attempted to move to invalid index or invalid slideWidth: index=${targetIndex}, width=${slideWidth}`);
+    //       return;
+    //     }
+    //     const transformValue = `translateX(-${slideWidth * targetIndex}px)`;
+    //
+    //     if (animate) {
+    //       track.style.transition = 'transform 0.5s ease-in-out';
+    //     } else {
+    //       track.style.transition = 'none';
+    //     }
+    //     track.style.transform = transformValue;
+    //     currentIndex = targetIndex;
+    //     if (!animate) {
+    //       track.offsetHeight;
+    //       track.style.transition = 'transform 0.5s ease-in-out';
+    //     }
+    //   };
+    //
+    //   nextButton.addEventListener('click', e => {
+    //     let nextIndex = currentIndex + 1;
+    //     if (nextIndex >= slides.length) nextIndex = 0;
+    //     moveToSlide(sliderTrack, nextIndex);
+    //   });
+    //
+    //   prevButton.addEventListener('click', e => {
+    //     let prevIndex = currentIndex - 1;
+    //     if (prevIndex < 0) prevIndex = slides.length - 1;
+    //     moveToSlide(sliderTrack, prevIndex);
+    //   });
+    //
+    //   // Викликаємо updateSlideWidth при зміні розміру ТІЛЬКИ ЯКЩО слайдер видимий/активний
+    //   let resizeTimeout;
+    //   window.addEventListener('resize', () => {
+    //     clearTimeout(resizeTimeout);
+    //     resizeTimeout = setTimeout(() => {
+    //       // Перевіряємо, чи слайдер видимий перед оновленням
+    //       if (sliderTrack.offsetParent !== null) { // Простий спосіб перевірки видимості
+    //         updateSlideWidth();
+    //       }
+    //     }, 100); // Невеликий debounce
+    //   });
+    //
+    //
+    //   // Ініціалізуємо тільки якщо слайдер видимий
+    //   if (sliderTrack.offsetParent !== null) {
+    //     updateSlideWidth(); // Оновлюємо ширину перед першим переміщенням
+    //   } else {
+    //     // Якщо слайдер невидимий спочатку, можливо, треба ініціалізувати при першому resize, коли він стане видимим
+    //     // Це складніше, поки що просто ініціалізуємо, якщо видимий одразу
+    //     console.log("Slider track not initially visible, skipping initial moveToSlide.");
+    //   }
+    // }
+    // --- Кінець коду слайдера ---
+
+
 }); // Кінець DOMContentLoaded
