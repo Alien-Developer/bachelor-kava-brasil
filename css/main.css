@@ -801,7 +801,7 @@ p.phone-number {
         font-weight: 600;
     }
     .main-navigation .shopping-cart {
-        margin-top: 10px; /* Відступ для кошика */
+        /*margin-top: 10px; !* Відступ для кошика *!*/
         /* Якщо кошик теж має бути посиланням в списку */
         /* padding: 15px 20px; */
         display: inline;
@@ -823,14 +823,15 @@ p.phone-number {
     }
 
     main {
-        background-position-y: -195px;
+        background-position-y: -167px;
+        /*background-position-y: -195px;*/
     }
 
 
     /* --- Hero Mobile --- */
     .hero-section {
         padding-top: 130px; /* Менший відступ */
-        padding-bottom: 40px;
+        padding-bottom: 60px;
         min-height: auto; /* Авто висота */
         align-items: center; /* Центруємо контент */
         top: 0; /* Скидаємо зсув */
@@ -839,7 +840,7 @@ p.phone-number {
     .hero-content {
         flex-direction: column; /* В стовпчик */
         align-items: center; /* Центруємо */
-        gap: 30px; /* Відступ між картинкою та текстом */
+        gap: 0; /* Відступ між картинкою та текстом */
         left: 0; /* Скидаємо зсув */
         text-align: center;
         width: 100%;
@@ -857,23 +858,25 @@ p.phone-number {
         max-width: 90%;
     }
     .hero-text h1 {
-        font-size: 28px; /* Менший заголовок */
-        margin-bottom: 20px;
+        font-size: 24px; /* Менший заголовок */
+        margin-bottom: 10px;
     }
     .hero-text .button {
-        font-size: 18px; /* Менший шрифт кнопки */
-        padding: 10px 25px;
+        font-size: 24px; /* Менший шрифт кнопки */
+        padding: 10px 18px;
+        width: auto;
+        height: auto;
     }
 
     /* --- About Slider Mobile --- */
     .about-section {
-        padding: 40px 0;
+        padding: 60px 0 20px 0;
         min-height: auto;
     }
     h2.about-section-title {
         font-size: 24px; /* Менший заголовок секції */
         margin-bottom: 20px;
-        text-align: center; /* Центруємо */
+        text-align: left; /* Центруємо */
     }
     .about-slider-container {
         max-width: 100%; /* На всю ширину */
@@ -881,19 +884,24 @@ p.phone-number {
     .about-slider {
         margin: 0; /* Без зсувів */
     }
+
+    .slider-wrapper {
+        margin-left: 0;
+    }
+
     .slide-item {
         flex-direction: column; /* Тільки текст, тому не так важливо */
-        padding: 10px; /* Менші відступи */
+        padding: 0 51px; /* Менші відступи */
         align-items: flex-start; /* Вирівнювання тексту по лівому краю */
         gap: 0; /* Без відступу, бо картинки немає */
     }
     .slide-text-content {
         flex-basis: 100%; /* Текст на всю ширину */
     }
-    .slide-text-content p {
-        font-size: 16px; /* Менший шрифт */
-        margin-bottom: 15px;
-    }
+    /*.slide-text-content p {*/
+    /*    font-size: 16px; !* Менший шрифт *!*/
+    /*    margin-bottom: 15px;*/
+    /*}*/
     .slide-image-content {
         display: none; /* Ховаємо блок з картинкою */
     }
@@ -901,16 +909,16 @@ p.phone-number {
         width: 30px; /* Менші кнопки */
         height: 30px;
         background-size: contain; /* Щоб фонова картинка вмістилася */
-        top: auto; /* Скидаємо top */
-        bottom: -10px; /* Позиціонуємо знизу */
+        /*top: auto; !* Скидаємо top *!*/
+        /*bottom: -10px; !* Позиціонуємо знизу *!*/
         transform: none; /* Скидаємо вертикальне центрування */
     }
     .slider-button.prev {
-        left: 40%; /* Позиціонуємо */
-        transform: translateX(-50%);
+        left: 20px; /* Позиціонуємо */
+        /*transform: translateX(-50%);*/
     }
     .slider-button.next {
-        right: 40%; /* Позиціонуємо */
+        right: 20px; /* Позиціонуємо */
         transform: translateX(50%);
     }
 
