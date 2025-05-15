@@ -507,9 +507,10 @@ h2.about-section-title {
 .social-links {
     display: flex;
     align-items: center; /* Вирівнюємо іконки по вертикалі */
-    gap: 12px; /* Зменшуємо відступ, щоб було схоже на макет */
+    gap: 9px; /* Зменшуємо відступ, щоб було схоже на макет */
     padding: 0;
     margin: 0;
+    margin-top: 10px;
     list-style-type: none; /* Прибираємо маркери списку */
 }
 
@@ -540,13 +541,13 @@ h2.about-section-title {
 }
 
 .social-links a img.telegram {
-    width: 20px;
-    height: 19px;
+    width: 22px;
+    height: 22px;
 }
 
 .social-links a img.youtube {
-    width: 22px;
-    height: 18px;
+    width: 24px;
+    height: 24px;
 }
 
 .social-links a img.facebook {
@@ -555,13 +556,13 @@ h2.about-section-title {
 }
 
 .social-links a img.tiktok {
-    width: 25px;
-    height: 25px;
+    width: 29px;
+    height: 29px;
 }
 
 .social-links a img.instagram {
-    width: 26px;
-    height: 26px;
+    width: 30px;
+    height: 30px;
 }
 
 /* Якщо ви використовуєте IMG замість SVG: */
@@ -614,6 +615,8 @@ p.phone-number {
 
 .footer-bottom {
     padding-top: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
     border-top: 1px solid rgba(255, 255, 255, 1);
     display: flex;
     justify-content: space-between;
@@ -630,10 +633,19 @@ p.phone-number {
     align-items: center;
 }
 
-.payment-icons img {
-    height: fit-content;
-    width: fit-content;
+.payment-icons .visa {
+    width: 75px;
+    height: auto;
 }
+
+.payment-icons .mastercard {
+    width: 52px;
+    height: auto;
+}
+/*.payment-icons img {*/
+/*    height: fit-content;*/
+/*    width: fit-content;*/
+/*}*/
 
 /* === MOBILE STYLES === */
 @media (max-width: 1200px) {
@@ -693,6 +705,7 @@ p.phone-number {
 
     .container {
         padding: 0 20px; /* Стандартні бічні відступи для мобільних */
+        border: none;
     }
 
     /* --- Header Mobile --- */
@@ -827,7 +840,6 @@ p.phone-number {
         /*background-position-y: -195px;*/
     }
 
-
     /* --- Hero Mobile --- */
     .hero-section {
         padding-top: 130px; /* Менший відступ */
@@ -924,9 +936,13 @@ p.phone-number {
 
 
     /* --- Footer Mobile --- */
+    .site-footer {
+        padding-top: 31px;
+    }
+
     .footer-container {
         flex-wrap: wrap;
-        gap: 20px 30px; /* Менший вертикальний відступ, горизонтальний залишаємо */
+        gap: 36px 20px; /* Менший вертикальний відступ, горизонтальний залишаємо */
         justify-content: flex-start; /* Вирівнюємо по лівому краю */
     }
     .footer-column {
@@ -936,32 +952,46 @@ p.phone-number {
     }
     /* Щоб остання колонка (якщо їх непарна кількість) займала всю ширину */
     /* .footer-column:last-child { flex-basis: 100%; } */ /* Розкоментуйте, якщо потрібно */
+    .order-1 {
+        order: 1;
+    }
+    .order-2 {
+        order: 2;
+    }
+    .order-3 {
+        order: 3;
+    }
+    .order-4 {
+        order: 4;
+    }
 
     .footer-column h3 {
-        font-size: 15px; /* Трохи менший шрифт */
+        /*font-size: 15px; !* Трохи менший шрифт *!*/
     }
     .footer-column ul li a,
     .footer-column p {
-        font-size: 14px; /* Менший шрифт */
+        /*font-size: 14px; !* Менший шрифт *!*/
     }
     .social-links a img { /* Можливо, зменшити іконки */
         /* width: 20px; height: 20px; */ /* Залежить від ваших іконок */
     }
     .footer-column .button.button-contact {
-        font-size: 16px;
-        padding: 8px 18px;
-        min-width: 120px;
-        height: auto;
+        /*font-size: 16px;*/
+        /*padding: 8px 18px;*/
+        /*min-width: 120px;*/
+        /*height: auto;*/
     }
     .phone-note {
         font-size: 9px;
     }
 
     .footer-bottom {
-        flex-direction: column; /* В стовпчик */
+        flex-direction: row-reverse; /* В стовпчик */
         align-items: center; /* Центруємо */
         text-align: center;
         gap: 20px;
+        border-top: 1px solid #ffffff;
+        padding-top: 25px;
     }
     .payment-icons {
         order: 1; /* Копірайт буде першим */
