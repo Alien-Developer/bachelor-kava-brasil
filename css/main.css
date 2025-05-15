@@ -257,8 +257,12 @@ body:has(> header.site-header.scrolled) {
     padding-top: 110px;
 }
 
-/* Hero Section */
 main {
+    background-color: #ffffff;
+}
+
+/* Hero Section */
+body.home main {
     /*padding-top: 222px;*/
     background: url(../img/main_page_bg.png) no-repeat center top;
 }
@@ -646,6 +650,201 @@ p.phone-number {
 /*    height: fit-content;*/
 /*    width: fit-content;*/
 /*}*/
+
+/* ===== PRODUCT PAGE STYLES ===== */
+/* Загальний контейнер сторінки товару */
+.product-page {
+    /*max-width: 1200px; !* Або ширина вашого основного контейнера *!*/
+    /*margin: 20px auto; !* Відступи зверху/знизу та центрування *!*/
+    /*padding: 0 15px; !* Бічні відступи *!*/
+    color: #000; /* Основний колір тексту для цієї секції (якщо відрізняється від body) */
+    font-size: 16px;
+}
+
+/* 1. Хлібні крихти */
+.page-nav {
+    padding-top: 40px;
+    margin-bottom: 25px;
+}
+.page-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap; /* Дозволяє переносити на новий рядок */
+    align-items: center;
+}
+.page-nav li {
+    margin-right: 8px;
+}
+.page-nav li:not(:last-child)::after {
+    content: '>'; /* Роздільник */
+    margin-left: 8px;
+    color: #888;
+}
+.page-nav a {
+    color: #000; /* Колір посилань в хлібних крихтах */
+    text-decoration: none;
+}
+.page-nav a:hover {
+    text-decoration: underline;
+}
+.page-nav span {
+    color: #B4B4B4; /* Колір поточної сторінки */
+}
+
+/* 2. Основний блок товару */
+.product-main-info {
+    display: flex;
+    flex-wrap: wrap; /* Дозволяє переносити на новий рядок на менших екранах */
+    gap: 30px; /* Відстань між картинкою та деталями */
+    margin-bottom: 40px;
+}
+
+.product-image-gallery {
+    flex: 1 1 45%; /* Займає приблизно 45% ширини, може зменшуватись/збільшуватись */
+    max-width: 450px; /* Максимальна ширина блоку з картинкою */
+    /* background-color: #f8f8f8; /* Тимчасовий фон для візуалізації */
+    /* padding: 20px; */
+    /* border: 1px solid #eee; */
+    /* border-radius: 8px; */
+}
+.product-image-gallery img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    /* border-radius: 4px; */
+}
+
+.product-details {
+    flex: 1 1 50%; /* Займає приблизно 50% ширини */
+    /* background-color: #fdfdfd; /* Тимчасовий фон */
+    /* padding: 20px; */
+    /* border: 1px solid #eee; */
+    /* border-radius: 8px; */
+}
+
+.product-title {
+    font-size: 28px; /* Розмір заголовка товару */
+    margin-bottom: 15px;
+    color: #fff; /* Згідно макету */
+    font-weight: 600;
+}
+
+.product-price-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #ccc; /* Лінія під ціною/кнопками */
+    padding-bottom: 25px;
+    flex-wrap: wrap;
+}
+.product-price {
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff; /* Згідно макету */
+}
+.product-quantity {
+    display: flex;
+    align-items: center;
+}
+.product-quantity input {
+    width: 40px;
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 8px 5px;
+    margin: 0 5px;
+    border-radius: 4px;
+    background-color: #333; /* Темний фон для інпута */
+    color: #fff; /* Білий текст в інпуті */
+}
+.product-quantity .quantity-button {
+    background-color: #555; /* Фон для кнопок +/- */
+    color: #fff;
+    border: 1px solid #444;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.add-to-cart-button {
+    background-color: #F9BD00; /* Жовтий з макету */
+    color: #000; /* Чорний текст */
+    border: none;
+    padding: 12px 25px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 25px; /* Дуже заокруглені кути */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.add-to-cart-button:hover {
+    background-color: #e0ab00; /* Темніший жовтий */
+}
+
+.product-characteristics {
+    margin-bottom: 25px;
+}
+.product-characteristics h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #fff; /* Згідно макету */
+    font-weight: 600;
+}
+.product-characteristics ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid; /* Використовуємо grid для розташування в дві колонки */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Адаптивні колонки */
+    gap: 10px 20px; /* Відступи між рядками та колонками */
+}
+.product-characteristics li {
+    margin-bottom: 8px;
+    font-size: 15px;
+    color: #ccc; /* Світло-сірий для тексту характеристик */
+    /* Для візуалізації крапок міцності: */
+    /* display: flex; */
+    /* justify-content: space-between; */
+}
+.product-characteristics li strong {
+    color: #fff; /* Білий для назви характеристики */
+    margin-right: 5px;
+}
+.char-dots { /* Для стилізації крапок (якщо це текст) */
+    color: #F9BD00; /* Жовтий колір для крапок */
+    font-weight: bold;
+    letter-spacing: 2px; /* Розріджуємо крапки */
+}
+
+/* 3. Опис товару */
+.product-description {
+    /* background-color: #fff; /* Тимчасовий фон */
+    /* padding: 25px; */
+    /* border: 1px solid #eee; */
+    /* border-radius: 8px; */
+}
+.product-description h2 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: #fff; /* Згідно макету */
+    font-weight: 600;
+}
+.product-description p {
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 15px;
+    color: #e0e0e0; /* Світло-сірий для опису */
+}
+.product-description p:last-child {
+    margin-bottom: 0;
+}
+.product-description strong { /* Виділення в описі */
+    color: #fff;
+    font-weight: 500;
+}
+
+
 
 /* === MOBILE STYLES === */
 @media (max-width: 1200px) {
