@@ -661,10 +661,10 @@ p.phone-number {
     font-size: 16px;
 }
 
-/* 1. Хлібні крихти */
+/* 1. page navigation */
 .page-nav {
-    padding-top: 40px;
-    margin-bottom: 25px;
+    padding-top: 21px;
+    margin-bottom: 81px;
 }
 .page-nav ul {
     list-style: none;
@@ -705,8 +705,8 @@ p.phone-number {
     flex: 1 1 45%; /* Займає приблизно 45% ширини, може зменшуватись/збільшуватись */
     max-width: 450px; /* Максимальна ширина блоку з картинкою */
     /* background-color: #f8f8f8; /* Тимчасовий фон для візуалізації */
-    /* padding: 20px; */
-    /* border: 1px solid #eee; */
+    padding: 0 0 0 21px;
+    border-right: 1px solid #ccc;
     /* border-radius: 8px; */
 }
 .product-image-gallery img {
@@ -725,58 +725,67 @@ p.phone-number {
 }
 
 .product-title {
-    font-size: 28px; /* Розмір заголовка товару */
+    font-size: 40px; /* Розмір заголовка товару */
     margin-bottom: 15px;
-    color: #fff; /* Згідно макету */
-    font-weight: 600;
+    font-weight: 500;
+    line-height: 1.35em;
 }
 
 .product-price-actions {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 30px;
     margin-bottom: 25px;
+    border-top: 1px solid #ccc; /* Лінія під ціною/кнопками */
     border-bottom: 1px solid #ccc; /* Лінія під ціною/кнопками */
+    padding-top: 25px;
     padding-bottom: 25px;
     flex-wrap: wrap;
 }
 .product-price {
     font-size: 24px;
-    font-weight: bold;
-    color: #fff; /* Згідно макету */
+    font-weight: 500;
 }
 .product-quantity {
     display: flex;
     align-items: center;
+    column-gap: 12px;
 }
 .product-quantity input {
-    width: 40px;
+    width: 10px;
     text-align: center;
-    border: 1px solid #ccc;
-    padding: 8px 5px;
-    margin: 0 5px;
-    border-radius: 4px;
-    background-color: #333; /* Темний фон для інпута */
-    color: #fff; /* Білий текст в інпуті */
+    border: none;
+    padding: 0;
+    background-color: #fff;
+    font-size: 16px;
+    font-family: "Manrope", sans-serif;
 }
 .product-quantity .quantity-button {
-    background-color: #555; /* Фон для кнопок +/- */
-    color: #fff;
-    border: 1px solid #444;
-    padding: 8px 12px;
+    background-color: #fff;
+    border: 1px solid #E2E2E2;
+    padding-bottom: 5px;
     cursor: pointer;
-    border-radius: 4px;
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    font-size: 22px;
+    align-items: center;
+    width: 28px;
+    height: 28px;
+    outline: none;
 }
 .add-to-cart-button {
-    background-color: #F9BD00; /* Жовтий з макету */
-    color: #000; /* Чорний текст */
+    background-color: #F9BD00;
+    color: #fff;
     border: none;
-    padding: 12px 25px;
-    font-size: 16px;
-    font-weight: bold;
-    border-radius: 25px; /* Дуже заокруглені кути */
+    padding: 2px 16px 4px 16px;
+    font-family: "Manrope", sans-serif;
+    font-size: 24px;
+    font-weight: 300;
+    border-radius: 25px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    line-height: 1.3em;
 }
 .add-to-cart-button:hover {
     background-color: #e0ab00; /* Темніший жовтий */
@@ -788,7 +797,7 @@ p.phone-number {
 .product-characteristics h2 {
     font-size: 20px;
     margin-bottom: 15px;
-    color: #fff; /* Згідно макету */
+    /*color: #fff; !* Згідно макету *!*/
     font-weight: 600;
 }
 .product-characteristics ul {
@@ -808,7 +817,7 @@ p.phone-number {
     /* justify-content: space-between; */
 }
 .product-characteristics li strong {
-    color: #fff; /* Білий для назви характеристики */
+    /*color: #fff; !* Білий для назви характеристики *!*/
     margin-right: 5px;
 }
 .char-dots { /* Для стилізації крапок (якщо це текст) */
@@ -827,7 +836,7 @@ p.phone-number {
 .product-description h2 {
     font-size: 22px;
     margin-bottom: 15px;
-    color: #fff; /* Згідно макету */
+    /*color: #fff; !* Згідно макету *!*/
     font-weight: 600;
 }
 .product-description p {
@@ -840,7 +849,7 @@ p.phone-number {
     margin-bottom: 0;
 }
 .product-description strong { /* Виділення в описі */
-    color: #fff;
+    /*color: #fff;*/
     font-weight: 500;
 }
 
