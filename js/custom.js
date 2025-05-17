@@ -144,6 +144,97 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     // --- Кінець логіки хедера ---
 
+  // === Логіка для кнопок +/- кількості товару ===
+  const quantityInput = document.getElementById('quantity');
+  const minusButton = document.querySelector('.quantity-button.minus');
+  const plusButton = document.querySelector('.quantity-button.plus');
+
+  const minQuantity = 1;
+  const maxQuantity = 10;
+
+  // Перевіряємо, чи всі елементи для кількості знайдені
+  if (quantityInput && minusButton && plusButton) {
+
+    // Встановлюємо min та max атрибути для інпута, якщо вони ще не задані
+    // Це допоможе з валідацією браузером при прямому вводі
+    quantityInput.setAttribute('min', minQuantity);
+    quantityInput.setAttribute('max', maxQuantity);
+
+    // Функція для оновлення стану кнопок (активна/неактивна)
+    const updateButtonStates = (currentValue) => {
+      minusButton.disabled = currentValue <= minQuantity;
+      plusButton.disabled = currentValue >= maxQuantity;
+    };
+
+    // Ініціалізація стану кнопок при завантаженні
+    let initialValue = parseInt(quantityInput.value, 10);
+    if (isNaN(initialValue) || initialValue < minQuantity) {
+      initialValue = minQuantity;
+      quantityInput.value = initialValue;
+    } else if (initialValue > maxQuantity) {
+      initialValue = maxQuantity;
+      quantityInput.value = initialValue;
+    }
+    updateButtonStates(initialValue);
+
+
+    // Обробник для кнопки "+"
+    plusButton.addEventListener('click', () => {
+      let currentValue = parseInt(quantityInput.value, 10);
+      if (isNaN(currentValue)) { // Якщо в інпуті не число
+        currentValue = minQuantity;
+      } else if (currentValue < maxQuantity) {
+        currentValue++;
+      }
+      quantityInput.value = currentValue;
+      updateButtonStates(currentValue);
+    });
+
+    // Обробник для кнопки "-"
+    minusButton.addEventListener('click', () => {
+      let currentValue = parseInt(quantityInput.value, 10);
+      if (isNaN(currentValue)) { // Якщо в інпуті не число
+        currentValue = minQuantity;
+      } else if (currentValue > minQuantity) {
+        currentValue--;
+      }
+      quantityInput.value = currentValue;
+      updateButtonStates(currentValue);
+    });
+
+    // Обробник для прямого вводу в поле
+    // quantityInput.addEventListener('input', () => {
+    //   let currentValue = parseInt(quantityInput.value, 10);
+    //   if (isNaN(currentValue) || currentValue < minQuantity) {
+    //     quantityInput.value = minQuantity; // Якщо введено менше мінімуму або не число
+    //     currentValue = minQuantity;
+    //   } else if (currentValue > maxQuantity) {
+    //     quantityInput.value = maxQuantity; // Якщо введено більше максимуму
+    //     currentValue = maxQuantity;
+    //   }
+    //   updateButtonStates(currentValue);
+    // });
+
+    // Обробник для події 'change', щоб відловлювати зміни через стрілки браузера
+    // quantityInput.addEventListener('change', () => {
+    //   let currentValue = parseInt(quantityInput.value, 10);
+    //   if (isNaN(currentValue) || currentValue < minQuantity) {
+    //     quantityInput.value = minQuantity;
+    //     currentValue = minQuantity;
+    //   } else if (currentValue > maxQuantity) {
+    //     quantityInput.value = maxQuantity;
+    //     currentValue = maxQuantity;
+    //   }
+    //   updateButtonStates(currentValue);
+    // });
+
+
+  }
+    // else {
+  //   console.warn('Quantity control elements not found.');
+  // }
+  // === Кінець логіки для кнопок +/- кількості товару ===
+
 
     // // --- Ваш існуючий код слайдера ---
     // const sliderTrack = document.querySelector('.slider-track');

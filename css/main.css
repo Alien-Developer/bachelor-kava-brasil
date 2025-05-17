@@ -703,14 +703,14 @@ p.phone-number {
 
 .product-image-gallery {
     flex: 1 1 45%; /* Займає приблизно 45% ширини, може зменшуватись/збільшуватись */
-    max-width: 450px; /* Максимальна ширина блоку з картинкою */
+    max-width: 432px; /* Максимальна ширина блоку з картинкою */
     /* background-color: #f8f8f8; /* Тимчасовий фон для візуалізації */
     padding: 0 0 0 21px;
-    border-right: 1px solid #ccc;
+    border-right: 1px solid rgba(204, 204, 204, 0.6);
     /* border-radius: 8px; */
 }
 .product-image-gallery img {
-    max-width: 100%;
+    max-width: 85%;
     height: auto;
     display: block;
     /* border-radius: 4px; */
@@ -726,7 +726,7 @@ p.phone-number {
 
 .product-title {
     font-size: 40px; /* Розмір заголовка товару */
-    margin-bottom: 15px;
+    margin-bottom: 35px;
     font-weight: 500;
     line-height: 1.35em;
 }
@@ -735,11 +735,10 @@ p.phone-number {
     display: flex;
     align-items: center;
     gap: 30px;
-    margin-bottom: 25px;
-    border-top: 1px solid #ccc; /* Лінія під ціною/кнопками */
-    border-bottom: 1px solid #ccc; /* Лінія під ціною/кнопками */
-    padding-top: 25px;
-    padding-bottom: 25px;
+    margin-bottom: 40px;
+    border-top: 1px solid rgba(204, 204, 204, 0.6); /* Лінія під ціною/кнопками */
+    border-bottom: 1px solid rgba(204, 204, 204, 0.6); /* Лінія під ціною/кнопками */
+    padding: 32px 16px;
     flex-wrap: wrap;
 }
 .product-price {
@@ -749,10 +748,10 @@ p.phone-number {
 .product-quantity {
     display: flex;
     align-items: center;
-    column-gap: 12px;
+    column-gap: 9px;
 }
 .product-quantity input {
-    width: 10px;
+    width: 16px;
     text-align: center;
     border: none;
     padding: 0;
@@ -763,7 +762,7 @@ p.phone-number {
 .product-quantity .quantity-button {
     background-color: #fff;
     border: 1px solid #E2E2E2;
-    padding-bottom: 5px;
+    padding-bottom: 3px;
     cursor: pointer;
     border-radius: 50%;
     display: inline-flex;
@@ -773,6 +772,16 @@ p.phone-number {
     width: 28px;
     height: 28px;
     outline: none;
+}
+.product-quantity .quantity-button:hover {
+    border-color: #000;
+}
+/* Стилі для неактивних кнопок кількості */
+.quantity-button:disabled {
+    opacity: 0.5; /* Зменшуємо прозорість */
+    cursor: not-allowed; /* Змінюємо курсор */
+    /* background-color: #eee; /* Можна змінити фон */
+    /* color: #aaa; /* Можна змінити колір тексту */
 }
 .add-to-cart-button {
     background-color: #F9BD00;
@@ -788,42 +797,95 @@ p.phone-number {
     line-height: 1.3em;
 }
 .add-to-cart-button:hover {
-    background-color: #e0ab00; /* Темніший жовтий */
+    background-color: #000; /* Темніший жовтий */
 }
 
 .product-characteristics {
     margin-bottom: 25px;
 }
 .product-characteristics h2 {
-    font-size: 20px;
-    margin-bottom: 15px;
-    /*color: #fff; !* Згідно макету *!*/
-    font-weight: 600;
+    font-size: 24px;
+    margin-bottom: 68px;
+    font-weight: 500;
 }
 .product-characteristics ul {
     list-style: none;
     padding: 0;
     margin: 0;
     display: grid; /* Використовуємо grid для розташування в дві колонки */
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Адаптивні колонки */
-    gap: 10px 20px; /* Відступи між рядками та колонками */
+    grid-template-columns: 1fr 1fr; /* Адаптивні колонки */
+    column-gap: 30px; /* Відступи між рядками та колонками */
 }
 .product-characteristics li {
-    margin-bottom: 8px;
-    font-size: 15px;
-    color: #ccc; /* Світло-сірий для тексту характеристик */
+    /*margin-bottom: 8px;*/
+    font-size: 16px;
+    /*color: #ccc; !* Світло-сірий для тексту характеристик *!*/
     /* Для візуалізації крапок міцності: */
     /* display: flex; */
     /* justify-content: space-between; */
 }
-.product-characteristics li strong {
+
+ul.characteristics-dots {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(204, 204, 204, 0.6);
+}
+
+ul.characteristics-dots li {
+    border-right: 1px solid rgba(204, 204, 204, 0.6);
+    flex-basis: 25%;
+    padding-bottom: 7px;
+}
+
+ul.characteristics-dots li:last-child {
+    border-right: none;
+}
+
+ul.characteristics-dots li strong {
     /*color: #fff; !* Білий для назви характеристики *!*/
-    margin-right: 5px;
+    /*margin-right: 5px;*/
+    font-weight: 400;
 }
 .char-dots { /* Для стилізації крапок (якщо це текст) */
-    color: #F9BD00; /* Жовтий колір для крапок */
     font-weight: bold;
-    letter-spacing: 2px; /* Розріджуємо крапки */
+    letter-spacing: -7px; /* Розріджуємо крапки */
+    font-size: 28px;
+    line-height: 18px;
+    margin-left: -5px;
+}
+.char-dots .light {
+    color: #d9d9d9;
+}
+
+ul.characteristics-list {
+    grid-template-rows: repeat(6, auto);
+    grid-auto-flow: column;
+}
+
+ul.characteristics-list li {
+    display: flex;
+    align-items: flex-start; /* Вирівнюємо назву та значення по верхньому краю */
+    padding: 15px 0;      /* Вертикальні відступи для кожного рядка характеристики */
+    break-inside: avoid-column;
+    word-break: break-word; /* Дозволяє розривати слова, якщо потрібно */
+    overflow-wrap: break-word; /* Більш сучасна властивість для того ж */
+}
+
+ul.characteristics-list li:nth-child(1),
+ul.characteristics-list li:nth-child(7) {
+    padding-top: 30px;
+}
+ul.characteristics-list li:nth-child(-n + 6) {
+    border-right: 1px solid rgba(204, 204, 204, 0.6);
+}
+
+
+ul.characteristics-list li strong {
+    font-weight: 200;
+
+    flex: 0 0 54%; /* Не розтягується, не стискається, базова ширина 50% */
+    box-sizing: border-box; /* Щоб padding не збільшував ширину */
 }
 
 /* 3. Опис товару */
