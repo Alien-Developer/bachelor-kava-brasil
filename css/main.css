@@ -704,16 +704,13 @@ p.phone-number {
 .product-image-gallery {
     flex: 1 1 45%; /* Займає приблизно 45% ширини, може зменшуватись/збільшуватись */
     max-width: 432px; /* Максимальна ширина блоку з картинкою */
-    /* background-color: #f8f8f8; /* Тимчасовий фон для візуалізації */
     padding: 0 0 0 21px;
     border-right: 1px solid rgba(204, 204, 204, 0.6);
-    /* border-radius: 8px; */
 }
 .product-image-gallery img {
     max-width: 85%;
     height: auto;
     display: block;
-    /* border-radius: 4px; */
 }
 
 .product-details {
@@ -909,8 +906,7 @@ ul.characteristics-list li strong {
 .product-description p {
     font-size: 20px;
     line-height: 1.35em;
-    margin-bottom: 15px;
-    /*color: #e0e0e0; !* Світло-сірий для опису *!*/
+    margin-bottom: 25px;
 }
 .product-description p:last-child {
     margin-bottom: 0;
@@ -966,6 +962,10 @@ ul.characteristics-list li strong {
 
     .product-page {
         padding: 0 20px;
+    }
+
+    .product-image-gallery {
+        border: none;
     }
 }
 
@@ -1280,9 +1280,83 @@ ul.characteristics-list li strong {
     }
 
     /* === product pages === */
+    .page-nav {
+        padding-top: 8px;
+        margin-bottom: 28px;
+    }
+
+    .page-nav li {
+        font-size: 12px;
+    }
+
+    .product-main-info {
+        margin-bottom: 13px;
+    }
+
+    .product-image-gallery {
+        flex: none; /* Скасовуємо flex-властивості, щоб блок займав всю доступну ширину */
+        width: 100%; /* Блок займає 100% ширини свого батьківського контейнера */
+        max-width: 100%; /* Знімаємо обмеження максимальної ширини з десктопу */
+        /*padding: 10px 0; !* Прибираємо лівий відступ і додаємо невеликий верхній/нижній *!*/
+        border-right: none; /* Видаляємо правий бордер */
+        text-align: center; /* Центруємо вміст блоку (картинку) по горизонталі */
+    }
+
+    .product-image-gallery img {
+        width: 51vw; /* Картинка займає 51% ширини вікна перегляду (viewport width) */
+        max-width: 51vw; /* Гарантуємо, що вона не перевищить 51vw */
+        height: auto; /* Зберігаємо пропорції */
+        display: block; /* Залишаємо display: block; */
+        margin: 0 auto; /* Центруємо картинку, якщо вона поводиться як блочний елемент */
+    }
+
+    .product-title {
+        font-size: 24px;
+        margin-bottom: 18px;
+    }
+
+    .product-price-actions {
+        padding-top: 19px;
+        padding-bottom: 19px;
+        padding-right: 0;
+        margin-bottom: 23px;
+    }
+
+    .product-characteristics h2 {
+        margin-bottom: 32px;
+    }
+
+    ul.characteristics-dots {
+        column-gap: 0;
+    }
+
+    ul.characteristics-dots li {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 15px;
+    }
+
     ul.characteristics-list {
         grid-template-columns: 1fr;
         grid-auto-flow: row;
+    }
+
+    ul.characteristics-list li:nth-child(-n+6) {
+        border: none;
+    }
+
+    ul.characteristics-list li:nth-child(7) {
+        padding-top: 15px;
+    }
+
+    ul.characteristics-list li:last-child {
+        border-bottom: 1px solid rgba(204, 204, 204, 0.6);
+    }
+
+    .product-description h2 {
+        font-size: 24px;
+        margin-bottom: 23px;
     }
 
 } /* Кінець @media (max-width: 768px) */
