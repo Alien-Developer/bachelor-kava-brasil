@@ -919,6 +919,192 @@ ul.characteristics-list li strong {
     font-weight: bold;
 }
 
+/* === payment and delivery === */
+
+/* Загальний клас для секцій контенту на цій сторінці */
+.text-content-section {
+    margin-bottom: 60px; /* Відступ між секціями */
+}
+.text-content-section:last-child {
+    margin-bottom: 30px; /* Менший відступ для останньої секції */
+}
+
+/* Заголовки секцій "Оплата", "Доставка" */
+.section-title {
+    font-size: 36px; /* Розмір як на макеті */
+    font-weight: 500; /* Середня насиченість */
+    color: #000000;   /* Чорний колір */
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* --- Секція "Оплата" --- */
+.payment-methods-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Два стовпчики однакової ширини */
+    gap: 0; /* За замовчуванням без проміжків, бо використовуємо border */
+    /* border-top: 1px solid #E0E0E0; /* Верхня лінія для всієї сітки */
+    /* border-left: 1px solid #E0E0E0; /* Ліва лінія для всієї сітки */
+}
+
+.payment-method-item {
+    padding: 30px 25px; /* Внутрішні відступи */
+    box-sizing: border-box;
+    /* Кожен елемент має праву та нижню межу, крім крайніх */
+}
+
+/* Горизонтальні лінії-роздільники */
+/* Перший та другий елементи (верхній ряд) мають лінію знизу */
+.payment-methods-grid .payment-method-item:nth-child(1),
+.payment-methods-grid .payment-method-item:nth-child(2) {
+    border-bottom: 1px solid #E0E0E0;
+}
+
+/* Вертикальні лінії-роздільники */
+/* Перший та третій елементи (лівий стовпчик) мають лінію справа */
+.payment-methods-grid .payment-method-item:nth-child(odd) { /* непарні елементи - перший стовпчик */
+    border-right: 1px solid #E0E0E0;
+}
+
+
+.payment-method-icon {
+    margin-bottom: 15px;
+    text-align: left; /* Іконки на скріншоті вирівняні по лівому краю */
+}
+
+.payment-method-icon img {
+    height: 32px; /* Орієнтовна висота іконок, налаштуйте за потребою */
+    width: auto;   /* Автоматична ширина для збереження пропорцій */
+}
+/* Специфічні розміри для деяких іконок, якщо потрібно */
+.payment-method-icon img[alt*="Google Pay"] {
+    height: 24px; /* Google Pay логотип зазвичай не такий високий */
+}
+.payment-method-icon img[alt*="Apple Pay"] {
+    height: 30px; /* Apple Pay логотип */
+}
+
+
+.payment-method-title {
+    font-size: 20px; /* Розмір заголовка методу оплати */
+    font-weight: 500;
+    color: #000000;
+    margin-bottom: 8px;
+}
+
+.payment-method-description {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #555555; /* Темно-сірий для опису */
+}
+
+/* --- Секція "Доставка" --- */
+.delivery-info {
+    max-width: 600px; /* Обмеження ширини для кращої читабельності */
+    margin: 0 auto; /* Центрування блоку, якщо він вужчий */
+    text-align: center; /* Текст по центру, як на макеті */
+}
+
+.delivery-info p {
+    font-size: 16px;
+    color: #333333;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+.delivery-info p:last-child {
+    margin-bottom: 0;
+}
+
+/* --- Секція "Допомога" --- */
+.help-section {
+    text-align: center;
+    padding-top: 30px; /* Відступ зверху, щоб візуально відокремити */
+    /* border-top: 1px solid #E0E0E0; /* Можлива лінія зверху */
+}
+
+.help-question {
+    font-size: 16px;
+    color: #333333;
+    margin-bottom: 8px;
+}
+
+.help-section p:last-of-type { /* Для параграфа з посиланням */
+    font-size: 16px;
+    color: #333333;
+}
+
+.help-link {
+    color: #007bff; /* Стандартний синій для посилань, або ваш фірмовий */
+    text-decoration: underline;
+}
+.help-link:hover {
+    color: #0056b3;
+    text-decoration: none;
+}
+
+/* === АДАПТИВНІСТЬ delivery === */
+/*@media (max-width: 768px) {*/
+/*    .section-title {*/
+/*        font-size: 28px; !* Менший заголовок на мобільних *!*/
+/*        margin-bottom: 30px;*/
+/*    }*/
+
+/*    .payment-methods-grid {*/
+/*        grid-template-columns: 1fr; !* Один стовпчик на мобільних *!*/
+/*    }*/
+
+/*    !* На мобільних пристроях всі елементи, крім останнього, матимуть лінію знизу.*/
+/*       Права лінія не потрібна. *!*/
+/*    .payment-methods-grid .payment-method-item {*/
+/*        border-right: none !important; !* Прибираємо праву лінію *!*/
+/*        border-bottom: 1px solid #E0E0E0;*/
+/*    }*/
+/*    .payment-methods-grid .payment-method-item:last-child {*/
+/*        border-bottom: none; !* Останній елемент не має лінії знизу *!*/
+/*    }*/
+/*    .payment-methods-grid .payment-method-item:nth-child(2) { !* Другий елемент теж матиме лінію знизу *!*/
+/*        border-bottom: 1px solid #E0E0E0;*/
+/*    }*/
+
+
+/*    .payment-method-item {*/
+/*        padding: 20px 15px; !* Менші відступи на мобільних *!*/
+/*        text-align: center; !* Центруємо контент всередині блоку *!*/
+/*    }*/
+/*    .payment-method-icon {*/
+/*        text-align: center; !* Іконки по центру *!*/
+/*    }*/
+/*    .payment-method-title {*/
+/*        font-size: 18px;*/
+/*    }*/
+/*    .payment-method-description {*/
+/*        font-size: 13px;*/
+/*    }*/
+
+/*    .delivery-info p,*/
+/*    .help-question,*/
+/*    .help-section p:last-of-type {*/
+/*        font-size: 15px;*/
+/*    }*/
+/*}*/
+
+/*@media (max-width: 480px) {*/
+/*    .section-title {*/
+/*        font-size: 24px;*/
+/*    }*/
+/*    .payment-method-title {*/
+/*        font-size: 17px;*/
+/*    }*/
+/*    .payment-method-description {*/
+/*        font-size: 12px;*/
+/*    }*/
+/*    .delivery-info p,*/
+/*    .help-question,*/
+/*    .help-section p:last-of-type {*/
+/*        font-size: 14px;*/
+/*    }*/
+/*}*/
+
 
 
 /* === MOBILE STYLES === */
