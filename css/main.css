@@ -188,6 +188,10 @@ a.no-transform {
     text-transform: none;
 }
 
+.main-navigation a.active {
+    color: #F9BD00;
+}
+
 .main-navigation .shopping-cart {
     background: none;
     border: none;
