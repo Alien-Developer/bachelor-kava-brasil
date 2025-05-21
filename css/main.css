@@ -668,7 +668,7 @@ p.phone-number {
 /* 1. page navigation */
 .page-nav {
     padding-top: 21px;
-    margin-bottom: 81px;
+    /*margin-bottom: 81px;*/
 }
 .page-nav ul {
     list-style: none;
@@ -702,6 +702,7 @@ p.phone-number {
     display: flex;
     flex-wrap: wrap; /* Дозволяє переносити на новий рядок на менших екранах */
     gap: 30px; /* Відстань між картинкою та деталями */
+    margin-top: 81px;
     margin-bottom: 97px;
 }
 
@@ -718,15 +719,11 @@ p.phone-number {
 }
 
 .product-details {
-    flex: 1 1 50%; /* Займає приблизно 50% ширини */
-    /* background-color: #fdfdfd; /* Тимчасовий фон */
-    /* padding: 20px; */
-    /* border: 1px solid #eee; */
-    /* border-radius: 8px; */
+    flex: 1 1 50%;
 }
 
 .product-title {
-    font-size: 40px; /* Розмір заголовка товару */
+    font-size: 40px;
     margin-bottom: 35px;
     font-weight: 500;
     line-height: 1.35em;
@@ -737,8 +734,8 @@ p.phone-number {
     align-items: center;
     gap: 30px;
     margin-bottom: 40px;
-    border-top: 1px solid rgba(204, 204, 204, 0.6); /* Лінія під ціною/кнопками */
-    border-bottom: 1px solid rgba(204, 204, 204, 0.6); /* Лінія під ціною/кнопками */
+    border-top: 1px solid rgba(204, 204, 204, 0.6);
+    border-bottom: 1px solid rgba(204, 204, 204, 0.6);
     padding: 32px 16px;
     flex-wrap: wrap;
 }
@@ -777,12 +774,10 @@ p.phone-number {
 .product-quantity .quantity-button:hover {
     border-color: #000;
 }
-/* Стилі для неактивних кнопок кількості */
+
 .quantity-button:disabled {
-    opacity: 0.5; /* Зменшуємо прозорість */
-    cursor: not-allowed; /* Змінюємо курсор */
-    /* background-color: #eee; /* Можна змінити фон */
-    /* color: #aaa; /* Можна змінити колір тексту */
+    opacity: 0.5;
+    cursor: not-allowed;
 }
 .add-to-cart-button {
     background-color: #F9BD00;
@@ -798,12 +793,10 @@ p.phone-number {
     line-height: 1.3em;
 }
 .add-to-cart-button:hover {
-    background-color: #000; /* Темніший жовтий */
+    background-color: #000;
 }
 
-.product-characteristics {
-    /*margin-bottom: 25px;*/
-}
+.product-characteristics {}
 .product-characteristics h2 {
     font-size: 24px;
     margin-bottom: 68px;
@@ -820,10 +813,6 @@ p.phone-number {
 .product-characteristics li {
     /*margin-bottom: 8px;*/
     font-size: 16px;
-    /*color: #ccc; !* Світло-сірий для тексту характеристик *!*/
-    /* Для візуалізації крапок міцності: */
-    /* display: flex; */
-    /* justify-content: space-between; */
 }
 
 ul.characteristics-dots {
@@ -845,13 +834,11 @@ ul.characteristics-dots li:last-child {
 }
 
 ul.characteristics-dots li strong {
-    /*color: #fff; !* Білий для назви характеристики *!*/
-    /*margin-right: 5px;*/
     font-weight: 400;
 }
-.char-dots { /* Для стилізації крапок (якщо це текст) */
+.char-dots {
     font-weight: bold;
-    letter-spacing: -7px; /* Розріджуємо крапки */
+    letter-spacing: -7px;
     font-size: 28px;
     line-height: 18px;
     margin-left: -5px;
@@ -867,7 +854,7 @@ ul.characteristics-list {
 
 ul.characteristics-list li {
     display: flex;
-    align-items: flex-start; /* Вирівнюємо назву та значення по верхньому краю */
+    align-items: flex-start;
     padding: 15px 0;      /* Вертикальні відступи для кожного рядка характеристики */
     break-inside: avoid-column;
     word-break: break-word; /* Дозволяє розривати слова, якщо потрібно */
@@ -888,17 +875,12 @@ ul.characteristics-list li:last-child {
 
 ul.characteristics-list li strong {
     font-weight: 200;
-
     flex: 0 0 54%; /* Не розтягується, не стискається, базова ширина 50% */
     box-sizing: border-box; /* Щоб padding не збільшував ширину */
 }
 
 /* 3. Опис товару */
 .product-description {
-    /* background-color: #fff; /* Тимчасовий фон */
-    /* padding: 25px; */
-    /* border: 1px solid #eee; */
-    /* border-radius: 8px; */
     padding-bottom: 35px;
 }
 .product-description h2 {
@@ -923,7 +905,7 @@ ul.characteristics-list li strong {
 
 /* Загальний клас для секцій контенту на цій сторінці */
 .text-content-section {
-    margin-bottom: 60px; /* Відступ між секціями */
+    margin-top: 35px; /* Відступ між секціями */
 }
 .text-content-section:last-child {
     margin-bottom: 30px; /* Менший відступ для останньої секції */
@@ -931,71 +913,78 @@ ul.characteristics-list li strong {
 
 /* Заголовки секцій "Оплата", "Доставка" */
 .section-title {
-    font-size: 36px; /* Розмір як на макеті */
-    font-weight: 500; /* Середня насиченість */
-    color: #000000;   /* Чорний колір */
+    font-size: 48px; /* Розмір як на макеті */
+    font-weight: bold; /* Середня насиченість */
+    /*color: #000000;   !* Чорний колір *!*/
     text-align: center;
     margin-bottom: 40px;
 }
 
 /* --- Секція "Оплата" --- */
 .payment-methods-grid {
+    margin-top: 74px;
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* Два стовпчики однакової ширини */
     gap: 0; /* За замовчуванням без проміжків, бо використовуємо border */
-    /* border-top: 1px solid #E0E0E0; /* Верхня лінія для всієї сітки */
-    /* border-left: 1px solid #E0E0E0; /* Ліва лінія для всієї сітки */
+    border-top: 1px solid rgba(204, 204, 204, 0.6);
 }
 
 .payment-method-item {
-    padding: 30px 25px; /* Внутрішні відступи */
+    padding: 30px 0 30px 139px;
     box-sizing: border-box;
-    /* Кожен елемент має праву та нижню межу, крім крайніх */
+    border-bottom: 1px solid rgba(204, 204, 204, 0.6);
 }
 
 /* Горизонтальні лінії-роздільники */
 /* Перший та другий елементи (верхній ряд) мають лінію знизу */
 .payment-methods-grid .payment-method-item:nth-child(1),
 .payment-methods-grid .payment-method-item:nth-child(2) {
-    border-bottom: 1px solid #E0E0E0;
+    /*border-bottom: 1px solid #E0E0E0;*/
 }
 
 /* Вертикальні лінії-роздільники */
 /* Перший та третій елементи (лівий стовпчик) мають лінію справа */
 .payment-methods-grid .payment-method-item:nth-child(odd) { /* непарні елементи - перший стовпчик */
     border-right: 1px solid #E0E0E0;
+    padding-left: 0;
+    padding-right: 139px;
 }
-
 
 .payment-method-icon {
     margin-bottom: 15px;
     text-align: left; /* Іконки на скріншоті вирівняні по лівому краю */
 }
 
+.payment-methods-grid .payment-method-item:nth-child(odd) .payment-method-icon {
+    margin-bottom: 0;
+}
+
 .payment-method-icon img {
-    height: 32px; /* Орієнтовна висота іконок, налаштуйте за потребою */
-    width: auto;   /* Автоматична ширина для збереження пропорцій */
+    width: 65px; /* Орієнтовна висота іконок, налаштуйте за потребою */
+    height: auto;   /* Автоматична ширина для збереження пропорцій */
 }
 /* Специфічні розміри для деяких іконок, якщо потрібно */
 .payment-method-icon img[alt*="Google Pay"] {
-    height: 24px; /* Google Pay логотип зазвичай не такий високий */
+    width: 145px;
+    height: auto;
 }
 .payment-method-icon img[alt*="Apple Pay"] {
-    height: 30px; /* Apple Pay логотип */
+    width: 139px;
+    height: auto;
 }
 
 
 .payment-method-title {
-    font-size: 20px; /* Розмір заголовка методу оплати */
+    font-size: 32px;
     font-weight: 500;
-    color: #000000;
+    /*color: #000000;*/
     margin-bottom: 8px;
 }
 
 .payment-method-description {
-    font-size: 14px;
+    font-size: 24px;
     line-height: 1.5;
-    color: #555555; /* Темно-сірий для опису */
+    font-weight: 200;
 }
 
 /* --- Секція "Доставка" --- */
