@@ -484,7 +484,8 @@ h2.about-section-title {
     min-width: 180px; /* Minimum width before wrapping */
 }
 
-.footer-column h3 {
+.footer-column h3,
+.contact-info h3 {
     font-size: 16px;
     color: #ffffff;
     margin-bottom: 5px;
@@ -506,7 +507,8 @@ h2.about-section-title {
     color: #aaaaaa;
 }
 
-.footer-column p {
+.footer-column p,
+.contact-info p {
     font-size: 16px;
     color: #ffffff;
     margin-bottom: 10px;
@@ -541,7 +543,6 @@ h2.about-section-title {
     opacity: 0.75; /* Зменшуємо прозорість при наведенні */
 }
 
-/* Якщо ви використовуєте IMG замість SVG: */
 .social-links a img {
     display: block;
     filter: brightness(0) invert(1);
@@ -573,7 +574,6 @@ h2.about-section-title {
     height: 30px;
 }
 
-/* Якщо ви використовуєте IMG замість SVG: */
 .social-links a:hover img {
     opacity: 0.75;
 }
@@ -593,7 +593,8 @@ p.phone-number {
 }
 
 /* === Нові/Оновлені стилі для кнопки "Зв'язатися" === */
-.footer-column .button.button-contact { /* Більш специфічний селектор */
+.footer-column .button.button-contact,
+.contact-info .button.button-contact { /* Більш специфічний селектор */
     display: inline-flex;
     background-color: #183221; /* Темно-зелений/сірий - ПІДБЕРІТЬ ТОЧНИЙ КОЛІР З МАКЕТУ */
     color: #ffffff; /* Білий текст */
@@ -1134,7 +1135,7 @@ ul.characteristics-list li strong {
 
 /* --- section 2: --- */
 .about-values-section {
-    padding: 28px 0; /* Відступи для секції */
+    padding: 28px 0 42px 0;
 }
 
 /* .section-title для цієї сторінки вже має бути стилізований з main.css (центрирований, чорний) */
@@ -1148,13 +1149,13 @@ ul.characteristics-list li strong {
     display: flex;
     align-items: center;
     gap: 40px;
-    margin-bottom: 50px;
-    padding: 25px 0;
+    /*margin-bottom: 50px;*/
+    padding: 24px 0 29px 0;
     border-top: 1px solid rgba(204, 204, 204, 0.6)
 }
-.value-item:last-child {
-    margin-bottom: 0;
-}
+/*.value-item:last-child {*/
+/*    margin-bottom: 0;*/
+/*}*/
 
 .value-item .value-text {
     flex: 1;
@@ -1199,27 +1200,36 @@ ul.characteristics-list li strong {
     /*box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); !* Легка тінь *!*/
 }
 
-/* --- Секція 3: Контакти --- */
+/* --- section 3: contacts --- */
 .contact-section {
-    padding: 60px 0;
-    background-color: #f9f9f9; /* Дуже світло-сірий фон для секції контактів */
+    padding: 17px 0;
+    background-color: #181818;
+    color: #fff;
 }
+
 .contact-section .section-title {
-    color: #000000;
-    margin-bottom: 50px;
+    font-size: 32px;
+    color: #fff;
+    font-weight: 500;
 }
 
 .contact-details-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    align-items: start; /* Вирівнюємо по верху, якщо контент різної висоти */
+    display: flex;
+    gap: 30px;
+    margin: 0 auto;
+    align-items: start;
+    max-width: max-content;
+}
+
+
+
+.contact-info {
+    color: #fff;
 }
 
 .contact-info p {
     font-size: 16px;
-    color: #333333;
-    line-height: 1.7;
+    font-weight: 400;
     margin-bottom: 20px;
 }
 .contact-info p strong {
@@ -1234,13 +1244,6 @@ ul.characteristics-list li strong {
 }
 .contact-info a:hover {
     text-decoration: underline;
-}
-
-.contact-map iframe {
-    width: 100%;
-    min-height: 350px; /* Мінімальна висота карти */
-    border: 1px solid #ddd !important; /* Важливо, щоб перебити стиль border:0 з iframe */
-    border-radius: 8px;
 }
 
 /* --- Секція 4: Фінальне зображення --- */
