@@ -1061,64 +1061,87 @@ ul.characteristics-list li strong {
 
 .about-hero-content {
     display: flex;
-    align-items: center;
-    gap: 40px;
+    align-items: flex-start;
+    /*gap: 40px;*/
+    justify-content: space-between;
 }
 
 .about-hero-text {
-    flex: 1 1 30%;
+    flex: 0 0 45%; /* Збільшуємо місце для тексту, трохи менше половини */
+    /* Або встановіть фіксовану max-width, якщо потрібно, наприклад: */
+    /* max-width: 500px; */
+    padding-right: 30px; /* Явно додаємо відступ справа від тексту */
+    box-sizing: border-box;
 }
 
-/*.about-hero-title {*/
-/*    font-size: 42px;*/
-/*    font-weight: 700; !* Зробимо жирнішим *!*/
-/*    margin-bottom: 25px;*/
-/*    line-height: 1.3;*/
-/*}*/
-
-.about-hero-text p {
-    /*line-height: 1.7;*/
-    /*margin-bottom: 20px;*/
-    /*color: #fff; !* Трохи світліший білий для кращої читабельності на фоні *!*/
-}
 .about-hero-text p:last-child {
     margin-bottom: 0;
 }
 
 .about-hero-content .slider-wrapper {
     position: relative;
-    flex: 1 1 40%;
-    margin-left: 0;
+    flex: 1 1 48%;
+     max-width: 380px; /* Звужуємо слайдер, наприклад, до 400px. ПІДБЕРІТЬ ЗНАЧЕННЯ!
+    /* Якщо flex-basis не дає потрібного ефекту звуження через вміст, використовуйте max-width */
+    margin-left: 0; /* Скидаємо попередній margin, якщо був */
+    margin-right: 45px;
+    /* Для центрування самого слайдера, якщо він став вужчим за flex-контейнер: */
+    /* margin: 0 auto; */
+    /* Але оскільки ми використовуємо flex: 0 0 48%, він займе відведене місце */
+    overflow: hidden; /* Важливо для роботи слайдера */
+}
+
+.about-hero-content .slider-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
 }
 
 .about-hero-content .slide-item {
-    /*display: block;*/
-    padding: 0;
-    justify-content: center;
+    width: 100%; /* Кожен слайд займає повну ширину .slider-track (яка тепер обмежена .slider-wrapper) */
+    flex-shrink: 0;
+    padding: 0; /* Прибираємо внутрішні відступи слайда, якщо були */
+    display: flex; /* Дозволяє центрувати картинку, якщо потрібно */
+    justify-content: center; /* Центруємо .slide-image-content */
+    align-items: center;
 }
 
 .about-hero-content .slide-image-content {
-    text-align: center; /* Для центрування зображення, якщо воно менше */
-    flex-basis: 380px;
+    text-align: center;
+    flex-basis: auto; /* Нехай ширина визначається зображенням або явною шириною нижче */
+    /* Якщо зображення все ще завелике, встановіть максимальну ширину для нього: */
+     max-width: 280px;
 }
 
 .about-hero-content .slide-image-content img {
-    max-width: 280px;
+    max-width: 100%; /* Зображення не виходить за межі .slide-image-content */
+    /* Якщо ви встановили max-width для .slide-image-content,
+       то 100% тут буде відносно цього max-width. */
+    /* Приклад фіксованої ширини для зображення, якщо потрібно: */
+    /* width: 280px; */ /* Вже було, можна залишити або змінити */
     height: auto;
-    position: static;
-    /*max-height: 450px; !* Обмеження висоти пачки кави *!*/
+    position: static; /* Скидаємо позиціонування, якщо було */
+    display: block; /* Для уникнення зайвих відступів */
+    margin: 0 auto; /* Центрування, якщо блок ширший */
 }
 
-/* --- Секція 2: "Ми робимо лише те, що справді цінуємо" --- */
+.about-hero-content .slider-button.prev {
+    left: 0;
+}
+
+.about-hero-content .slider-button.next {
+    right: 0;
+}
+
+/* --- section 2: --- */
 .about-values-section {
-    padding: 60px 0; /* Відступи для секції */
+    padding: 28px 0; /* Відступи для секції */
 }
 
 /* .section-title для цієї сторінки вже має бути стилізований з main.css (центрирований, чорний) */
 /* Якщо потрібні зміни: */
 .about-values-section .section-title {
     /*color: #000000;*/
-    margin-bottom: 50px;
+    margin-bottom: 80px;
 }
 
 .value-item {
@@ -1126,6 +1149,8 @@ ul.characteristics-list li strong {
     align-items: center;
     gap: 40px;
     margin-bottom: 50px;
+    padding: 25px 0;
+    border-top: 1px solid rgba(204, 204, 204, 0.6)
 }
 .value-item:last-child {
     margin-bottom: 0;
@@ -1133,11 +1158,13 @@ ul.characteristics-list li strong {
 
 .value-item .value-text {
     flex: 1;
+    flex-basis: 39%;
     order: 1; /* За замовчуванням текст зліва */
 }
 
 .value-item .value-image {
     flex: 1;
+    flex-basis: 61%;
     order: 2; /* За замовчуванням картинка справа */
 }
 
@@ -1150,24 +1177,26 @@ ul.characteristics-list li strong {
 }
 
 .value-item h3 {
-    font-size: 28px;
-    font-weight: 600;
-    color: #1a1a1a;
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 1.35em;
+    /*color: #1a1a1a;*/
     margin-bottom: 15px;
 }
 
 .value-item p {
-    font-size: 16px;
-    line-height: 1.7;
-    color: #333333;
+    font-weight: 300;
+/*    font-size: 16px;*/
+/*    line-height: 1.7;*/
+/*    color: #333333;*/
 }
 
 .value-item .value-image img {
     width: 100%;
     height: auto;
     display: block;
-    border-radius: 8px; /* Невелике заокруглення для зображень */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Легка тінь */
+    /*border-radius: 8px; !* Невелике заокруглення для зображень *!*/
+    /*box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); !* Легка тінь *!*/
 }
 
 /* --- Секція 3: Контакти --- */
@@ -1343,6 +1372,49 @@ ul.characteristics-list li strong {
 
     .contact-info p {
         font-size: 15px;
+    }
+}
+/* === АДАПТИВНІСТЬ для .about-hero-content === */
+@media (max-width: 992px) { /* Планшети */
+    .about-hero-content {
+        flex-direction: column; /* Текст над слайдером */
+        text-align: center; /* Центруємо текст */
+        gap: 30px; /* Відстань між текстом і слайдером */
+    }
+
+    .about-hero-text {
+        flex-basis: auto; /* Дозволяємо тексту зайняти потрібну ширину */
+        width: 100%;     /* Текст на всю ширину контейнера */
+        padding-right: 0; /* Прибираємо відступ, бо елементи в стовпчик */
+        margin-bottom: 20px; /* Додаємо відступ під текстом */
+    }
+
+    .about-hero-content .slider-wrapper {
+        flex-basis: auto; /* Дозволяємо слайдеру зайняти потрібну ширину */
+        width: 80%;       /* Слайдер не на всю ширину, а, наприклад, 80% */
+        max-width: 450px; /* Обмеження максимальної ширини слайдера на планшетах */
+        margin: 0 auto;   /* Центруємо слайдер */
+    }
+}
+
+@media (max-width: 768px) { /* Мобільні (якщо потрібні додаткові зміни до попередніх) */
+    .about-hero-section {
+        /* Існуючі стилі для мобільних */
+    }
+    .about-hero-content .slider-wrapper {
+        width: 90%; /* Можливо, ще трохи ширше на мобільних */
+        max-width: 400px;
+    }
+
+    .about-hero-content .slider-button { /* Можливо, трохи менші кнопки на мобільних */
+        width: 28px;
+        height: 45px;
+    }
+    .about-hero-content .slider-button.prev {
+        left: 5px;
+    }
+    .about-hero-content .slider-button.next {
+        right: 5px;
     }
 }
 
