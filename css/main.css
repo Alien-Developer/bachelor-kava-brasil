@@ -459,14 +459,11 @@ h2.about-section-title {
     background: url(../img/next.png) no-repeat;
 }
 
-
-
-
 /* Footer */
 .site-footer {
-    background-color: #111; /* Slightly lighter than body */
+    background-color: #111;
     padding: 50px 0 20px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    /*border-top: 1px solid rgba(255, 255, 255, 0.1);*/
 }
 
 .footer-container {
@@ -1202,7 +1199,7 @@ ul.characteristics-list li strong {
 
 /* --- section 3: contacts --- */
 .contact-section {
-    padding: 17px 0;
+    padding: 17px 0 50px 0;
     background-color: #181818;
     color: #fff;
 }
@@ -1215,13 +1212,11 @@ ul.characteristics-list li strong {
 
 .contact-details-grid {
     display: flex;
-    gap: 30px;
+    column-gap: 90px;
     margin: 0 auto;
     align-items: start;
     max-width: max-content;
 }
-
-
 
 .contact-info {
     color: #fff;
@@ -1229,21 +1224,19 @@ ul.characteristics-list li strong {
 
 .contact-info p {
     font-size: 16px;
-    font-weight: 400;
-    margin-bottom: 20px;
+    margin-top: 0;
+    margin-bottom: 10px;
 }
-.contact-info p strong {
-    font-weight: 600;
-    color: #1a1a1a;
-    display: block; /* Щоб "Адреса:", "Телефон:" були на окремому рядку */
-    margin-bottom: 5px;
+
+.contact-info .button.button-contact {
+    margin-top: 15px;
+    background-color: #fff;
+    color: #111;
 }
-.contact-info a {
-    color: #007bff; /* Колір посилань */
-    text-decoration: none;
-}
-.contact-info a:hover {
-    text-decoration: underline;
+
+.contact-info .button.button-contact:hover {
+    background-color: #183221;
+    color: #fff;
 }
 
 /* --- Секція 4: Фінальне зображення --- */
@@ -1262,12 +1255,6 @@ ul.characteristics-list li strong {
 /* === АДАПТИВНІСТЬ для сторінки "Про нас та контакти" === */
 
 @media (max-width: 992px) {
-    .about-hero-title {
-        font-size: 36px;
-    }
-    .about-hero-text p {
-        font-size: 16px;
-    }
 
     .value-item h3 {
         font-size: 24px;
@@ -1282,29 +1269,49 @@ ul.characteristics-list li strong {
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 800px) {
     .about-page .page-nav {
-        margin-bottom: 20px; /* Зменшений відступ для хлібних крихт на мобільних */
+        margin-bottom: 8px;
     }
 
     /* Секція 1: Hero */
     .about-hero-section {
-        padding: 40px 0;
+        padding: 13px 0;
+        background-position: center;
     }
     .about-hero-content {
         flex-direction: column;
         text-align: center;
     }
     .about-hero-text {
-        order: 1; /* Текст зверху */
+        order: 2;
+        flex-basis: auto; /* Дозволяємо тексту зайняти потрібну ширину */
+        width: 100%;     /* Текст на всю ширину контейнера */
+        padding-right: 0; /* Прибираємо відступ, бо елементи в стовпчик */
+        margin-bottom: 20px;
     }
+
+    .about-hero-text p {
+        font-size: 20px;
+        text-align: left;
+        margin-top: 28px;
+    }
+
+    .about-hero-content .slider-wrapper {
+        flex-basis: auto; /* Дозволяємо слайдеру зайняти потрібну ширину */
+        width: 80%;       /* Слайдер не на всю ширину, а, наприклад, 80% */
+        margin: 0 auto;
+    }
+
     .about-hero-image {
         order: 2; /* Картинка знизу */
         margin-top: 30px;
         max-width: 70%; /* Щоб пачка кави не була надто великою */
     }
-    .about-hero-title {
-        font-size: 30px;
+
+    .about-hero-content .slide-image-content {
+        display: block;
+        max-width: 37%;
     }
 
     /* Секція 2: Values */
@@ -1356,12 +1363,7 @@ ul.characteristics-list li strong {
 }
 
 @media (max-width: 480px) {
-    .about-hero-title {
-        font-size: 26px;
-    }
-    .about-hero-text p {
-        font-size: 15px;
-    }
+
     .about-hero-image {
         max-width: 80%;
     }
@@ -1375,49 +1377,6 @@ ul.characteristics-list li strong {
 
     .contact-info p {
         font-size: 15px;
-    }
-}
-/* === АДАПТИВНІСТЬ для .about-hero-content === */
-@media (max-width: 992px) { /* Планшети */
-    .about-hero-content {
-        flex-direction: column; /* Текст над слайдером */
-        text-align: center; /* Центруємо текст */
-        gap: 30px; /* Відстань між текстом і слайдером */
-    }
-
-    .about-hero-text {
-        flex-basis: auto; /* Дозволяємо тексту зайняти потрібну ширину */
-        width: 100%;     /* Текст на всю ширину контейнера */
-        padding-right: 0; /* Прибираємо відступ, бо елементи в стовпчик */
-        margin-bottom: 20px; /* Додаємо відступ під текстом */
-    }
-
-    .about-hero-content .slider-wrapper {
-        flex-basis: auto; /* Дозволяємо слайдеру зайняти потрібну ширину */
-        width: 80%;       /* Слайдер не на всю ширину, а, наприклад, 80% */
-        max-width: 450px; /* Обмеження максимальної ширини слайдера на планшетах */
-        margin: 0 auto;   /* Центруємо слайдер */
-    }
-}
-
-@media (max-width: 768px) { /* Мобільні (якщо потрібні додаткові зміни до попередніх) */
-    .about-hero-section {
-        /* Існуючі стилі для мобільних */
-    }
-    .about-hero-content .slider-wrapper {
-        width: 90%; /* Можливо, ще трохи ширше на мобільних */
-        max-width: 400px;
-    }
-
-    .about-hero-content .slider-button { /* Можливо, трохи менші кнопки на мобільних */
-        width: 28px;
-        height: 45px;
-    }
-    .about-hero-content .slider-button.prev {
-        left: 5px;
-    }
-    .about-hero-content .slider-button.next {
-        right: 5px;
     }
 }
 
