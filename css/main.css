@@ -1127,7 +1127,7 @@ ul.characteristics-list li strong {
 }
 
 .about-hero-content .slider-button.next {
-    right: 0;
+    right: 9px;
 }
 
 /* --- section 2: --- */
@@ -1179,7 +1179,7 @@ ul.characteristics-list li strong {
     font-weight: 500;
     line-height: 1.35em;
     /*color: #1a1a1a;*/
-    margin-bottom: 15px;
+    /*margin-bottom: 15px;*/
 }
 
 .value-item p {
@@ -1239,7 +1239,7 @@ ul.characteristics-list li strong {
     color: #fff;
 }
 
-/* --- Секція 4: Фінальне зображення --- */
+/* --- section 4 --- */
 .about-closing-image-section {
     margin-top: 0; /* Зазвичай після секції з фоном відступ не потрібен або менший */
     line-height: 0; /* Прибирає можливий відступ під зображенням */
@@ -1248,25 +1248,11 @@ ul.characteristics-list li strong {
 .about-closing-image-section img {
     width: 100%;
     height: auto;
-    display: block; /* Прибирає можливий відступ під зображенням */
+    display: block;
 }
 
 
 /* === АДАПТИВНІСТЬ для сторінки "Про нас та контакти" === */
-
-@media (max-width: 992px) {
-
-    .value-item h3 {
-        font-size: 24px;
-    }
-    .value-item p {
-        font-size: 15px;
-    }
-
-    .contact-details-grid {
-        gap: 30px;
-    }
-}
 
 
 @media (max-width: 800px) {
@@ -1274,9 +1260,14 @@ ul.characteristics-list li strong {
         margin-bottom: 8px;
     }
 
+    .about-page .section-title {
+        margin-bottom: 34px;
+        padding: 0 20px;
+    }
+
     /* Секція 1: Hero */
     .about-hero-section {
-        padding: 13px 0;
+        padding: 13px 0 0 0;
         background-position: center;
     }
     .about-hero-content {
@@ -1288,7 +1279,7 @@ ul.characteristics-list li strong {
         flex-basis: auto; /* Дозволяємо тексту зайняти потрібну ширину */
         width: 100%;     /* Текст на всю ширину контейнера */
         padding-right: 0; /* Прибираємо відступ, бо елементи в стовпчик */
-        margin-bottom: 20px;
+        margin-bottom: 25px;
     }
 
     .about-hero-text p {
@@ -1298,15 +1289,9 @@ ul.characteristics-list li strong {
     }
 
     .about-hero-content .slider-wrapper {
-        flex-basis: auto; /* Дозволяємо слайдеру зайняти потрібну ширину */
-        width: 80%;       /* Слайдер не на всю ширину, а, наприклад, 80% */
+        flex-basis: auto;
+        width: 80%;
         margin: 0 auto;
-    }
-
-    .about-hero-image {
-        order: 2; /* Картинка знизу */
-        margin-top: 30px;
-        max-width: 70%; /* Щоб пачка кави не була надто великою */
     }
 
     .about-hero-content .slide-image-content {
@@ -1314,71 +1299,80 @@ ul.characteristics-list li strong {
         max-width: 37%;
     }
 
+    .about-hero-content .slider-button {
+        width: 13px;
+        height: 38px;
+    }
+
+    .about-hero-content .slider-button.prev {
+        background: url("../img/prev-black.png") no-repeat;
+    }
+    .about-hero-content .slider-button.next {
+        background: url("../img/next-black.png") no-repeat;
+    }
+
     /* Секція 2: Values */
-    .about-values-section {
-        padding: 40px 0;
+    .about-page .about-values-section {
+        margin-top: 16px;
+        padding: 0;
     }
-    .about-values-section .section-title {
-        font-size: 28px; /* Успадковується з .section-title, але можна тут змінити */
-        margin-bottom: 30px;
+
+    .about-values-section h2,
+    .about-values-section h3,
+    .about-values-section p {
+        text-align: left;
+        line-height: 1.35em;
     }
+
+    .value-item h3 {
+        font-size: 24px;
+        margin-bottom: 13px;
+    }
+
+    .value-item p {
+        font-size: 20px;
+        margin-top: 0;
+    }
+
     .value-item,
     .value-item.layout-reversed {
         flex-direction: column;
-        text-align: left; /* Або center, якщо краще виглядає */
-        margin-bottom: 40px;
+        padding-top: 10px;
+        padding-bottom: 24px;
+        row-gap: 10px;
+
     }
     .value-item .value-text,
     .value-item.layout-reversed .value-text {
         order: 1; /* Текст завжди перший на мобільних */
+        padding-left: 20px;
+        padding-right: 20px;
     }
     .value-item .value-image,
     .value-item.layout-reversed .value-image {
         order: 2; /* Картинка завжди друга */
-        margin-top: 20px;
+        margin-top: 0px;
     }
-    .value-item h3 {
-        font-size: 22px;
-        text-align: center; /* Заголовки переваг по центру */
+
+    .value-item:last-child {
+        padding-bottom: 0;
     }
 
     /* Секція 3: Contacts */
     .contact-section {
-        padding: 40px 0;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .contact-section .section-title {
+        font-size: 24px;
+        margin-bottom: 16px;
     }
     .contact-details-grid {
-        grid-template-columns: 1fr; /* Один стовпчик */
+
     }
-    .contact-info {
-        text-align: center; /* Текст контактів по центру */
-    }
-    .contact-info p strong {
-        display: inline; /* "Адреса:" і т.д. в один рядок з текстом */
-        margin-bottom: 0;
-        margin-right: 5px;
-    }
-    .contact-map iframe {
-        min-height: 300px; /* Трохи менша карта */
-    }
+
 }
 
-@media (max-width: 480px) {
-
-    .about-hero-image {
-        max-width: 80%;
-    }
-
-    .value-item h3 {
-        font-size: 20px;
-    }
-    .value-item p {
-        font-size: 14px;
-    }
-
-    .contact-info p {
-        font-size: 15px;
-    }
-}
 
 
 
