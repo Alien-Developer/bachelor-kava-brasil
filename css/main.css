@@ -56,6 +56,10 @@ b, strong, dfn {
     font-weight: bold;
 }
 
+.nowrap {
+    white-space: nowrap;
+}
+
 /* main styles */
 body {
     font-family: "Manrope", sans-serif;
@@ -1358,17 +1362,17 @@ ul.characteristics-list li strong {
         padding-bottom: 0;
     }
 
-    /* Секція 3: Contacts */
+    /* section 3: Contacts */
     .contact-section {
         padding-left: 20px;
         padding-right: 20px;
+        padding-bottom: 33px;
     }
     .contact-section .section-title {
         font-size: 24px;
         margin-bottom: 16px;
     }
     .contact-details-grid {
-
     }
 
 }
@@ -1900,29 +1904,9 @@ ul.characteristics-list li strong {
 
 /* Можна додати ще один breakpoint для дуже маленьких екранів, наприклад < 480px */
 @media (max-width: 480px) {
-    /*body {*/
-    /*    padding-top: 60px; !* Ще менший хедер *!*/
-    /*}*/
-    /*.site-header .container {*/
-    /*    height: 60px;*/
-    /*}*/
-    /*.navigation-wrapper {*/
-    /*    top: 60px;*/
-    /*}*/
-    /*.logo {*/
-    /*    width: 120px;*/
-    /*}*/
-    /*.hero-text h1 {*/
-    /*    font-size: 24px;*/
-    /*}*/
-    /*h2.about-section-title {*/
-    /*    font-size: 20px;*/
-    /*}*/
-    /*.slide-text-content p {*/
-    /*    font-size: 14px;*/
-    /*}*/
-    /*.footer-column {*/
-    /*    !* 1 колонка на дуже малих екранах *!*/
-    /*    flex-basis: 100%;*/
-    /*}*/
+    .contact-details-grid {
+        gap: 25px;
+        justify-content: space-between;
+        max-width: 100%;
+    }
 }
