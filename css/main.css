@@ -729,6 +729,7 @@ p.phone-number {
     margin-bottom: 35px;
     font-weight: 500;
     line-height: 1.35em;
+    color: #000000;
 }
 
 .product-price-actions {
@@ -1029,7 +1030,7 @@ ul.characteristics-list li strong {
 
 
 
-/* === СТИЛІ ДЛЯ СТОРІНКИ "ПРО НАС ТА КОНТАКТИ" === */
+/* === about contacts === */
 
 /* --- Загальні налаштування для сторінки "Про нас" --- */
 .about-page .page-nav {
@@ -1057,10 +1058,6 @@ ul.characteristics-list li strong {
     color: #ffffff; /* Текст на цій секції буде білим */
 }
 
-/*.about-hero-section .container { !* Переконуємось, що контейнер всередині не має свого фону *!*/
-/*    background-color: transparent;*/
-/*}*/
-
 .about-hero-content {
     display: flex;
     align-items: flex-start;
@@ -1069,9 +1066,7 @@ ul.characteristics-list li strong {
 }
 
 .about-hero-text {
-    flex: 0 0 45%; /* Збільшуємо місце для тексту, трохи менше половини */
-    /* Або встановіть фіксовану max-width, якщо потрібно, наприклад: */
-    /* max-width: 500px; */
+    flex: 0 0 45%;
     padding-right: 30px; /* Явно додаємо відступ справа від тексту */
     box-sizing: border-box;
 }
@@ -1083,13 +1078,9 @@ ul.characteristics-list li strong {
 .about-hero-content .slider-wrapper {
     position: relative;
     flex: 1 1 48%;
-     max-width: 380px; /* Звужуємо слайдер, наприклад, до 400px. ПІДБЕРІТЬ ЗНАЧЕННЯ!
-    /* Якщо flex-basis не дає потрібного ефекту звуження через вміст, використовуйте max-width */
+     max-width: 380px;
     margin-left: 0; /* Скидаємо попередній margin, якщо був */
     margin-right: 45px;
-    /* Для центрування самого слайдера, якщо він став вужчим за flex-контейнер: */
-    /* margin: 0 auto; */
-    /* Але оскільки ми використовуємо flex: 0 0 48%, він займе відведене місце */
     overflow: hidden; /* Важливо для роботи слайдера */
 }
 
@@ -1110,16 +1101,11 @@ ul.characteristics-list li strong {
 .about-hero-content .slide-image-content {
     text-align: center;
     flex-basis: auto; /* Нехай ширина визначається зображенням або явною шириною нижче */
-    /* Якщо зображення все ще завелике, встановіть максимальну ширину для нього: */
      max-width: 280px;
 }
 
 .about-hero-content .slide-image-content img {
     max-width: 100%; /* Зображення не виходить за межі .slide-image-content */
-    /* Якщо ви встановили max-width для .slide-image-content,
-       то 100% тут буде відносно цього max-width. */
-    /* Приклад фіксованої ширини для зображення, якщо потрібно: */
-    /* width: 280px; */ /* Вже було, можна залишити або змінити */
     height: auto;
     position: static; /* Скидаємо позиціонування, якщо було */
     display: block; /* Для уникнення зайвих відступів */
@@ -1139,10 +1125,7 @@ ul.characteristics-list li strong {
     padding: 28px 0 42px 0;
 }
 
-/* .section-title для цієї сторінки вже має бути стилізований з main.css (центрирований, чорний) */
-/* Якщо потрібні зміни: */
 .about-values-section .section-title {
-    /*color: #000000;*/
     margin-bottom: 80px;
 }
 
@@ -1150,13 +1133,9 @@ ul.characteristics-list li strong {
     display: flex;
     align-items: center;
     gap: 40px;
-    /*margin-bottom: 50px;*/
     padding: 24px 0 29px 0;
     border-top: 1px solid rgba(204, 204, 204, 0.6)
 }
-/*.value-item:last-child {*/
-/*    margin-bottom: 0;*/
-/*}*/
 
 .value-item .value-text {
     flex: 1;
@@ -1182,23 +1161,16 @@ ul.characteristics-list li strong {
     font-size: 32px;
     font-weight: 500;
     line-height: 1.35em;
-    /*color: #1a1a1a;*/
-    /*margin-bottom: 15px;*/
 }
 
 .value-item p {
     font-weight: 300;
-/*    font-size: 16px;*/
-/*    line-height: 1.7;*/
-/*    color: #333333;*/
 }
 
 .value-item .value-image img {
     width: 100%;
     height: auto;
     display: block;
-    /*border-radius: 8px; !* Невелике заокруглення для зображень *!*/
-    /*box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); !* Легка тінь *!*/
 }
 
 /* --- section 3: contacts --- */
@@ -1255,130 +1227,15 @@ ul.characteristics-list li strong {
     display: block;
 }
 
-
-/* === АДАПТИВНІСТЬ для сторінки "Про нас та контакти" === */
-
-
-@media (max-width: 800px) {
-    .about-page .page-nav {
-        margin-bottom: 8px;
-    }
-
-    .about-page .section-title {
-        margin-bottom: 34px;
-        padding: 0 20px;
-    }
-
-    /* Секція 1: Hero */
-    .about-hero-section {
-        padding: 13px 0 0 0;
-        background-position: center;
-    }
-    .about-hero-content {
-        flex-direction: column;
-        text-align: center;
-    }
-    .about-hero-text {
-        order: 2;
-        flex-basis: auto; /* Дозволяємо тексту зайняти потрібну ширину */
-        width: 100%;     /* Текст на всю ширину контейнера */
-        padding-right: 0; /* Прибираємо відступ, бо елементи в стовпчик */
-        margin-bottom: 25px;
-    }
-
-    .about-hero-text p {
-        font-size: 20px;
-        text-align: left;
-        margin-top: 28px;
-    }
-
-    .about-hero-content .slider-wrapper {
-        flex-basis: auto;
-        width: 80%;
-        margin: 0 auto;
-    }
-
-    .about-hero-content .slide-image-content {
-        display: block;
-        max-width: 37%;
-    }
-
-    .about-hero-content .slider-button {
-        width: 13px;
-        height: 38px;
-    }
-
-    .about-hero-content .slider-button.prev {
-        background: url("../img/prev-black.png") no-repeat;
-    }
-    .about-hero-content .slider-button.next {
-        background: url("../img/next-black.png") no-repeat;
-    }
-
-    /* Секція 2: Values */
-    .about-page .about-values-section {
-        margin-top: 16px;
-        padding: 0;
-    }
-
-    .about-values-section h2,
-    .about-values-section h3,
-    .about-values-section p {
-        text-align: left;
-        line-height: 1.35em;
-    }
-
-    .value-item h3 {
-        font-size: 24px;
-        margin-bottom: 13px;
-    }
-
-    .value-item p {
-        font-size: 20px;
-        margin-top: 0;
-    }
-
-    .value-item,
-    .value-item.layout-reversed {
-        flex-direction: column;
-        padding-top: 10px;
-        padding-bottom: 24px;
-        row-gap: 10px;
-
-    }
-    .value-item .value-text,
-    .value-item.layout-reversed .value-text {
-        order: 1; /* Текст завжди перший на мобільних */
-        padding-left: 20px;
-        padding-right: 20px;
-    }
-    .value-item .value-image,
-    .value-item.layout-reversed .value-image {
-        order: 2; /* Картинка завжди друга */
-        margin-top: 0px;
-    }
-
-    .value-item:last-child {
-        padding-bottom: 0;
-    }
-
-    /* section 3: Contacts */
-    .contact-section {
-        padding-left: 20px;
-        padding-right: 20px;
-        padding-bottom: 33px;
-    }
-    .contact-section .section-title {
-        font-size: 24px;
-        margin-bottom: 16px;
-    }
-    .contact-details-grid {
-    }
-
+/* === shopping cart === */
+.shopping-cart h1 {
+    text-align: center;
 }
 
-
-
+.shopping-cart-details {
+    border-top: 2px solid rgba(204, 204, 204, 0.6);
+    border-bottom: 1px solid rgba(204, 204, 204, 0.6)
+}
 
 /* === MOBILE STYLES === */
 @media (max-width: 1200px) {
@@ -1897,6 +1754,119 @@ ul.characteristics-list li strong {
     .product-description h2 {
         font-size: 24px;
         margin-bottom: 23px;
+    }
+
+    .about-page .page-nav {
+        margin-bottom: 8px;
+    }
+
+    .about-page .section-title {
+        margin-bottom: 34px;
+        padding: 0 20px;
+    }
+
+    /* Секція 1: Hero */
+    .about-hero-section {
+        padding: 13px 0 0 0;
+        background-position: center;
+    }
+    .about-hero-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .about-hero-text {
+        order: 2;
+        flex-basis: auto;
+        width: 100%;
+        padding-right: 0;
+        margin-bottom: 25px;
+    }
+
+    .about-hero-text p {
+        font-size: 20px;
+        text-align: left;
+        margin-top: 28px;
+    }
+
+    .about-hero-content .slider-wrapper {
+        flex-basis: auto;
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .about-hero-content .slide-image-content {
+        display: block;
+        max-width: 37%;
+    }
+
+    .about-hero-content .slider-button {
+        width: 13px;
+        height: 38px;
+    }
+
+    .about-hero-content .slider-button.prev {
+        background: url("../img/prev-black.png") no-repeat;
+    }
+    .about-hero-content .slider-button.next {
+        background: url("../img/next-black.png") no-repeat;
+    }
+
+    /* Секція 2: Values */
+    .about-page .about-values-section {
+        margin-top: 16px;
+        padding: 0;
+    }
+
+    .about-values-section h2,
+    .about-values-section h3,
+    .about-values-section p {
+        text-align: left;
+        line-height: 1.35em;
+    }
+
+    .value-item h3 {
+        font-size: 24px;
+        margin-bottom: 13px;
+    }
+
+    .value-item p {
+        font-size: 20px;
+        margin-top: 0;
+    }
+
+    .value-item,
+    .value-item.layout-reversed {
+        flex-direction: column;
+        padding-top: 10px;
+        padding-bottom: 24px;
+        row-gap: 10px;
+
+    }
+    .value-item .value-text,
+    .value-item.layout-reversed .value-text {
+        order: 1;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .value-item .value-image,
+    .value-item.layout-reversed .value-image {
+        order: 2;
+        margin-top: 0px;
+    }
+
+    .value-item:last-child {
+        padding-bottom: 0;
+    }
+
+    /* section 3: Contacts */
+    .contact-section {
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-bottom: 33px;
+    }
+    .contact-section .section-title {
+        font-size: 24px;
+        margin-bottom: 16px;
     }
 
 } /* Кінець @media (max-width: 768px) */

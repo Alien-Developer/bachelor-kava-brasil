@@ -3,20 +3,141 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Кошик</title>
+  <link rel="icon" type="image/x-icon" href="./img/favicon.ico">
+  <link rel="shortcut icon" type="image/x-icon" href="./img/favicon.ico">
+  <title>KAVA BRASIL - Кошик</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./css/main.css">
 </head>
 <body>
 
-<div class="container">
-  <h1>Ваш кошик</h1>
+<header class="site-header">
+  <div class="container">
+    <a href="./index.html" class="logo">
+      <picture>
+        <source media="(max-width: 800px)" srcset="./img/logo-m.png">
+        <img src="./img/logotype.png" alt="Kava Brasil Logo">
+      </picture>
+    </a>
+    <button class="burger-menu" aria-label="Відкрити меню" aria-expanded="false">
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+    </button>
+    <div class="navigation-wrapper">
+      <nav class="main-navigation">
+        <ul>
+          <li><a href="./serra-velha.html">SERRA VELHA</a></li>
+          <li><a href="./alto-verde.html">ALTO VERDE</a></li>
+          <li><a href="./noite-clara.html">NOITE CLARA</a></li>
+          <li><a href="./about-contact.html" class="no-transform">Про нас та контакти</a></li>
+          <li><a href="./payment-delivery.html" class="no-transform">Оплата та доставка</a></li>
+          <li><a href="./shopping-cart.html" class="shopping-cart active"><img src="./img/basket.png"></a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
 
-  <div class="product-image-gallery">
-    <img id="product-image" src="" alt="Зображення товару" width="200"> </div>
-  <p>Кількість товару: <span id="quantity"></span></p>
-  <a href="index.html">Повернутися до головної</a>
-</div>
+<main>
+  <!-- main body -->
+  <div class="shopping-cart container">
 
+    <nav class="page-nav" aria-label="page-navigation">
+      <ul>
+        <li><a href="./index.html">Головна</a></li>
+        <li><span>Кошик</span></li>
+      </ul>
+    </nav>
+
+    <section class="text-content-section">
+
+      <h1 class="product-title">Ваше замовлення</h1>
+
+      <div class="shopping-cart-details">
+
+        <div class="product-image-gallery">
+          <img id="product-image" src="" alt="Зображення товару" width="200">
+        </div>
+        <p>Кількість товару: <span id="quantity"></span></p>
+      </div>
+
+      <div class="total-price"></div>
+    </section>
+  </div>
+
+  <!-- end of main body -->
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-container">
+    <div class="footer-column order-1">
+      <h3>Каталог</h3>
+      <ul>
+        <li><a href="./serra-velha.html">SERRA VELHA</a></li>
+        <li><a href="./alto-verde.html">ALTO VERDE</a></li>
+        <li><a href="./noite-clara.html">NOTE CLARA</a></li>
+      </ul>
+    </div>
+    <div class="footer-column order-3">
+      <h3>Компанія</h3>
+      <ul>
+        <li><a href="./about-contact.html">Про нас</a></li>
+        <li><a href="./about-contact.html#contacts">Контакти</a></li>
+        <li><a href="./payment-delivery.html">Доставка і оплата</a></li>
+      </ul>
+    </div>
+    <div class="footer-column order-2">
+      <h3>Соцмережі</h3>
+      <ul class="social-links">
+        <li>
+          <a href="#" aria-label="Telegram" target="_blank" rel="noopener noreferrer">
+            <img src="./img/telegram.png" alt="telegram" class="telegram">
+          </a>
+        </li>
+        <li>
+          <a href="#" aria-label="YouTube" target="_blank" rel="noopener noreferrer">
+            <img src="./img/youtube.png" alt="youtube" class="youtube">
+          </a>
+        </li>
+        <li>
+          <a href="#" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+            <img src="./img/facebook.png" alt="facebook" class="facebook">
+          </a>
+        </li>
+        <li>
+          <a href="#" aria-label="TikTok" target="_blank" rel="noopener noreferrer">
+            <img src="./img/tiktok.png" alt="tiktok" class="tiktok">
+          </a>
+        </li>
+        <li>
+          <a href="#" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+            <img src="./img/instagram.png" alt="instagram" class="instagram">
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="footer-column order-4">
+      <h3>Ми на зв'язку</h3>
+      <p>+38 (099) 195 15 71</p>
+      <p class="phone-number">+38 (070) 492 96 00
+        <span class="phone-note">(для дзвінків із-за кордону)</span>
+      </p>
+      <a href="#" class="button button-contact">Зв'язатися</a>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <div class="payment-icons">
+      <img src="./img/visa_logo.png" alt="visa" class="visa">
+      <img src="./img/mastercard_logo.png" alt="mastercard" class="mastercard">
+    </div>
+    <p>&copy; 2025 KAVA BRASIL</p>
+  </div>
+</footer>
+
+<script src="./js/custom.js"></script>
 <script src="./js/shopping-cart.js"></script>
 </body>
 </html>
