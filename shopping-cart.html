@@ -56,15 +56,33 @@
 
       <h1 class="product-title">Ваше замовлення</h1>
 
-      <div class="shopping-cart-details">
-
-        <div class="product-image-gallery">
-          <img id="product-image" src="" alt="Зображення товару" width="200">
+      <div class="shopping-cart-container">
+        <div class="shopping-cart-details">
+          <a role="button" id="delete-product">x</a>
+          <div class="product-image-container">
+            <img id="product-image" src="" alt="Зображення товару" width="200">
+          </div>
+          <div>
+            <h2 class="m-left">Кава в зернах арабіка <span id="product-name">SERRA VELHA</span> 250г</h2>
+            <div class="product-price-actions m-left">
+              <div class="product-quantity">
+                <button type="button" class="quantity-button minus" aria-label="Зменшити кількість">&minus;</button>
+                <input type="text" id="quantity" name="quantity" value="1" min="1" aria-label="Кількість товару">
+                <button type="button" class="quantity-button plus" aria-label="Збільшити кількість">&plus;</button>
+              </div>
+              <span class="product-price">499₴</span>
+            </div>
+            <div class="shopping-actions">
+              <button class="continue-button">Продовжити покупки</button>
+              <button class="buy-button">Оформити замовлення</button>
+            </div>
+          </div>
         </div>
-        <p>Кількість товару: <span id="quantity"></span></p>
       </div>
 
-      <div class="total-price"></div>
+      <div class="total-price">
+        <p>Загальна сума: <span id="total-price" class="product-price">499₴</span></p>
+      </div>
     </section>
   </div>
 
