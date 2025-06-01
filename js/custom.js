@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-
-  // --- Логіка для зміни хедера при прокрутці ---
+  // --- header scrolling ---
   const header = document.querySelector('.site-header');
   const scrollThreshold = 10; // Поріг прокрутки в пікселях для активації
 
@@ -25,12 +24,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // на випадок, якщо сторінка завантажилась вже прокрученою
     handleScroll();
   }
-  // --- Кінець логіки хедера ---
+  // --- header end ---
 
-
-  // --- Ваш існуючий код для слайдера ---
+  // --- slider ---
   const sliderTrack = document.querySelector('.slider-track');
-  // Додаємо перевірку існування sliderTrack перед доступом до children
   const slides = sliderTrack ? Array.from(sliderTrack.children) : [];
   const nextButton = document.querySelector('.slider-button.next');
   const prevButton = document.querySelector('.slider-button.prev');
@@ -107,28 +104,11 @@ document.addEventListener('DOMContentLoaded', () => {
   } // Кінець блоку else для перевірки елементів слайдера
 
 
-    // --- Логіка хедера (включаючи бургер-меню) ---
+    // --- burger menu ---
     //const header = document.querySelector('.site-header');
     const burgerMenuButton = document.querySelector('.burger-menu');
     const navigationWrapper = document.querySelector('.navigation-wrapper');
-    // const scrollThreshold = 10;
 
-    // Перевірка наявності хедера
-    // if (header) {
-    //   const handleScroll = () => {
-    //     if (window.scrollY > scrollThreshold) {
-    //       header.classList.add('scrolled');
-    //     } else {
-    //       header.classList.remove('scrolled');
-    //     }
-    //   };
-    //   window.addEventListener('scroll', handleScroll);
-    //   handleScroll(); // Перевірка при завантаженні
-    // } else {
-    //   console.error("Header element '.site-header' not found.");
-    // }
-
-    // Перевірка наявності елементів бургер-меню
     if (burgerMenuButton && navigationWrapper) {
       burgerMenuButton.addEventListener('click', () => {
         const isOpened = burgerMenuButton.getAttribute('aria-expanded') === 'true';
@@ -142,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       console.warn("Burger menu button or navigation wrapper not found.");
     }
-    // --- Кінець логіки хедера ---
+    // --- end of burger menu ---
 
   // === Логіка для кнопок +/- кількості товару ===
   const quantityInput = document.getElementById('quantity');
@@ -201,157 +181,99 @@ document.addEventListener('DOMContentLoaded', () => {
       quantityInput.value = currentValue;
       updateButtonStates(currentValue);
     });
-
-    // Обробник для прямого вводу в поле
-    // quantityInput.addEventListener('input', () => {
-    //   let currentValue = parseInt(quantityInput.value, 10);
-    //   if (isNaN(currentValue) || currentValue < minQuantity) {
-    //     quantityInput.value = minQuantity; // Якщо введено менше мінімуму або не число
-    //     currentValue = minQuantity;
-    //   } else if (currentValue > maxQuantity) {
-    //     quantityInput.value = maxQuantity; // Якщо введено більше максимуму
-    //     currentValue = maxQuantity;
-    //   }
-    //   updateButtonStates(currentValue);
-    // });
-
-    // Обробник для події 'change', щоб відловлювати зміни через стрілки браузера
-    // quantityInput.addEventListener('change', () => {
-    //   let currentValue = parseInt(quantityInput.value, 10);
-    //   if (isNaN(currentValue) || currentValue < minQuantity) {
-    //     quantityInput.value = minQuantity;
-    //     currentValue = minQuantity;
-    //   } else if (currentValue > maxQuantity) {
-    //     quantityInput.value = maxQuantity;
-    //     currentValue = maxQuantity;
-    //   }
-    //   updateButtonStates(currentValue);
-    // });
-
-
   }
-    // else {
-  //   console.warn('Quantity control elements not found.');
-  // }
   // === Кінець логіки для кнопок +/- кількості товару ===
 
-  document.getElementById('add-to-cart').addEventListener('click', function() {
-    // 1. Отримуємо посилання на поле вводу
-    const quantityInput = document.getElementById('quantity');
+  // document.getElementById('add-to-cart').addEventListener('click', function() {
+  //   // 1. Отримуємо посилання на поле вводу
+  //   const quantityInput = document.getElementById('quantity');
+  //
+  //   // 2. Отримуємо значення з поля вводу
+  //   const quantity = quantityInput.value;
+  //   // Отримуємо посилання на елемент зображення
+  //   const productImage = document.getElementById('product-image');
+  //
+  //   // 3. Отримуємо шлях до зображення
+  //   const imageSrc = productImage.src;
+  //
+  //   // 4. Виділяємо назву файлу без розширення зі шляху
+  //   // Приклад шляху: http://localhost:8080/img/SERRA_VELHA.png або ./img/SERRA_VELHA.png
+  //   // Спочатку отримуємо останню частину шляху (з назвою файлу та розширенням)
+  //   const lastSlashIndex = imageSrc.lastIndexOf('/');
+  //   const filenameWithExtension = lastSlashIndex > -1 ? imageSrc.substring(lastSlashIndex + 1) : imageSrc; // Якщо '/' не знайдено, можливо, це просто ім'я файлу
+  //
+  //   // Потім знаходимо останню крапку і відрізаємо розширення
+  //   const lastDotIndex = filenameWithExtension.lastIndexOf('.');
+  //   const filenameWithoutExtension = lastDotIndex > -1 ? filenameWithExtension.substring(0, lastDotIndex) : filenameWithExtension; // Якщо '.' не знайдено, можливо, розширення відсутнє
+  //
+  //   // 5. Перевіряємо, чи введене значення є дійсним числом
+  //   if (quantity === "" || isNaN(quantity) || parseInt(quantity) <= 0) {
+  //     alert("Будь ласка, введіть дійсну кількість (число більше 0).");
+  //     return; // Зупиняємо виконання, якщо значення невірне
+  //   }
+  //
+  //   // 6. Формуємо URL для shopping-cart.html і передаємо число та назву файлу як параметри запиту
+  //   const params = new URLSearchParams();
+  //   params.append('quantity', quantity); // Додаємо параметр 'quantity'
+  //   params.append('productName', filenameWithoutExtension); // Додаємо параметр 'productName'
+  //
+  //   const targetUrl = 'shopping-cart.html?' + params.toString();
+  //
+  //   // 5. Перенаправляємо користувача на shopping-cart.html
+  //   window.location.href = targetUrl;
+  // });
+  // Inside custom.js
+// Find this part (or similar):
+// document.getElementById('add-to-cart').addEventListener('click', function() { ... });
+// And replace it with this:
 
-    // 2. Отримуємо значення з поля вводу
-    const quantity = quantityInput.value;
-    // Отримуємо посилання на елемент зображення
-    const productImage = document.getElementById('product-image');
+  const addToCartButton = document.getElementById('add-to-cart');
+  if (addToCartButton) { // 5. Prevents error if 'add-to-cart' button is not on the page
+    addToCartButton.addEventListener('click', function() {
+      // 1. Отримуємо посилання на поле вводу
+      const quantityInput = document.getElementById('quantity');
+      // Отримуємо посилання на елемент зображення
+      const productImage = document.getElementById('product-image');
 
-    // 3. Отримуємо шлях до зображення
-    const imageSrc = productImage.src;
+      // Ensure elements exist before trying to use them
+      if (!quantityInput) {
+        alert("Помилка: не знайдено поле для вводу кількості.");
+        console.error("Element with ID 'quantity' not found for add-to-cart.");
+        return;
+      }
+      if (!productImage) {
+        alert("Помилка: не знайдено зображення товару.");
+        console.error("Element with ID 'product-image' not found for add-to-cart.");
+        return;
+      }
 
-    // 4. Виділяємо назву файлу без розширення зі шляху
-    // Приклад шляху: http://localhost:8080/img/SERRA_VELHA.png або ./img/SERRA_VELHA.png
-    // Спочатку отримуємо останню частину шляху (з назвою файлу та розширенням)
-    const lastSlashIndex = imageSrc.lastIndexOf('/');
-    const filenameWithExtension = lastSlashIndex > -1 ? imageSrc.substring(lastSlashIndex + 1) : imageSrc; // Якщо '/' не знайдено, можливо, це просто ім'я файлу
+      // 2. Отримуємо значення з поля вводу
+      const quantity = quantityInput.value;
+      // 3. Отримуємо шлях до зображення
+      const imageSrc = productImage.src;
 
-    // Потім знаходимо останню крапку і відрізаємо розширення
-    const lastDotIndex = filenameWithExtension.lastIndexOf('.');
-    const filenameWithoutExtension = lastDotIndex > -1 ? filenameWithExtension.substring(0, lastDotIndex) : filenameWithExtension; // Якщо '.' не знайдено, можливо, розширення відсутнє
+      // 4. Виділяємо назву файлу без розширення зі шляху
+      const lastSlashIndex = imageSrc.lastIndexOf('/');
+      const filenameWithExtension = lastSlashIndex > -1 ? imageSrc.substring(lastSlashIndex + 1) : imageSrc;
+      const lastDotIndex = filenameWithExtension.lastIndexOf('.');
+      const filenameWithoutExtension = lastDotIndex > -1 ? filenameWithExtension.substring(0, lastDotIndex) : filenameWithExtension;
 
-    // 5. Перевіряємо, чи введене значення є дійсним числом
-    if (quantity === "" || isNaN(quantity) || parseInt(quantity) <= 0) {
-      alert("Будь ласка, введіть дійсну кількість (число більше 0).");
-      return; // Зупиняємо виконання, якщо значення невірне
-    }
+      // 5. Перевіряємо, чи введене значення є дійсним числом
+      if (quantity === "" || isNaN(quantity) || parseInt(quantity) <= 0) {
+        alert("Будь ласка, введіть дійсну кількість (число більше 0).");
+        return;
+      }
 
-    // 6. Формуємо URL для shopping-cart.html і передаємо число та назву файлу як параметри запиту
-    const params = new URLSearchParams();
-    params.append('quantity', quantity); // Додаємо параметр 'quantity'
-    params.append('productName', filenameWithoutExtension); // Додаємо параметр 'productName'
+      // 6. Формуємо URL для shopping-cart.html і передаємо число та назву файлу як параметри запиту
+      const params = new URLSearchParams();
+      params.append('quantity', quantity);
+      params.append('productName', filenameWithoutExtension); // This will be used as product.id
 
-    const targetUrl = 'shopping-cart.html?' + params.toString();
+      const targetUrl = 'shopping-cart.html?' + params.toString();
 
-    // 5. Перенаправляємо користувача на shopping-cart.html
-    window.location.href = targetUrl;
-  });
+      // 7. Перенаправляємо користувача на shopping-cart.html
+      window.location.href = targetUrl;
+    });
+  }
 
-    // // --- Ваш існуючий код слайдера ---
-    // const sliderTrack = document.querySelector('.slider-track');
-    // const slides = sliderTrack ? Array.from(sliderTrack.children) : [];
-    // const nextButton = document.querySelector('.slider-button.next');
-    // const prevButton = document.querySelector('.slider-button.prev');
-    //
-    // if (!sliderTrack || !nextButton || !prevButton || slides.length === 0) {
-    //   console.warn("Slider elements not found or no slides available.");
-    // } else {
-    //   let slideWidth = slides[0].getBoundingClientRect().width;
-    //   let currentIndex = 0;
-    //
-    //   const updateSlideWidth = () => {
-    //     // Важливо оновлювати ширину слайда при зміні розміру вікна,
-    //     // особливо якщо слайдер активний на різних розмірах екрану
-    //     const newSlideWidth = slides[0].getBoundingClientRect().width;
-    //     if (newSlideWidth > 0) { // Перевірка, щоб уникнути ділення на 0 або некоректної ширини
-    //       slideWidth = newSlideWidth;
-    //       moveToSlide(sliderTrack, currentIndex, false);
-    //     }
-    //   }
-    //
-    //   const moveToSlide = (track, targetIndex, animate = true) => {
-    //     if (targetIndex < 0 || targetIndex >= slides.length || slideWidth <= 0) {
-    //       // Додано перевірку slideWidth
-    //       // console.warn(`Attempted to move to invalid index or invalid slideWidth: index=${targetIndex}, width=${slideWidth}`);
-    //       return;
-    //     }
-    //     const transformValue = `translateX(-${slideWidth * targetIndex}px)`;
-    //
-    //     if (animate) {
-    //       track.style.transition = 'transform 0.5s ease-in-out';
-    //     } else {
-    //       track.style.transition = 'none';
-    //     }
-    //     track.style.transform = transformValue;
-    //     currentIndex = targetIndex;
-    //     if (!animate) {
-    //       track.offsetHeight;
-    //       track.style.transition = 'transform 0.5s ease-in-out';
-    //     }
-    //   };
-    //
-    //   nextButton.addEventListener('click', e => {
-    //     let nextIndex = currentIndex + 1;
-    //     if (nextIndex >= slides.length) nextIndex = 0;
-    //     moveToSlide(sliderTrack, nextIndex);
-    //   });
-    //
-    //   prevButton.addEventListener('click', e => {
-    //     let prevIndex = currentIndex - 1;
-    //     if (prevIndex < 0) prevIndex = slides.length - 1;
-    //     moveToSlide(sliderTrack, prevIndex);
-    //   });
-    //
-    //   // Викликаємо updateSlideWidth при зміні розміру ТІЛЬКИ ЯКЩО слайдер видимий/активний
-    //   let resizeTimeout;
-    //   window.addEventListener('resize', () => {
-    //     clearTimeout(resizeTimeout);
-    //     resizeTimeout = setTimeout(() => {
-    //       // Перевіряємо, чи слайдер видимий перед оновленням
-    //       if (sliderTrack.offsetParent !== null) { // Простий спосіб перевірки видимості
-    //         updateSlideWidth();
-    //       }
-    //     }, 100); // Невеликий debounce
-    //   });
-    //
-    //
-    //   // Ініціалізуємо тільки якщо слайдер видимий
-    //   if (sliderTrack.offsetParent !== null) {
-    //     updateSlideWidth(); // Оновлюємо ширину перед першим переміщенням
-    //   } else {
-    //     // Якщо слайдер невидимий спочатку, можливо, треба ініціалізувати при першому resize, коли він стане видимим
-    //     // Це складніше, поки що просто ініціалізуємо, якщо видимий одразу
-    //     console.log("Slider track not initially visible, skipping initial moveToSlide.");
-    //   }
-    // }
-    // --- Кінець коду слайдера ---
-
-
-}); // Кінець DOMContentLoaded
+});

@@ -1228,8 +1228,13 @@ ul.characteristics-list li strong {
 }
 
 /* === shopping cart === */
+.shopping-cart .text-content-section {
+    margin-top: 50px;
+}
+
 .shopping-cart h1 {
     text-align: center;
+    margin-bottom: 48px;
 }
 
 .shopping-cart-container {
@@ -1250,6 +1255,16 @@ ul.characteristics-list li strong {
 
 .shopping-cart-details #delete-product {
     position: absolute;
+    line-height: 0.6;
+    color: #000;
+    top: 0;
+    left: -45px;
+    font-size: 22px;
+    font-weight: 300;
+    cursor: pointer;
+}
+.shopping-cart-details #delete-product:hover {
+    font-weight: 500;
 }
 
 .product-image-container {
@@ -1258,11 +1273,13 @@ ul.characteristics-list li strong {
 
 .product-image-container img {
     width: 100%;
+    display: block;
 }
 
 .shopping-cart-container h2 {
     font-size: 24px;
     font-weight: 300;
+    margin-top: 10px;
 }
 
 .shopping-cart-details .m-left {
@@ -1272,6 +1289,8 @@ ul.characteristics-list li strong {
 .shopping-cart-details .product-price-actions {
     border: none;
     gap: 45px;
+    margin-bottom: 0;
+    padding: 55px 5px;
 }
 
 .shopping-actions {
@@ -1306,6 +1325,15 @@ ul.characteristics-list li strong {
     background-color: #FFF;
     color: #000;
     border: 1px solid #ccc;
+}
+
+.total-price {
+    padding: 26px 0 47px 0;
+}
+
+.total-price p {
+    border-bottom: 1px solid rgba(204, 204, 204, 0.6);
+    font-weight: 300;
 }
 
 /* === MOBILE STYLES === */
