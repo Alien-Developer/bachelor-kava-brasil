@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentValue = parseInt(quantityInputElement.value, 10);
     if (isNaN(currentValue)) currentValue = minQuantity;
 
-    if (currentValue < maxQuantity) {
+    if (currentValue <= maxQuantity) {
       // currentValue++;
       quantityInputElement.value = currentValue;
       updateTotalDisplay(currentValue);
@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentValue = parseInt(quantityInputElement.value, 10);
     if (isNaN(currentValue)) currentValue = minQuantity;
 
-    if (currentValue > minQuantity) {
+    if (currentValue >= minQuantity) {
       // currentValue--;
       quantityInputElement.value = currentValue;
       updateTotalDisplay(currentValue);

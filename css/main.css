@@ -60,6 +60,10 @@ b, strong, dfn {
     white-space: nowrap;
 }
 
+.mob {
+    display: none;
+}
+
 /* main styles */
 body {
     font-family: "Manrope", sans-serif;
@@ -1410,6 +1414,14 @@ ul.characteristics-list li strong {
         border: none;
     }
 
+    .mob {
+        display: initial;
+    }
+
+    .desktop {
+        display: none;
+    }
+
     /* --- Header Mobile --- */
     .site-header {
         padding-bottom: 0; /* Забираємо нижній падінг хедера */
@@ -1974,6 +1986,24 @@ ul.characteristics-list li strong {
 
     .shopping-cart-details {
         flex-direction: column;
+    }
+
+    .shopping-cart .text-content-section {
+        margin-top: 33px;
+    }
+
+    .shopping-cart h1 {
+        margin-bottom: 23px;
+    }
+
+    .shopping-cart-container h2 {
+        font-size: 20px;
+        margin-top: 0;
+        margin-bottom: 5px;
+    }
+
+    .product-image-container {
+        margin: 0 auto;
     }
 }
 
