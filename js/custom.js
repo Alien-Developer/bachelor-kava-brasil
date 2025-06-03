@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Перевіряємо наявність ВСІХ необхідних елементів слайдера
   if (!sliderTrack || !nextButton || !prevButton || slides.length === 0) {
-    console.warn("Slider elements not found or no slides available.");
+    //console.warn("Slider elements not found or no slides available.");
     // Якщо слайдер не може працювати, можна завершити тут (або просто не виконувати код нижче)
     // return;
   } else {

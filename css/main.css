@@ -1985,6 +1985,7 @@ ul.characteristics-list li strong {
     }
 
     .shopping-cart-details {
+        width: 100%;
         flex-direction: column;
     }
 
@@ -1999,11 +2000,31 @@ ul.characteristics-list li strong {
     .shopping-cart-container h2 {
         font-size: 20px;
         margin-top: 0;
-        margin-bottom: 5px;
+        margin-bottom: 10px;
     }
 
     .product-image-container {
         margin: 0 auto;
+        position: relative;
+    }
+
+    .shopping-cart-details #delete-product {
+        top: 5px;
+    }
+
+    .shopping-actions {
+        display: flex;
+        flex-direction: column; /* Розташовує кнопки одна під одною */
+        align-items: center;    /* Центрує кнопки по горизонталі в стовпці */
+        gap: 15px;              /* Відстань між кнопками */
+        padding: 20px 0;
+        margin-top: 20px;
+    }
+
+    .shopping-actions button {
+        min-width: 250px;
+        text-align: center;
+        height: auto;
     }
 }
 
