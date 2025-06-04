@@ -1340,6 +1340,14 @@ ul.characteristics-list li strong {
     font-weight: 300;
 }
 
+#shopping-cart-container .cart-message {
+    min-height: 60vh;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-top: 15vh;
+}
+
 
 
 /* Стилі для форми замовлення */
@@ -2231,6 +2239,7 @@ ul.characteristics-list li strong {
 
     .shopping-cart-container {
         border-bottom: none;
+        padding-bottom: 5px;
     }
 
     .shopping-cart-details {
@@ -2239,7 +2248,7 @@ ul.characteristics-list li strong {
     }
 
     .shopping-cart .text-content-section {
-        margin-top: 33px;
+        margin-top: 0;
     }
 
     .shopping-cart h1 {
@@ -2250,6 +2259,7 @@ ul.characteristics-list li strong {
         font-size: 20px;
         margin-top: 0;
         margin-bottom: 10px;
+        text-align: center;
     }
 
     .product-image-container {
@@ -2261,19 +2271,35 @@ ul.characteristics-list li strong {
         top: 5px;
     }
 
+    .shopping-cart-details .product-price-actions {
+        justify-content: center;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
     .shopping-actions {
         display: flex;
-        flex-direction: column; /* Розташовує кнопки одна під одною */
-        align-items: center;    /* Центрує кнопки по горизонталі в стовпці */
-        gap: 15px;              /* Відстань між кнопками */
-        padding: 20px 0;
-        margin-top: 20px;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        padding: 0;
+        margin-top: 5px;
     }
 
     .shopping-actions button {
-        min-width: 250px;
+        min-width: 235px;
         text-align: center;
         height: auto;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .total-price p {
+        font-size: 20px;
+        line-height: 2.5em;
+        min-width: 235px;
+        display: inline-flex;
+        justify-content: space-between;
     }
 }
 
@@ -2284,5 +2310,9 @@ ul.characteristics-list li strong {
         gap: 25px;
         justify-content: space-between;
         max-width: 100%;
+    }
+
+    .shopping-cart-container h2 {
+        text-align: left;
     }
 }
