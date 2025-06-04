@@ -139,7 +139,7 @@ document.addEventListener('DOMContentLoaded', function() {
   if (checkoutButton) {
     checkoutButton.addEventListener('click', function() {
       // Ensure you have an order.html page in the same directory
-      window.location.href = './order.html';
+      window.location.href = './order-details.html';
     });
   }
 });

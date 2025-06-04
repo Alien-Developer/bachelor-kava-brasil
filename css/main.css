@@ -1340,6 +1340,255 @@ ul.characteristics-list li strong {
     font-weight: 300;
 }
 
+
+
+/* Стилі для форми замовлення */
+.order-details.text-content-section {
+    padding-bottom: 100px;
+}
+
+.order-form-container {
+    max-width: 825px;
+    margin: 2rem auto 0 auto;
+    padding: 1rem 2rem;
+    background: #fff;
+    border: 1px solid rgba(204, 204, 204, 0.6);
+}
+
+.form-section {
+    margin-bottom: 2.5rem;
+}
+
+.form-section h2 {
+    font-size: 32px;
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin-bottom: 2.25rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-label {
+    font-size: 12px;
+    font-weight: 300;
+    margin-bottom: 16px;
+}
+
+.form-input {
+    padding: 6px 10px;
+    border: 1px solid #E7E7E7;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-family: 'Manrope', sans-serif;
+    font-size: 1rem;
+    background-color: #f2f2f2;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #4a90e2;
+    background-color: #fff;
+}
+
+/*.form-textarea {*/
+/*    min-height: 100px;*/
+/*    resize: vertical;*/
+/*}*/
+
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 35px;
+}
+
+.radio-option {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+}
+
+.radio-input {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ddd;
+    border-radius: 50%;
+    margin-right: 1rem;
+    position: relative;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+.radio-input:checked {
+    border-color: #333;
+}
+
+.radio-input:checked::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    background-color: #333;
+    border-radius: 50%;
+}
+
+.radio-label {
+    font-size: 12px;
+    cursor: pointer;
+    min-width: 150px;
+}
+
+.submit-button {
+    background: linear-gradient(135deg, #ffb800, #ff8c00);
+    color: white;
+    border: none;
+    padding: 16px 32px;
+    font-family: 'Manrope', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: block;
+    margin: 2rem auto 0;
+    min-width: 250px;
+}
+
+.submit-button:hover {
+    background: linear-gradient(135deg, #ff8c00, #ff6b00);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 140, 0, 0.3);
+}
+
+.submit-button:active {
+    transform: translateY(0);
+}
+
+/* Стилі для сторінки успіху */
+.success-page {
+    display: none;
+    text-align: center;
+    padding: 2rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.success-page.show {
+    display: block;
+}
+
+.success-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #ffb800, #ff8c00);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 2rem;
+}
+
+.success-icon::after {
+    content: '✓';
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.success-title {
+    font-family: 'Manrope', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.success-message {
+    font-family: 'Manrope', sans-serif;
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.error-message {
+    background: #f8d7da;
+    color: #721c24;
+    padding: 1rem;
+    border: 1px solid #f5c6cb;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    text-align: center;
+    font-family: 'Manrope', sans-serif;
+    display: none;
+}
+
+/* Адаптивність */
+@media (max-width: 768px) {
+    .order-form-container {
+        margin: 1rem;
+        padding: 1.5rem;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .form-section h2 {
+        font-size: 1.3rem;
+    }
+
+    .form-input {
+        padding: 18px 16px;
+    }
+
+    .radio-group {
+        gap: 1.2rem;
+    }
+
+    .submit-button {
+        width: 100%;
+        min-width: unset;
+        padding: 18px 32px;
+        border-radius: 25px;
+    }
+
+    .success-page {
+        padding: 1.5rem;
+    }
+
+    .success-title {
+        font-size: 1.5rem;
+    }
+
+    .success-icon {
+        width: 70px;
+        height: 70px;
+        margin-bottom: 1.5rem;
+    }
+}
+
 /* === MOBILE STYLES === */
 @media (max-width: 1200px) {
     .main-navigation {

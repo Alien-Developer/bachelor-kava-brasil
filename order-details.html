@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="./img/favicon.ico">
+  <link rel="shortcut icon" type="image/x-icon" href="./img/favicon.ico">
+  <title>KAVA BRASIL - Кошик</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/main.css">
+  <style>
+
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="./index.html" class="logo">
+      <picture>
+        <source media="(max-width: 800px)" srcset="./img/logo-m.png">
+        <img src="./img/logotype.png" alt="Kava Brasil Logo">
+      </picture>
+    </a>
+    <button class="burger-menu" aria-label="Відкрити меню" aria-expanded="false">
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+    </button>
+    <div class="navigation-wrapper">
+      <nav class="main-navigation">
+        <ul>
+          <li><a href="./serra-velha.html">SERRA VELHA</a></li>
+          <li><a href="./alto-verde.html">ALTO VERDE</a></li>
+          <li><a href="./noite-clara.html">NOITE CLARA</a></li>
+          <li><a href="./about-contact.html" class="no-transform">Про нас та контакти</a></li>
+          <li><a href="./payment-delivery.html" class="no-transform">Оплата та доставка</a></li>
+          <li><a href="./shopping-cart.html" class="shopping-cart"><img src="./img/basket.png"></a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="shopping-cart container">
+
+    <nav class="page-nav" aria-label="page-navigation">
+      <ul>
+        <li><a href="./index.html">Головна</a></li>
+        <li><span>Оформлення замовлення</span></li>
+      </ul>
+    </nav>
+
+    <section class="order-details text-content-section">
+      <h1 class="product-title">Оформлення замовлення</h1>
+
+      <!-- Сторінка успіху -->
+      <div class="success-page" id="successPage">
+        <div class="success-icon"></div>
+        <h2 class="success-title">Дякуємо за ваше замовлення!</h2>
+        <p class="success-message">
+          Ми цінуємо вашу довіру та зробимо все можливе, щоб ви залишились задоволені нашою кавою.
+        </p>
+      </div>
+
+      <div class="order-form-container" id="orderFormContainer">
+        <div class="error-message" id="errorMessage">
+          Будь ласка, заповніть всі обов'язкові поля.
+        </div>
+
+        <form id="orderForm" novalidate>
+          <!-- Контактні дані -->
+          <div class="form-section">
+            <h2>Контактні дані</h2>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="firstName" class="form-label">Ім'я</label>
+                <input type="text" id="firstName" name="firstName" class="form-input" required>
+              </div>
+
+              <div class="form-group">
+                <label for="lastName" class="form-label">Прізвище</label>
+                <input type="text" id="lastName" name="lastName" class="form-input" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" id="email" name="email" class="form-input" required>
+              </div>
+
+              <div class="form-group">
+                <label for="phone" class="form-label">Телефон</label>
+                <input type="tel" id="phone" name="phone" class="form-input" required>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <h2>Доставка і оплата</h2>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="city" class="form-label">Місто</label>
+                <input type="text" id="city" name="city" class="form-input" required>
+              </div>
+
+              <div class="form-group">
+                <div class="radio-group">
+                  <label class="radio-option">
+                    <span class="radio-label">Карта Visa | MasterCard</span>
+                    <input type="radio" name="paymentMethod" value="card" class="radio-input" required>
+                  </label>
+                  <label class="radio-option">
+                    <span class="radio-label">Банківський переказ</span>
+                    <input type="radio" name="paymentMethod" value="bank_transfer" class="radio-input">
+                  </label>
+                  <label class="radio-option">
+                    <span class="radio-label">Оплата при доставці</span>
+                    <input type="radio" name="paymentMethod" value="cash_on_delivery" class="radio-input">
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="department" class="form-label">Відділення</label>
+                <input type="text" id="department" name="department" class="form-input" placeholder="Номер відділення Нової Пошти або адреса">
+              </div>
+
+              <div class="form-group">
+                <label for="comment" class="form-label">Коментар</label>
+                <input type="text" id="comment" name="comment" class="form-input" placeholder="Ваші побажання до замовлення...">
+              </div>
+            </div>
+
+          </div>
+
+          <button type="submit" class="submit-button">Підтвердити замовлення</button>
+        </form>
+      </div>
+
+    </section>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-container">
+    <div class="footer-column order-1">
+      <h3>Каталог</h3>
+      <ul>
+        <li><a href="./serra-velha.html">SERRA VELHA</a></li>
+        <li><a href="./alto-verde.html">ALTO VERDE</a></li>
+        <li><a href="./noite-clara.html">NOTE CLARA</a></li>
+      </ul>
+    </div>
+    <div class="footer-column order-3">
+      <h3>Компанія</h3>
+      <ul>
+        <li><a href="./about-contact.html">Про нас</a></li>
+        <li><a href="./about-contact.html#contacts">Контакти</a></li>
+        <li><a href="./payment-delivery.html">Доставка і оплата</a></li>
+      </ul>
+    </div>
+    <div class="footer-column order-2">
+      <h3>Соцмережі</h3>
+      <ul class="social-links">
+        <li>
+          <a href="#" aria-label="Telegram" target="_blank" rel="noopener noreferrer">
+            <img src="./img/telegram.png" alt="telegram" class="telegram">
+          </a>
+        </li>
+        <li>
+          <a href="#" aria-label="YouTube" target="_blank" rel="noopener noreferrer">
+            <img src="./img/youtube.png" alt="youtube" class="youtube">
+          </a>
+        </li>
+        <li>
+          <a href="#" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+            <img src="./img/facebook.png" alt="facebook" class="facebook">
+          </a>
+        </li>
+        <li>
+          <a href="#" aria-label="TikTok" target="_blank" rel="noopener noreferrer">
+            <img src="./img/tiktok.png" alt="tiktok" class="tiktok">
+          </a>
+        </li>
+        <li>
+          <a href="#" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+            <img src="./img/instagram.png" alt="instagram" class="instagram">
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="footer-column order-4">
+      <h3>Ми на зв'язку</h3>
+      <p>+38 (099) 195 15 71</p>
+      <p class="phone-number">+38 (070) 492 96 00
+        <span class="phone-note">(для дзвінків із-за кордону)</span>
+      </p>
+      <a href="#" class="button button-contact">Зв'язатися</a>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <div class="payment-icons">
+      <img src="./img/visa_logo.png" alt="visa" class="visa">
+      <img src="./img/mastercard_logo.png" alt="mastercard" class="mastercard">
+    </div>
+    <p>&copy; 2025 KAVA BRASIL</p>
+  </div>
+</footer>
+
+<script src="./js/custom.js"></script>
+<script>
+  // JavaScript для обробки форми замовлення
+  document.addEventListener('DOMContentLoaded', function() {
+    const orderForm = document.getElementById('orderForm');
+    const orderFormContainer = document.getElementById('orderFormContainer');
+    const successPage = document.getElementById('successPage');
+    const errorMessage = document.getElementById('errorMessage');
+
+    // Функція для валідації email
+    function isValidEmail(email) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailRegex.test(email);
+    }
+
+    // Функція для валідації телефону
+    function isValidPhone(phone) {
+      const phoneRegex = /^[\+]?[0-9\s\-\(\)]{10,}$/;
+      return phoneRegex.test(phone);
+    }
+
+    // Функція для показу повідомлень
+    function showMessage(element, duration = 5000) {
+      element.style.display = 'block';
+      setTimeout(() => {
+        element.style.display = 'none';
+      }, duration);
+    }
+
+    // Функція для переходу на сторінку успіху
+    function showSuccessPage() {
+      orderFormContainer.style.display = 'none';
+      successPage.classList.add('show');
+      window.scrollTo(0, 0);
+    }
+
+    // Функція для очищення повідомлень
+    function hideMessages() {
+      errorMessage.style.display = 'none';
+    }
+
+    // Обробка відправки форми
+    orderForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      hideMessages();
+
+      // Отримуємо дані форми
+      const formData = new FormData(orderForm);
+      const data = {};
+      for (let [key, value] of formData.entries()) {
+        data[key] = value.trim();
+      }
+
+      // Валідація обов'язкових полів
+      const requiredFields = ['firstName', 'lastName', 'email', 'phone', 'city'];
+      let isValid = true;
+
+      for (let field of requiredFields) {
+        if (!data[field]) {
+          isValid = false;
+          break;
+        }
+      }
+
+      // Перевірка вибору способу оплати
+      if (!data.paymentMethod) {
+        isValid = false;
+      }
+
+      // Валідація email
+      if (data.email && !isValidEmail(data.email)) {
+        isValid = false;
+      }
+
+      // Валідація телефону
+      if (data.phone && !isValidPhone(data.phone)) {
+        isValid = false;
+      }
+
+      if (!isValid) {
+        showMessage(errorMessage);
+        return;
+      }
+
+      // Імітація відправки даних (тут би був запит на сервер)
+      console.log('Дані замовлення:', data);
+
+      // Показуємо сторінку успіху
+      showSuccessPage();
+    });
+
+    // Додаємо обробники для валідації в реальному часі
+    const emailInput = document.getElementById('email');
+    const phoneInput = document.getElementById('phone');
+
+    emailInput.addEventListener('blur', function() {
+      if (this.value && !isValidEmail(this.value)) {
+        this.style.borderColor = '#dc3545';
+      } else {
+        this.style.borderColor = '#ddd';
+      }
+    });
+
+    phoneInput.addEventListener('blur', function() {
+      if (this.value && !isValidPhone(this.value)) {
+        this.style.borderColor = '#dc3545';
+      } else {
+        this.style.borderColor = '#ddd';
+      }
+    });
+
+    // Очищаємо червоні рамки при фокусі
+    const allInputs = orderForm.querySelectorAll('.form-input');
+    allInputs.forEach(input => {
+      input.addEventListener('focus', function() {
+        this.style.borderColor = '#4a90e2';
+      });
+
+      input.addEventListener('blur', function() {
+        if (this.style.borderColor !== '#dc3545') {
+          this.style.borderColor = '#ddd';
+        }
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
