@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
   const orderForm = document.getElementById('orderForm');
   const orderFormContainer = document.getElementById('orderFormContainer');
+  const productTitle = document.getElementById('product-title');
   const successPage = document.getElementById('successPage');
   const errorMessage = document.getElementById('errorMessage');
 
@@ -24,6 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!isValid) wrongMsg.style.display = 'inline';
 
     element.style.display = 'block';
+    window.scrollTo(0, 0);
     setTimeout(() => {
       element.style.display = 'none';
     }, duration);
@@ -32,6 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // Функція для переходу на сторінку успіху
   function showSuccessPage() {
     orderFormContainer.style.display = 'none';
+    productTitle.style.display = 'none';
     successPage.classList.add('show');
     window.scrollTo(0, 0);
   }
