@@ -47,14 +47,12 @@ document.addEventListener('DOMContentLoaded', function () {
     e.preventDefault();
     hideMessages();
 
-    // Отримуємо дані форми
     const formData = new FormData(orderForm);
     const data = {};
     for (let [key, value] of formData.entries()) {
       data[key] = value.trim();
     }
 
-    // Валідація обов'язкових полів
     const requiredFields = ['firstName', 'lastName', 'email', 'phone', 'city'];
     let isEmpty = true;
     let isValid = true;
@@ -84,7 +82,6 @@ document.addEventListener('DOMContentLoaded', function () {
     showSuccessPage();
   });
 
-  // Додаємо обробники для валідації в реальному часі
   const emailInput = document.getElementById('email');
   const phoneInput = document.getElementById('phone');
 
@@ -103,18 +100,4 @@ document.addEventListener('DOMContentLoaded', function () {
       this.style.borderColor = '#e7e7e7';
     }
   });
-
-  // Очищаємо червоні рамки при фокусі
-  // const allInputs = orderForm.querySelectorAll('.form-input');
-  // allInputs.forEach(input => {
-  //   input.addEventListener('focus', function () {
-  //     this.style.borderColor = '#4a90e2';
-  //   });
-  //
-  //   input.addEventListener('blur', function () {
-  //     if (this.style.borderColor !== '#dc3545') {
-  //       this.style.borderColor = '#ddd';
-  //     }
-  //   });
-  // });
 });

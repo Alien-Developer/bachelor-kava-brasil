@@ -46,7 +46,6 @@ document.addEventListener('DOMContentLoaded', function() {
   const totalPriceSpan = document.getElementById('total-price');
   const deleteProductButton = document.getElementById('delete-product');
 
-  // Get action buttons
   const continueShoppingButton = shoppingCartSection.querySelector('.continue-button');
   const checkoutButton = shoppingCartSection.querySelector('.buy-button');
 
@@ -93,7 +92,6 @@ document.addEventListener('DOMContentLoaded', function() {
     if (isNaN(currentValue)) currentValue = minQuantity;
 
     if (currentValue <= maxQuantity) {
-      // currentValue++;
       quantityInputElement.value = currentValue;
       updateTotalDisplay(currentValue);
       updateQuantityButtonStates(currentValue);
@@ -105,7 +103,6 @@ document.addEventListener('DOMContentLoaded', function() {
     if (isNaN(currentValue)) currentValue = minQuantity;
 
     if (currentValue >= minQuantity) {
-      // currentValue--;
       quantityInputElement.value = currentValue;
       updateTotalDisplay(currentValue);
       updateQuantityButtonStates(currentValue);
@@ -126,10 +123,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
   deleteProductButton.addEventListener('click', function() {
     displayEmptyCart();
-    // Optional: window.history.replaceState({}, document.title, window.location.pathname);
   });
 
-  // --- Add navigation for continue and checkout buttons ---
   if (continueShoppingButton) {
     continueShoppingButton.addEventListener('click', function() {
       window.location.href = './index.html';
@@ -138,7 +133,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
   if (checkoutButton) {
     checkoutButton.addEventListener('click', function() {
-      // Ensure you have an order.html page in the same directory
       window.location.href = './order-details.html';
     });
   }
