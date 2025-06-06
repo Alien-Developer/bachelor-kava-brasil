@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
   ];
 
   const shoppingCartSection = document.getElementById('shopping-cart-container');
-  const emptyCartHTML = '<div class="cart-message"><h1>Ваша корзина пуста</h1></div>';
+  const emptyCartHTML = '<div class="cart-message show"><h2>Ваша корзина пуста</h2></div>';
 
   function displayEmptyCart() {
     if (shoppingCartSection) {

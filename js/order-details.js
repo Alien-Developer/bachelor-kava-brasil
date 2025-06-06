@@ -4,20 +4,25 @@ document.addEventListener('DOMContentLoaded', function () {
   const successPage = document.getElementById('successPage');
   const errorMessage = document.getElementById('errorMessage');
 
-  // Функція для валідації email
   function isValidEmail(email) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
   }
 
-  // Функція для валідації телефону
   function isValidPhone(phone) {
     const phoneRegex = /^[\+]?[0-9\s\-\(\)]{10,}$/;
     return phoneRegex.test(phone);
   }
 
-  // Функція для показу повідомлень
-  function showMessage(element, duration = 5000) {
+  function showMessage(element, isEmpty=false, isValid=false, duration = 7000) {
+    const emptyMsg = document.getElementById('empty-fields');
+    const wrongMsg = document.getElementById('not-valid-fields');
+    emptyMsg.style.display = 'none';
+    wrongMsg.style.display = 'none';
+
+    if (!isEmpty) emptyMsg.style.display = 'inline';
+    if (!isValid) wrongMsg.style.display = 'inline';
+
     element.style.display = 'block';
     setTimeout(() => {
       element.style.display = 'none';
@@ -31,12 +36,10 @@ document.addEventListener('DOMContentLoaded', function () {
     window.scrollTo(0, 0);
   }
 
-  // Функція для очищення повідомлень
   function hideMessages() {
     errorMessage.style.display = 'none';
   }
 
-  // Обробка відправки форми
   orderForm.addEventListener('submit', function (e) {
     e.preventDefault();
     hideMessages();
@@ -50,39 +53,31 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Валідація обов'язкових полів
     const requiredFields = ['firstName', 'lastName', 'email', 'phone', 'city'];
+    let isEmpty = true;
     let isValid = true;
 
     for (let field of requiredFields) {
       if (!data[field]) {
-        isValid = false;
+        isEmpty = false;
         break;
       }
     }
-
-    // Перевірка вибору способу оплати
     if (!data.paymentMethod) {
-      isValid = false;
+      isEmpty = false;
     }
-
-    // Валідація email
     if (data.email && !isValidEmail(data.email)) {
       isValid = false;
     }
-
-    // Валідація телефону
     if (data.phone && !isValidPhone(data.phone)) {
       isValid = false;
     }
 
-    if (!isValid) {
-      showMessage(errorMessage);
+    if (!isValid || !isEmpty) {
+      showMessage(errorMessage, isEmpty, isValid);
       return;
     }
-
-    // Імітація відправки даних (тут би був запит на сервер)
     console.log('Дані замовлення:', data);
 
-    // Показуємо сторінку успіху
     showSuccessPage();
   });
 
@@ -93,8 +88,8 @@ document.addEventListener('DOMContentLoaded', function () {
   emailInput.addEventListener('blur', function () {
     if (this.value && !isValidEmail(this.value)) {
       this.style.borderColor = '#dc3545';
-    } else { console.log('good', this.value);
-      this.style.borderColor = '#ddd';
+    } else {
+      this.style.borderColor = '#e7e7e7';
     }
   });
 
@@ -102,7 +97,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (this.value && !isValidPhone(this.value)) {
       this.style.borderColor = '#dc3545';
     } else {
-      this.style.borderColor = '#ddd';
+      this.style.borderColor = '#e7e7e7';
     }
   });
 

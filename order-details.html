@@ -54,11 +54,10 @@
       </ul>
     </nav>
 
-    <section class="order-details text-content-section">
+    <section class="order-details text-content-section" id="shopping-cart-container">
       <h1 class="product-title">Оформлення замовлення</h1>
 
-      <!-- Сторінка успіху -->
-      <div class="success-page" id="successPage">
+      <div class="cart-message" id="successPage">
         <div class="success-icon"></div>
         <h2 class="success-title">Дякуємо за ваше замовлення!</h2>
         <p class="success-message">
@@ -68,7 +67,8 @@
 
       <div class="order-form-container" id="orderFormContainer">
         <div class="error-message" id="errorMessage">
-          Будь ласка, заповніть всі обов'язкові поля.
+          <p id="empty-fields">Будь ласка, заповніть всі обов'язкові поля.</p>
+          <p id="not-valid-fields">Невірно вказані дані.</p>
         </div>
 
         <form id="orderForm" novalidate>

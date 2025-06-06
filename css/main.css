@@ -1340,7 +1340,7 @@ ul.characteristics-list li strong {
     font-weight: 300;
 }
 
-#shopping-cart-container .cart-message {
+.cart-message {
     min-height: 60vh;
     display: flex;
     width: 100%;
@@ -1394,10 +1394,6 @@ ul.characteristics-list li strong {
     flex-direction: column;
 }
 
-/*.form-group.full-width {*/
-/*    grid-column: 1 / -1;*/
-/*}*/
-
 .form-label {
     font-size: 12px;
     font-weight: 300;
@@ -1420,11 +1416,6 @@ ul.characteristics-list li strong {
     border-color: #4a90e2;
     background-color: #fff;
 }
-
-/*.form-textarea {*/
-/*    min-height: 100px;*/
-/*    resize: vertical;*/
-/*}*/
 
 .radio-group {
     display: flex;
@@ -1450,10 +1441,6 @@ ul.characteristics-list li strong {
     cursor: pointer;
     transition: border-color 0.3s ease;
 }
-
-/*.radio-input:checked {*/
-/*    border-color: #333;*/
-/*}*/
 
 .radio-input:checked::after {
     content: '';
@@ -1497,7 +1484,7 @@ ul.characteristics-list li strong {
 }
 
 /* Стилі для сторінки успіху */
-.success-page {
+.cart-message {
     display: none;
     text-align: center;
     padding: 2rem;
@@ -1505,8 +1492,8 @@ ul.characteristics-list li strong {
     margin: 0 auto;
 }
 
-.success-page.show {
-    display: block;
+.cart-message.show {
+    display: flex;
 }
 
 .success-icon {
